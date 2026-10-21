@@ -1,0 +1,39 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app-header {
+  padding: 16px 32px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.workspace {
+  flex: 1;
+  display: flex;
+  padding: 0 32px 32px;
+  min-height: 0;
+}
+
+.sandbox {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--canvas);
+  border: 2px dashed var(--canvas-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.sandbox-hint {
+  color: var(--text-muted);
+  user-select: none;
+}

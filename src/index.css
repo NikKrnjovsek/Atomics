@@ -1,0 +1,23 @@
+:root {
+  --background: #faf8f3;
+  --canvas: #ffffff;
+  --canvas-border: #d9d4c7;
+  --text: #2b2a28;
+  --text-muted: #9a958a;
+
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background-color: var(--background);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+p {
+  margin: 0;
+}
