@@ -5,6 +5,14 @@
   --text: #2b2a28;
   --text-muted: #9a958a;
 
+  --atom-text: #ffffff;
+  --atom-H: #8fa3b8;
+  --atom-O: #e5484d;
+  --atom-C: #3a3a3a;
+  --atom-N: #3e63dd;
+  --atom-Cl: #30a46c;
+  --atom-Na: #8e4ec6;
+
   font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
   color: var(--text);
   background-color: var(--background);

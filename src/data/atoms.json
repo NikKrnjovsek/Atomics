@@ -1,0 +1,8 @@
+[
+  { "symbol": "H", "name": "vodik" },
+  { "symbol": "O", "name": "kisik" },
+  { "symbol": "C", "name": "ogljik" },
+  { "symbol": "N", "name": "dušik" },
+  { "symbol": "Cl", "name": "klor" },
+  { "symbol": "Na", "name": "natrij" }
+]

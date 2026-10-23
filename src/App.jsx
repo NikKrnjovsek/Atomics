@@ -1,6 +1,20 @@
+import Sandbox from './components/Sandbox.jsx'
+import { createAtom, useSandboxAtoms } from './logic/useSandboxAtoms.js'
 import './App.css'
 
+// Začasni atomi, dokler ni drag & drop iz stranske vrstice (A3).
+const demoAtoms = [
+  createAtom('H', 120, 100),
+  createAtom('O', 220, 160),
+  createAtom('C', 340, 120),
+  createAtom('N', 160, 260),
+  createAtom('Cl', 300, 280),
+  createAtom('Na', 440, 220),
+]
+
 function App() {
+  const { atoms } = useSandboxAtoms(demoAtoms)
+
   return (
     <div className="app">
       <header className="app-header">
@@ -8,9 +22,7 @@ function App() {
       </header>
 
       <main className="workspace">
-        <section className="sandbox" aria-label="Platno za sestavljanje atomov">
-          <p className="sandbox-hint">Sem povleci atome</p>
-        </section>
+        <Sandbox atoms={atoms} />
       </main>
     </div>
   )
