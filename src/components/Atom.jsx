@@ -3,11 +3,11 @@ import './Atom.css'
 
 const namesBySymbol = Object.fromEntries(atomTypes.map(({ symbol, name }) => [symbol, name]))
 
-function Atom({ symbol, className = '', style }) {
+function Atom({ symbol }) {
   return (
     <div
-      className={`atom ${className}`}
-      style={{ ...style, '--atom-color': `var(--atom-${symbol})` }}
+      className="atom"
+      style={{ '--atom-color': `var(--atom-${symbol})` }}
       title={namesBySymbol[symbol]}
     >
       {symbol}

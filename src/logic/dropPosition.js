@@ -1,9 +1,8 @@
-export function dropPosition(active, over) {
-  const dragged = active.rect.current.translated
-  const target = over.rect
+export function dropPosition(event) {
+  const { activatorEvent, delta, over } = event
 
   return {
-    x: dragged.left + dragged.width / 2 - target.left,
-    y: dragged.top + dragged.height / 2 - target.top,
+    x: activatorEvent.clientX + delta.x - over.rect.left,
+    y: activatorEvent.clientY + delta.y - over.rect.top,
   }
 }
