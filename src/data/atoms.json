@@ -1,8 +1,11 @@
 [
-  { "symbol": "H", "name": "vodik" },
-  { "symbol": "O", "name": "kisik" },
-  { "symbol": "C", "name": "ogljik" },
-  { "symbol": "N", "name": "dušik" },
-  { "symbol": "Cl", "name": "klor" },
-  { "symbol": "Na", "name": "natrij" }
+  { "symbol": "H", "name": "vodik", "group": "nekovina", "unlocked": true },
+  { "symbol": "O", "name": "kisik", "group": "nekovina", "unlocked": true },
+  { "symbol": "C", "name": "ogljik", "group": "nekovina", "unlocked": true },
+  { "symbol": "N", "name": "dušik", "group": "nekovina", "unlocked": true },
+  { "symbol": "Cl", "name": "klor", "group": "halogen", "unlocked": true },
+  { "symbol": "Na", "name": "natrij", "group": "kovina", "unlocked": true },
+  { "symbol": "Mg", "name": "magnezij", "group": "kovina", "unlocked": false },
+  { "symbol": "Ca", "name": "kalcij", "group": "kovina", "unlocked": false },
+  { "symbol": "S", "name": "žveplo", "group": "nekovina", "unlocked": false }
 ]

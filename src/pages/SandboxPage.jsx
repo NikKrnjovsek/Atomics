@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { DndContext, DragOverlay } from '@dnd-kit/core'
 import { snapCenterToCursor } from '@dnd-kit/modifiers'
 import Atom from '../components/Atom.jsx'
-import AtomPalette from '../components/AtomPalette.jsx'
+import Sidebar from '../components/Sidebar.jsx'
 import Sandbox, { SANDBOX_ID } from '../components/Sandbox.jsx'
 import { dropPosition } from '../logic/dropPosition.js'
 import { useSandboxAtoms } from '../logic/useSandboxAtoms.js'
@@ -32,13 +32,10 @@ function SandboxPage() {
             onDragEnd={handleDragEnd}
             onDragCancel={() => setDraggedSymbol(null)}
         >
-            <div className="app">
-                <header className="app-header">
-                    <h1 className="logo">Atomics</h1>
-                </header>
+            <div className="sandbox-layout">
+                <Sidebar discovered={[]} />
 
-                <main className="workspace">
-                    <AtomPalette />
+                <main className="sandbox-canvas">
                     <Sandbox atoms={atoms} />
                 </main>
             </div>

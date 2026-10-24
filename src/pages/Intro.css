@@ -6,9 +6,9 @@
   justify-content: center;
   overflow: hidden;
   font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
-  color: #1f1f1f;
-  background-color: #ffffff;
-  background-image: radial-gradient(#dcdcd7 1.2px, transparent 1.2px);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  background-image: radial-gradient(var(--color-dot-grid) 1.2px, transparent 1.2px);
   background-size: 24px 24px;
 }
 
@@ -29,7 +29,7 @@
   letter-spacing: 0.18em;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #9a958a;
+  color: var(--color-text-subtle);
   margin-bottom: 18px;
 }
 
@@ -47,14 +47,14 @@
   gap: 14px;
   margin-top: 20px;
   font-size: 1.125rem;
-  color: #4a4a4a;
+  color: var(--color-text-muted);
 }
 
 .intro-group-line {
   display: inline-block;
   width: 32px;
   height: 1px;
-  background-color: #4a4a4a;
+  background-color: var(--color-text-muted);
 }
 
 .intro-button {
@@ -67,8 +67,8 @@
   padding: 0 28px;
   border: none;
   border-radius: 14px;
-  background-color: #1f5fbf;
-  color: #ffffff;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
   font-size: 20px;
   font-weight: 700;
   cursor: pointer;
@@ -77,11 +77,11 @@
 }
 
 .intro-button:hover {
-  background-color: #174a94;
+  background-color: var(--color-primary-hover);
 }
 
 .intro-button:focus-visible {
-  outline: 3px solid #174a94;
+  outline: 3px solid var(--color-primary-hover);
   outline-offset: 3px;
 }
 
@@ -101,7 +101,7 @@
   border-radius: 50%;
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1f1f1f;
+  color: var(--color-text);
   animation-name: intro-float;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
@@ -109,20 +109,20 @@
 }
 
 .intro-circle--outline {
-  border: 2.5px solid #333333;
+  border: 2.5px solid var(--color-border);
 }
 
 .intro-circle--dashed {
-  border: 2.5px dashed #333333;
+  border: 2.5px dashed var(--color-border);
 }
 
 .intro-circle--gray {
-  background-color: #e2e2de;
-  border: 2px solid #cfcfca;
+  background-color: var(--color-kovina);
+  border: 2px solid var(--color-border-soft);
 }
 
 .intro-circle--dot {
-  background-color: #1f1f1f;
+  background-color: var(--color-text);
 }
 
 @keyframes intro-float {
