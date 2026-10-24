@@ -1,0 +1,156 @@
+.intro {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: #1f1f1f;
+  background-color: #ffffff;
+  background-image: radial-gradient(#dcdcd7 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+/* --- Vsebina --- */
+.intro-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+  max-width: 720px;
+}
+
+.intro-overline {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #9a958a;
+  margin-bottom: 18px;
+}
+
+.intro-title {
+  font-size: 56px;
+  line-height: 1.08;
+  font-weight: 800;
+  margin: 0;
+  max-width: 720px;
+}
+
+.intro-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+  font-size: 1.125rem;
+  color: #4a4a4a;
+}
+
+.intro-group-line {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background-color: #4a4a4a;
+}
+
+.intro-button {
+  margin-top: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 220px;
+  height: 60px;
+  padding: 0 28px;
+  border: none;
+  border-radius: 14px;
+  background-color: #1f5fbf;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+
+.intro-button:hover {
+  background-color: #174a94;
+}
+
+.intro-button:focus-visible {
+  outline: 3px solid #174a94;
+  outline-offset: 3px;
+}
+
+/* --- Lebdeči krogci --- */
+.intro-circles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.intro-circle {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f1f1f;
+  animation-name: intro-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.intro-circle--outline {
+  border: 2.5px solid #333333;
+}
+
+.intro-circle--dashed {
+  border: 2.5px dashed #333333;
+}
+
+.intro-circle--gray {
+  background-color: #e2e2de;
+  border: 2px solid #cfcfca;
+}
+
+.intro-circle--dot {
+  background-color: #1f1f1f;
+}
+
+@keyframes intro-float {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+
+/* --- Odzivnost --- */
+@media (max-width: 768px) {
+  .intro-title {
+    font-size: 36px;
+  }
+
+  .intro-circle--small {
+    display: none;
+  }
+
+  .intro-circle {
+    transform: scale(0.7);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-circle {
+    animation: none;
+  }
+}
