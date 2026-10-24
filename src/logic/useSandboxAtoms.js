@@ -11,5 +11,14 @@ export function useSandboxAtoms(initialAtoms = []) {
     setAtoms((current) => [...current, createAtom(symbol, x, y)])
   }
 
-  return { atoms, addAtom }
+  // Zadnji atom v seznamu se izriše na vrhu, zato premaknjenega prestavimo na konec.
+  const moveAtom = (id, x, y) => {
+    setAtoms((current) => {
+      const moved = current.find((atom) => atom.id === id)
+      const others = current.filter((atom) => atom.id !== id)
+      return [...others, { ...moved, x, y }]
+    })
+  }
+
+  return { atoms, addAtom, moveAtom }
 }
