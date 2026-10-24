@@ -1,0 +1,17 @@
+.atom-palette {
+  padding-right: 24px;
+}
+
+.palette-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.palette-atom {
+  cursor: grab;
+  touch-action: none;
+}
