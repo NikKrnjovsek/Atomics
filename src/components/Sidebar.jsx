@@ -1,6 +1,8 @@
-import { useDraggable } from '@dnd-kit/core'
+import { useDraggable, useDroppable } from '@dnd-kit/core'
 import atomTypes from '../data/atoms.json'
 import './Sidebar.css'
+
+export const SIDEBAR_ID = 'sidebar'
 
 const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1)
 
@@ -57,8 +59,15 @@ function LockedTile({ symbol, name }) {
 }
 
 function Sidebar({ discovered = [] }) {
+  const { setNodeRef, isOver, active } = useDroppable({ id: SIDEBAR_ID })
+  // Odstranimo lahko samo atome s platna, ne tistih, ki jih vlečemo iz palete.
+  const isRemoving = isOver && Boolean(active?.data.current?.atomId)
+
   return (
-    <aside className="sidebar">
+    <aside
+      ref={setNodeRef}
+      className={`sidebar ${isRemoving ? 'sidebar--remove' : ''}`}
+    >
       <div className="sidebar-logo">
         <span className="sidebar-logo__name">Atomics</span>
       </div>
@@ -108,7 +117,9 @@ function Sidebar({ discovered = [] }) {
       </section>
 
       <p className="sidebar-hint-box">
-        Povleci atom na platno. Spusti enega na drugega, da ju združiš.
+        {isRemoving
+          ? 'Spusti atom, da ga odstraniš s platna.'
+          : 'Povleci atom na platno. Spusti enega na drugega, da ju združiš.'}
       </p>
     </aside>
   )

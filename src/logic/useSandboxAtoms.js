@@ -20,5 +20,9 @@ export function useSandboxAtoms(initialAtoms = []) {
     })
   }
 
-  return { atoms, addAtom, moveAtom }
+  const removeAtom = (id) => {
+    setAtoms((current) => current.filter((atom) => atom.id !== id))
+  }
+
+  return { atoms, addAtom, moveAtom, removeAtom }
 }

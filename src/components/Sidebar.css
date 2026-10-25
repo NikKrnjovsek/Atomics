@@ -26,6 +26,18 @@
   border-right: 2px solid var(--color-border);
   font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
   color: var(--color-text);
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+/* Inset senca obarva ozadje pod vsebino in ostane pravilna tudi ob drsenju. */
+.sidebar--remove {
+  border-right-color: var(--color-remove);
+  box-shadow: inset 0 0 0 100vmax var(--color-remove-tint);
+}
+
+.sidebar--remove .sidebar-hint-box {
+  border-color: var(--color-remove);
+  color: var(--color-remove);
 }
 
 .sidebar-logo {
