@@ -1,0 +1,70 @@
+{
+  "H2": {
+    "atoms": [{ "symbol": "H", "x": -40, "y": 0 }, { "symbol": "H", "x": 40, "y": 0 }],
+    "bonds": [{ "from": 0, "to": 1, "order": 1 }]
+  },
+  "O2": {
+    "atoms": [{ "symbol": "O", "x": -40, "y": 0 }, { "symbol": "O", "x": 40, "y": 0 }],
+    "bonds": [{ "from": 0, "to": 1, "order": 2 }]
+  },
+  "N2": {
+    "atoms": [{ "symbol": "N", "x": -40, "y": 0 }, { "symbol": "N", "x": 40, "y": 0 }],
+    "bonds": [{ "from": 0, "to": 1, "order": 3 }]
+  },
+  "Cl2": {
+    "atoms": [{ "symbol": "Cl", "x": -40, "y": 0 }, { "symbol": "Cl", "x": 40, "y": 0 }],
+    "bonds": [{ "from": 0, "to": 1, "order": 1 }]
+  },
+  "HCl": {
+    "atoms": [{ "symbol": "H", "x": -40, "y": 0 }, { "symbol": "Cl", "x": 40, "y": 0 }],
+    "bonds": [{ "from": 0, "to": 1, "order": 1 }]
+  },
+  "H2O": {
+    "atoms": [
+      { "symbol": "O", "x": 0, "y": -25 },
+      { "symbol": "H", "x": -63, "y": 24 },
+      { "symbol": "H", "x": 63, "y": 24 }
+    ],
+    "bonds": [{ "from": 0, "to": 1, "order": 1 }, { "from": 0, "to": 2, "order": 1 }]
+  },
+  "CO": {
+    "atoms": [{ "symbol": "C", "x": -40, "y": 0 }, { "symbol": "O", "x": 40, "y": 0 }],
+    "bonds": [{ "from": 0, "to": 1, "order": 3 }]
+  },
+  "CO2": {
+    "atoms": [
+      { "symbol": "O", "x": -80, "y": 0 },
+      { "symbol": "C", "x": 0, "y": 0 },
+      { "symbol": "O", "x": 80, "y": 0 }
+    ],
+    "bonds": [{ "from": 0, "to": 1, "order": 2 }, { "from": 1, "to": 2, "order": 2 }]
+  },
+  "CH4": {
+    "atoms": [
+      { "symbol": "C", "x": 0, "y": 0 },
+      { "symbol": "H", "x": 0, "y": -80 },
+      { "symbol": "H", "x": 80, "y": 0 },
+      { "symbol": "H", "x": 0, "y": 80 },
+      { "symbol": "H", "x": -80, "y": 0 }
+    ],
+    "bonds": [
+      { "from": 0, "to": 1, "order": 1 },
+      { "from": 0, "to": 2, "order": 1 },
+      { "from": 0, "to": 3, "order": 1 },
+      { "from": 0, "to": 4, "order": 1 }
+    ]
+  },
+  "NH3": {
+    "atoms": [
+      { "symbol": "N", "x": 0, "y": -10 },
+      { "symbol": "H", "x": 0, "y": -90 },
+      { "symbol": "H", "x": 69, "y": 30 },
+      { "symbol": "H", "x": -69, "y": 30 }
+    ],
+    "bonds": [
+      { "from": 0, "to": 1, "order": 1 },
+      { "from": 0, "to": 2, "order": 1 },
+      { "from": 0, "to": 3, "order": 1 }
+    ]
+  }
+}

@@ -3,14 +3,14 @@ import './Atom.css'
 
 const namesBySymbol = Object.fromEntries(atomTypes.map(({ symbol, name }) => [symbol, name]))
 
-function Atom({ symbol }) {
+function Atom({ symbol, label = symbol }) {
   return (
     <div
       className="atom"
-      style={{ '--atom-color': `var(--atom-${symbol})` }}
+      style={{ '--atom-color': `var(--atom-${symbol}, var(--atom-unknown))` }}
       title={namesBySymbol[symbol]}
     >
-      {symbol}
+      {label}
     </div>
   )
 }
