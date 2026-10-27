@@ -24,12 +24,10 @@ function LockIcon() {
   )
 }
 
-//  isti dnd-kit kontrakt kot prej AtomPalette
-// (id palette-<symbol>, data { symbol }), da ostane drag & drop nespremenjen.
 function AtomTile({ symbol, name, group }) {
   const { setNodeRef, listeners, attributes } = useDraggable({
     id: `palette-${symbol}`,
-    data: { symbol },
+    data: { substanceId: symbol },
   })
 
   return (
@@ -58,10 +56,10 @@ function LockedTile({ symbol, name }) {
   )
 }
 
-function Sidebar({ discovered = [] }) {
+function Sidebar({ inventory = [], discovered = [] }) {
   const { setNodeRef, isOver, active } = useDroppable({ id: SIDEBAR_ID })
   // Odstranimo lahko samo atome s platna, ne tistih, ki jih vlečemo iz palete.
-  const isRemoving = isOver && Boolean(active?.data.current?.atomId)
+  const isRemoving = isOver && Boolean(active?.data.current?.canvasId)
 
   return (
     <aside
@@ -76,7 +74,7 @@ function Sidebar({ discovered = [] }) {
         <h2 className="sidebar-heading">Atomi</h2>
         <div className="atom-grid">
           {atomTypes.map((atom) =>
-            atom.unlocked ? (
+            inventory.includes(atom.symbol) ? (
               <AtomTile key={atom.symbol} {...atom} />
             ) : (
               <LockedTile key={atom.symbol} {...atom} />
