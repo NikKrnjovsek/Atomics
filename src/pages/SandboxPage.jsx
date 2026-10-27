@@ -4,50 +4,57 @@ import { snapCenterToCursor } from '@dnd-kit/modifiers'
 import Atom from '../components/Atom.jsx'
 import Sidebar, { SIDEBAR_ID } from '../components/Sidebar.jsx'
 import Sandbox, { SANDBOX_ID } from '../components/Sandbox.jsx'
+import { useGame } from '../context/useGame.js'
 import { dropPosition } from '../logic/dropPosition.js'
-import { useSandboxAtoms } from '../logic/useSandboxAtoms.js'
 
 function SandboxPage() {
-    const { atoms, addAtom, moveAtom, removeAtom } = useSandboxAtoms()
-    const [draggedSymbol, setDraggedSymbol] = useState(null)
+    const {
+        canvas,
+        inventory,
+        discoveredSubstances,
+        addToCanvas,
+        moveOnCanvas,
+        removeFromCanvas,
+    } = useGame()
+    const [draggedId, setDraggedId] = useState(null)
 
     const handleDragStart = ({ active }) => {
-        setDraggedSymbol(active.data.current.symbol)
+        setDraggedId(active.data.current.substanceId)
     }
 
     const handleDragEnd = (event) => {
-        setDraggedSymbol(null)
-        const { symbol, atomId } = event.active.data.current
+        setDraggedId(null)
+        const { substanceId, canvasId } = event.active.data.current
         const target = event.over?.id
 
         if (target === SIDEBAR_ID) {
-            if (atomId) removeAtom(atomId)
+            if (canvasId) removeFromCanvas(canvasId)
             return
         }
         if (target !== SANDBOX_ID) return
 
         const { x, y } = dropPosition(event)
 
-        if (atomId) moveAtom(atomId, x, y)
-        else addAtom(symbol, x, y)
+        if (canvasId) moveOnCanvas(canvasId, x, y)
+        else addToCanvas(substanceId, x, y)
     }
 
     return (
         <DndContext
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
-            onDragCancel={() => setDraggedSymbol(null)}
+            onDragCancel={() => setDraggedId(null)}
         >
             <div className="sandbox-layout">
-                <Sidebar discovered={[]} />
+                <Sidebar inventory={inventory} discovered={discoveredSubstances} />
 
                 <main className="sandbox-canvas">
-                    <Sandbox atoms={atoms} />
+                    <Sandbox items={canvas} />
                 </main>
             </div>
 
             <DragOverlay modifiers={[snapCenterToCursor]} dropAnimation={null}>
-                {draggedSymbol && <Atom symbol={draggedSymbol} />}
+                {draggedId && <Atom symbol={draggedId} />}
             </DragOverlay>
         </DndContext>
     )

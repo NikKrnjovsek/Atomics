@@ -4,10 +4,10 @@ import './Sandbox.css'
 
 export const SANDBOX_ID = 'sandbox'
 
-function PlacedAtom({ id, symbol, x, y }) {
+function PlacedAtom({ id, substanceId, x, y }) {
   const { setNodeRef, listeners, attributes, isDragging } = useDraggable({
     id,
-    data: { symbol, atomId: id },
+    data: { substanceId, canvasId: id },
   })
 
   return (
@@ -18,12 +18,12 @@ function PlacedAtom({ id, symbol, x, y }) {
       {...listeners}
       {...attributes}
     >
-      <Atom symbol={symbol} />
+      <Atom symbol={substanceId} />
     </div>
   )
 }
 
-function Sandbox({ atoms }) {
+function Sandbox({ items }) {
   const { setNodeRef, isOver } = useDroppable({ id: SANDBOX_ID })
 
   return (
@@ -32,9 +32,9 @@ function Sandbox({ atoms }) {
       className={`sandbox ${isOver ? 'sandbox--over' : ''}`}
       aria-label="Platno za sestavljanje atomov"
     >
-      {atoms.length === 0 && <p className="sandbox-hint">Sem povleci atome</p>}
-      {atoms.map((atom) => (
-        <PlacedAtom key={atom.id} {...atom} />
+      {items.length === 0 && <p className="sandbox-hint">Sem povleci atome</p>}
+      {items.map((item) => (
+        <PlacedAtom key={item.id} {...item} />
       ))}
     </section>
   )
