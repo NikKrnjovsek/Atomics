@@ -1,4 +1,20 @@
 :root {
+  /* Barvna paleta (sidebar + intro) */
+  --color-bg: #f4f4f2;
+  --color-surface: #ffffff;
+  --color-text: #1f1f1f;
+  --color-text-muted: #4a4a4a;
+  --color-text-subtle: #9a958a;
+  --color-border: #333333;
+  --color-border-soft: #cfcfca;
+  --color-locked: #b5b5b0;
+  --color-dot-grid: #dcdcd7;
+  --color-primary: #1f5fbf;
+  --color-primary-hover: #174a94;
+  --color-kovina: #e2e2de;
+  --color-remove: #e5484d;
+  --color-remove-tint: rgba(229, 72, 77, 0.1);
+
   --background: #faf8f3;
   --canvas: #ffffff;
   --canvas-border: #d9d4c7;

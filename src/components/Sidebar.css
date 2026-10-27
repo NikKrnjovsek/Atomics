@@ -1,0 +1,229 @@
+/* --- Postavitev strani (sidebar + platno) --- */
+.sandbox-layout {
+  display: flex;
+  height: 100vh;
+}
+
+.sandbox-canvas {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  padding: 24px;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 20px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: var(--color-bg);
+  border-right: 2px solid var(--color-border);
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: var(--color-text);
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+/* Inset senca obarva ozadje pod vsebino in ostane pravilna tudi ob drsenju. */
+.sidebar--remove {
+  border-right-color: var(--color-remove);
+  box-shadow: inset 0 0 0 100vmax var(--color-remove-tint);
+}
+
+.sidebar--remove .sidebar-hint-box {
+  border-color: var(--color-remove);
+  color: var(--color-remove);
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-logo__name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* --- Razdelki --- */
+.sidebar-heading {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.sidebar-section__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-count {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* --- Mreža atomov --- */
+.atom-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.atom-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  height: 72px;
+  padding: 0;
+  border-radius: 10px;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  color: var(--color-text);
+  font-family: inherit;
+  cursor: grab;
+  touch-action: none;
+}
+
+.atom-tile__symbol {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.atom-tile__name {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.atom-tile--nekovina {
+  background-color: var(--color-surface);
+  border-style: solid;
+}
+
+.atom-tile--kovina {
+  background-color: var(--color-kovina);
+  border-style: solid;
+}
+
+.atom-tile--halogen {
+  border-style: dashed;
+}
+
+.atom-tile:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.atom-tile:active {
+  cursor: grabbing;
+}
+
+.atom-tile--locked {
+  gap: 4px;
+  background-color: var(--color-bg);
+  border: 2px dotted var(--color-locked);
+  color: var(--color-text-subtle);
+  cursor: not-allowed;
+}
+
+.atom-tile--locked .atom-tile__symbol {
+  color: var(--color-text-subtle);
+}
+
+.atom-tile__lock {
+  display: block;
+}
+
+/* --- Legenda --- */
+.legend {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.legend__swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+}
+
+.legend__swatch--kovina {
+  background-color: var(--color-kovina);
+}
+
+.legend__swatch--halogen {
+  border-style: dashed;
+}
+
+/* --- Odkrite snovi --- */
+.discovered-empty {
+  margin: 12px 0 0;
+  font-size: 0.8rem;
+  color: var(--color-text-subtle);
+}
+
+.discovered-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.discovered-pill {
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 2px solid var(--color-border);
+  background-color: var(--color-surface);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* --- Namig na dnu --- */
+.sidebar-hint-box {
+  margin-top: auto;
+  padding: 12px 14px;
+  border: 1px dashed var(--color-border-soft);
+  border-radius: 10px;
+  background-color: var(--color-surface);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
