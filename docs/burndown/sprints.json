@@ -1,0 +1,40 @@
+{
+  "_navodila": "Ko je zgodba Done (PR združen v main), vpiši datum v polje done (YYYY-MM-DD). Nato: npm run burndown",
+  "sprints": [
+    {
+      "name": "Sprint 1",
+      "start": "2026-10-20",
+      "end": "2026-10-23",
+      "items": [
+        { "id": "US1", "title": "Začetni atomi v stranski vrstici", "points": 2, "done": null },
+        { "id": "US2", "title": "Drag & drop atoma na platno", "points": 5, "done": "2026-10-24" },
+        { "id": "US3", "title": "Premikanje in odstranjevanje atomov", "points": 3, "done": null },
+        { "id": "US5", "title": "Nova snov ob pravilni kombinaciji", "points": 5, "done": null },
+        { "id": "US12", "title": "Podatki za 19 snovi", "points": 3, "done": null }
+      ]
+    },
+    {
+      "name": "Sprint 2",
+      "start": "2026-10-26",
+      "end": "2026-10-29",
+      "items": [
+        { "id": "US4", "title": "Združevanje atomov s spuščanjem", "points": 8, "done": null },
+        { "id": "US6", "title": "Infoboks ob prvem odkritju", "points": 5, "done": null },
+        { "id": "US7", "title": "Odkrita snov v inventarju", "points": 3, "done": null },
+        { "id": "US8", "title": "Ohranjanje odkritij (localStorage)", "points": 2, "done": null },
+        { "id": "US10", "title": "Povratna informacija ob napačni kombinaciji", "points": 2, "done": null }
+      ]
+    },
+    {
+      "name": "Sprint 3",
+      "start": "2026-10-30",
+      "end": "2026-11-02",
+      "items": [
+        { "id": "US9", "title": "Napredek in stopnje", "points": 3, "done": null },
+        { "id": "US11", "title": "Namigi", "points": 2, "done": null },
+        { "id": "US13", "title": "Testiranje", "points": 5, "done": null },
+        { "id": "US14", "title": "Dokumentacija in poročila", "points": 8, "done": null }
+      ]
+    }
+  ]
+}
