@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { DndContext, DragOverlay, pointerWithin } from '@dnd-kit/core'
 import { snapCenterToCursor } from '@dnd-kit/modifiers'
 import Molecule from '../components/Molecule.jsx'
+import Infobox from '../components/Infobox.jsx'
 import Sidebar, { SIDEBAR_ID } from '../components/Sidebar.jsx'
 import Sandbox, { SANDBOX_ID } from '../components/Sandbox.jsx'
 import { useGame } from '../context/useGame.js'
@@ -17,7 +18,14 @@ function SandboxPage() {
         moveOnCanvas,
         removeFromCanvas,
         combineOnCanvas,
+        lastResult,
+        getSubstance,
+        dismissResult,
     } = useGame()
+
+    // Faza 1: ob odkritju nove snovi pokažemo infoboks z njenim glavnim produktom.
+    const discovery =
+        lastResult?.type === 'discovery' ? getSubstance(lastResult.products[0]) : null
     const [dragged, setDragged] = useState(null)
     const [rejection, setRejection] = useState(null)
 
@@ -60,6 +68,7 @@ function SandboxPage() {
     const overlayModifiers = dragged?.fromPalette ? [snapCenterToCursor] : []
 
     return (
+        <>
         <DndContext
             collisionDetection={pointerWithin}
             onDragStart={handleDragStart}
@@ -87,6 +96,16 @@ function SandboxPage() {
                 )}
             </DragOverlay>
         </DndContext>
+
+        {discovery && (
+            <Infobox
+                substance={discovery}
+                variant="discovery"
+                equation={lastResult.equation}
+                onClose={dismissResult}
+            />
+        )}
+        </>
     )
 }
 
