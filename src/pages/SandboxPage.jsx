@@ -6,6 +6,7 @@ import Sidebar, { SIDEBAR_ID } from '../components/Sidebar.jsx'
 import Sandbox, { SANDBOX_ID } from '../components/Sandbox.jsx'
 import { useGame } from '../context/useGame.js'
 import { dropPosition } from '../logic/dropPosition.js'
+import { combine } from '../logic/gameData.js'
 
 function SandboxPage() {
     const {
@@ -18,6 +19,18 @@ function SandboxPage() {
         combineOnCanvas,
     } = useGame()
     const [dragged, setDragged] = useState(null)
+    const [rejection, setRejection] = useState(null)
+
+    // Reducer pri neuspehu ne pove, katera elementa sta bila, zato animacijo sprožimo tu.
+    const handleBond = (sourceId, targetId) => {
+        const [source, target] = [sourceId, targetId].map((id) =>
+            canvas.find((item) => item.id === id),
+        )
+        if (!combine(source.substanceId, target.substanceId)) {
+            setRejection({ sourceId, targetId })
+        }
+        combineOnCanvas(sourceId, targetId)
+    }
 
     const handleDragStart = ({ active }) => {
         const { substanceId, canvasId } = active.data.current
@@ -57,7 +70,12 @@ function SandboxPage() {
                 <Sidebar inventory={inventory} discovered={discoveredSubstances} />
 
                 <main className="sandbox-canvas">
-                    <Sandbox items={canvas} onBond={combineOnCanvas} />
+                    <Sandbox
+                        items={canvas}
+                        rejection={rejection}
+                        onBond={handleBond}
+                        onRejectEnd={() => setRejection(null)}
+                    />
                 </main>
             </div>
 

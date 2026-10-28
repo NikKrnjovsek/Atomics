@@ -70,10 +70,82 @@
 
 .atom-handle__move {
   position: absolute;
-  width: 32px;
-  height: 32px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   cursor: grab;
+}
+
+/* Atom, s katerega vlečemo vez, utripa; atom pod kazalcem pa pokaže, da je možen cilj. */
+.atom-handle--source .atom {
+  animation: bond-source-pulse 1s ease-in-out infinite;
+}
+
+.atom-handle--source::before,
+.sandbox--bonding .atom-handle:hover::before {
+  border-style: solid;
+  border-color: var(--canvas-border-active);
+}
+
+.sandbox--bonding,
+.sandbox--bonding * {
+  cursor: crosshair;
+}
+
+@keyframes bond-source-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgb(62 99 221 / 0.45);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 8px rgb(62 99 221 / 0);
+  }
+}
+
+/* Neuspela vez: elementa se sunemo drug proti drugemu, stresemo in odbijemo nazaj. */
+.placed-item__body--rejected {
+  animation: reject-nudge 0.6s ease-out;
+}
+
+.placed-item__body--rejected .atom {
+  animation: reject-flash 0.6s ease-out;
+}
+
+@keyframes reject-nudge {
+  0% {
+    transform: translate(0, 0);
+  }
+  30% {
+    transform: translate(var(--nudge-x), var(--nudge-y));
+  }
+  40% {
+    transform: translate(calc(var(--nudge-x) * 0.6 + 3px), calc(var(--nudge-y) * 0.6));
+  }
+  50% {
+    transform: translate(calc(var(--nudge-x) * 0.6 - 3px), calc(var(--nudge-y) * 0.6));
+  }
+  60% {
+    transform: translate(calc(var(--nudge-x) * 0.6 + 2px), calc(var(--nudge-y) * 0.6));
+  }
+  80% {
+    transform: translate(calc(var(--nudge-x) * -0.4), calc(var(--nudge-y) * -0.4));
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes reject-flash {
+  0%,
+  100% {
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
+  }
+  30%,
+  60% {
+    box-shadow: 0 0 0 5px var(--color-remove-tint), 0 0 0 2px var(--color-remove);
+  }
 }
 
 .bond-preview {

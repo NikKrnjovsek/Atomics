@@ -10,7 +10,8 @@ export function useBondDrag(canvasRef, onBond) {
   const [bond, setBond] = useState(null)
   const sourceId = bond?.sourceId
 
-  const startBond = (sourceId, from) => setBond({ sourceId, from, to: from })
+  const startBond = (sourceId, sourceAtom, from) =>
+    setBond({ sourceId, sourceAtom, from, to: from })
 
   useEffect(() => {
     if (!sourceId) return
