@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { DndContext, DragOverlay } from '@dnd-kit/core'
+import { DndContext, DragOverlay, pointerWithin } from '@dnd-kit/core'
 import { snapCenterToCursor } from '@dnd-kit/modifiers'
-import Atom from '../components/Atom.jsx'
+import Molecule from '../components/Molecule.jsx'
 import Sidebar, { SIDEBAR_ID } from '../components/Sidebar.jsx'
 import Sandbox, { SANDBOX_ID } from '../components/Sandbox.jsx'
 import { useGame } from '../context/useGame.js'
 import { dropPosition } from '../logic/dropPosition.js'
+import { combine } from '../logic/gameData.js'
 
 function SandboxPage() {
     const {
@@ -15,16 +16,30 @@ function SandboxPage() {
         addToCanvas,
         moveOnCanvas,
         removeFromCanvas,
+        combineOnCanvas,
     } = useGame()
-    const [draggedId, setDraggedId] = useState(null)
+    const [dragged, setDragged] = useState(null)
+    const [rejection, setRejection] = useState(null)
+
+    // Reducer pri neuspehu ne pove, katera elementa sta bila, zato animacijo sprožimo tu.
+    const handleBond = (sourceId, targetId) => {
+        const [source, target] = [sourceId, targetId].map((id) =>
+            canvas.find((item) => item.id === id),
+        )
+        if (!combine(source.substanceId, target.substanceId)) {
+            setRejection({ sourceId, targetId })
+        }
+        combineOnCanvas(sourceId, targetId)
+    }
 
     const handleDragStart = ({ active }) => {
-        setDraggedId(active.data.current.substanceId)
+        const { substanceId, canvasId } = active.data.current
+        setDragged({ substanceId, fromPalette: !canvasId })
     }
 
     const handleDragEnd = (event) => {
-        setDraggedId(null)
-        const { substanceId, canvasId } = event.active.data.current
+        setDragged(null)
+        const { substanceId, canvasId, x, y } = event.active.data.current
         const target = event.over?.id
 
         if (target === SIDEBAR_ID) {
@@ -33,28 +48,43 @@ function SandboxPage() {
         }
         if (target !== SANDBOX_ID) return
 
-        const { x, y } = dropPosition(event)
-
-        if (canvasId) moveOnCanvas(canvasId, x, y)
-        else addToCanvas(substanceId, x, y)
+        if (canvasId) {
+            moveOnCanvas(canvasId, x + event.delta.x, y + event.delta.y)
+        } else {
+            const drop = dropPosition(event)
+            addToCanvas(substanceId, drop.x, drop.y)
+        }
     }
+
+    // Iz palete atom sledi kazalcu; molekula s platna pa ohrani odmik od točke prijema.
+    const overlayModifiers = dragged?.fromPalette ? [snapCenterToCursor] : []
 
     return (
         <DndContext
+            collisionDetection={pointerWithin}
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
-            onDragCancel={() => setDraggedId(null)}
+            onDragCancel={() => setDragged(null)}
         >
             <div className="sandbox-layout">
                 <Sidebar inventory={inventory} discovered={discoveredSubstances} />
 
                 <main className="sandbox-canvas">
-                    <Sandbox items={canvas} />
+                    <Sandbox
+                        items={canvas}
+                        rejection={rejection}
+                        onBond={handleBond}
+                        onRejectEnd={() => setRejection(null)}
+                    />
                 </main>
             </div>
 
-            <DragOverlay modifiers={[snapCenterToCursor]} dropAnimation={null}>
-                {draggedId && <Atom symbol={draggedId} />}
+            <DragOverlay modifiers={overlayModifiers} dropAnimation={null}>
+                {dragged && (
+                    <div className="drag-preview">
+                        <Molecule substanceId={dragged.substanceId} />
+                    </div>
+                )}
             </DragOverlay>
         </DndContext>
     )

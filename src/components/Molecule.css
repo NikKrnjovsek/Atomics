@@ -1,0 +1,20 @@
+.molecule {
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+.molecule__bonds {
+  position: absolute;
+  overflow: visible;
+  width: 1px;
+  height: 1px;
+  stroke: var(--bond);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.molecule__atom {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
