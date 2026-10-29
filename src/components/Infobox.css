@@ -159,6 +159,31 @@
   outline-offset: 3px;
 }
 
+/* Faza 3: zavrnjena kombinacija - mehak opozorilni poudarek namesto primarne barve. */
+.infobox--rejection {
+  border-left-color: var(--color-remove);
+}
+
+.infobox--rejection .infobox-eyebrow {
+  color: var(--color-remove);
+}
+
+.infobox-reject-formula {
+  margin: 10px 0 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.infobox-reject-lead {
+  margin: 14px 0 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: var(--color-remove-tint);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .infobox-cta {
     transition: none;

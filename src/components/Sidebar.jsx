@@ -56,7 +56,7 @@ function LockedTile({ symbol, name }) {
   )
 }
 
-function Sidebar({ inventory = [], discovered = [] }) {
+function Sidebar({ inventory = [], discovered = [], onSelect }) {
   const { setNodeRef, isOver, active } = useDroppable({ id: SIDEBAR_ID })
   // Odstranimo lahko samo atome s platna, ne tistih, ki jih vlečemo iz palete.
   const isRemoving = isOver && Boolean(active?.data.current?.canvasId)
@@ -106,8 +106,15 @@ function Sidebar({ inventory = [], discovered = [] }) {
         ) : (
           <ul className="discovered-list">
             {discovered.map((item, i) => (
-              <li key={item.id ?? item.formula ?? i} className="discovered-pill">
-                {item.formula ?? item.label ?? item}
+              <li key={item.id ?? item.formula ?? i}>
+                <button
+                  type="button"
+                  className="discovered-pill"
+                  onClick={() => onSelect?.(item)}
+                  aria-label={`${item.name ?? item.formula ?? item} – podrobnosti`}
+                >
+                  {item.formula ?? item.label ?? item}
+                </button>
               </li>
             ))}
           </ul>

@@ -1,6 +1,5 @@
 // ciste funkcije, ki iz podatkov snovi (molecules.json) naredijo besedilo za infoboks.
-// ni import, zato testiramo z node:test. Vrnejo null, kadar
-// podatka ni, da infoboks tako vrstico preprosto izpusti
+// ni import, zato testira z node:test. Vrnejo null, ko ni podatka, da infoboks to vrsto izpusti
 
 const BOND_LABEL = { covalent: 'kovalentna', ionic: 'ionska' }
 const ORDER_LABEL = { 1: 'enojna', 2: 'dvojna', 3: 'trojna' }
@@ -22,4 +21,16 @@ export function describeProperty(substance) {
     ACID_BASE_LABEL[substance?.acidBase],
   ].filter(Boolean)
   return parts.length ? parts.join(', ') : null
+}
+
+// REJECTION INFOBOX iz reaktantov (objektov snovi) naredi besedilo za infoboks zavrnitve.
+// genericno - ne pozna razlogov za posamezen par, le izpise formuli obeh snovi.
+// vrne null ce ni nobenega reaktanta
+export function describeRejection(reactants) {
+  const list = (Array.isArray(reactants) ? reactants : []).filter(Boolean)
+  if (!list.length) return null
+  return {
+    formula: list.map((substance) => substance.formula ?? '?').join(' + '),
+    names: list.map((substance) => substance.name).filter(Boolean),
+  }
 }
