@@ -1,8 +1,10 @@
+import { freeElectronPositions } from '../logic/freeElectrons.js'
 import { getStructure } from '../logic/structures.js'
 import Atom from './Atom.jsx'
 import './Molecule.css'
 
 const BOND_GAP = 7
+const ELECTRON_RADIUS = 4.5
 
 // Dvojna in trojna vez sta vzporedni črti, razmaknjeni pravokotno na smer vezi.
 function BondLines({ from, to, order }) {
@@ -28,13 +30,23 @@ const defaultRenderAtom = (atom) => <Atom symbol={atom.symbol} label={atom.label
 
 // Molekula je izrisana okoli svojega središča (0, 0); atomi imajo odmike iz structures.json.
 function Molecule({ substanceId, renderAtom = defaultRenderAtom }) {
-  const { atoms, bonds } = getStructure(substanceId)
+  const structure = getStructure(substanceId)
+  const { atoms, bonds } = structure
 
   return (
     <div className="molecule">
       <svg className="molecule__bonds" aria-hidden="true">
         {bonds.map((bond, i) => (
           <BondLines key={i} from={atoms[bond.from]} to={atoms[bond.to]} order={bond.order} />
+        ))}
+        {freeElectronPositions(structure).map((electron, i) => (
+          <circle
+            key={`electron-${i}`}
+            className="molecule__electron"
+            cx={electron.x}
+            cy={electron.y}
+            r={ELECTRON_RADIUS}
+          />
         ))}
       </svg>
       {atoms.map((atom, i) => (

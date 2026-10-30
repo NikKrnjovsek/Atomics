@@ -31,5 +31,15 @@ for (const [id, { atoms, bonds }] of Object.entries(structures)) {
       assert.ok(atoms[from] && atoms[to] && from !== to)
       assert.ok([1, 2, 3].includes(order))
     }
+
+    const freeElectrons = atoms.reduce((sum, atom) => sum + (atom.freeElectrons ?? 0), 0)
+    assert.equal(freeElectrons, substance.freeElectrons ?? 0)
   })
 }
+
+test('vsi vmesni delci in SO₃ imajo zgradbo', () => {
+  const required = molecules.substances
+    .filter((s) => s.kind === 'fragment' || s.id === 'SO3')
+    .map((s) => s.id)
+  assert.deepEqual(required.filter((id) => !structures[id]), [])
+})
