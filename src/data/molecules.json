@@ -73,7 +73,7 @@
       "description": "Molekulo vode sestavljata dva vodikova atoma in en kisikov atom, povezana z enojnima kovalentnima vezema. Molekula je kotna in polarna: kisik elektrone privlači močneje kot vodik.",
       "foundIn": "Morja, reke, jezera, led in vodna para v zraku. Človeško telo je približno 60 % vode.",
       "uses": "Pitje, kuhanje, kmetijstvo, industrija. Je najpomembnejše topilo.",
-      "hint": "Poskusi molekulo vodika združiti z atomom kisika."
+      "hint": "Poskusi vodik in kisik združevati po korakih: najprej H + O."
     },
     {
       "id": "HCl",
@@ -103,7 +103,7 @@
       "description": "Molekulo metana sestavljajo en ogljikov in štirje vodikovi atomi, povezani s štirimi enojnimi kovalentnimi vezmi. Molekula je simetrična, zato je nepolarna.",
       "foundIn": "Glavna sestavina zemeljskega plina. Nastaja pri gnitju in v prebavilih prežvekovalcev (krav).",
       "uses": "Gorivo za ogrevanje in kuhanje. Je tudi toplogredni plin.",
-      "hint": "Poskusi ogljik združiti z molekulo vodika."
+      "hint": "Ogljik potrebuje 4 vodike. Začni s C + H in dodajaj vodik."
     },
     {
       "id": "CO2",
@@ -118,7 +118,7 @@
       "description": "Molekulo sestavljata en ogljikov in dva kisikova atoma, povezana z dvema dvojnima kovalentnima vezema. Vezi so polarne, a je molekula linearna in simetrična, zato je kot celota nepolarna.",
       "foundIn": "V zraku (približno 0,04 %), v izdihanem zraku, nastaja pri gorenju. Rastline ga porabljajo pri fotosintezi.",
       "uses": "Mehurčki v gaziranih pijačah, gasilni aparati, suhi led. Je toplogredni plin.",
-      "hint": "Poskusi ogljik združiti z molekulo kisika."
+      "hint": "Poskusi ogljikov oksid združiti s kisikom."
     },
     {
       "id": "NH3",
@@ -133,7 +133,7 @@
       "description": "Molekulo amoniaka sestavljajo en dušikov in trije vodikovi atomi, povezani s tremi enojnimi kovalentnimi vezmi. Molekula je polarna. Amoniak je plin z ostrim, dražečim vonjem.",
       "foundIn": "Nastaja pri razkroju beljakovin (npr. v gnoju). Industrijsko ga pridobivajo iz dušika in vodika.",
       "uses": "Izdelava umetnih gnojil, čistila za steklo.",
-      "hint": "Poskusi molekulo dušika združiti z molekulo vodika."
+      "hint": "Dušik potrebuje 3 vodike. Začni z N + H in dodajaj vodik."
     },
     {
       "id": "CO",
@@ -226,6 +226,22 @@
       "hint": "Poskusi žveplo združiti z molekulo kisika."
     },
     {
+      "id": "SO3",
+      "formula": "SO₃",
+      "name": "žveplov trioksid",
+      "level": 4,
+      "kind": "compound",
+      "bond": "covalent",
+      "bondOrder": 2,
+      "polarity": "nonpolar",
+      "acidBase": null,
+      "countsInProgress": false,
+      "description": "Molekulo sestavljajo en žveplov in trije kisikovi atomi, povezani s kovalentnimi vezmi. Molekula je ploska in simetrična, zato je nepolarna. Z vodo burno reagira, pri tem nastane žveplova kislina.",
+      "foundIn": "V ozračju nastaja iz žveplovega dioksida in je vmesni korak pri nastanku kislega dežja.",
+      "uses": "Industrijska proizvodnja žveplove kisline (kontaktni postopek).",
+      "hint": "Poskusi žveplov dioksid združiti z atomom kisika."
+    },
+    {
       "id": "H2SO4",
       "formula": "H₂SO₄",
       "name": "žveplova kislina",
@@ -238,7 +254,7 @@
       "description": "Molekulo sestavljajo dva vodikova, en žveplov in štirje kisikovi atomi, povezani s kovalentnimi vezmi. Je močna, jedka kislina. Pri redčenju vedno vlivamo kislino v vodo, nikoli obratno.",
       "foundIn": "Nastaja v ozračju iz žveplovega dioksida in je vzrok kislih padavin.",
       "uses": "Avtomobilski akumulatorji, izdelava gnojil, kemijska industrija.",
-      "hint": "Poskusi žveplov dioksid združiti z vodikovim peroksidom."
+      "hint": "Poskusi žveplov trioksid združiti z vodo."
     },
     {
       "id": "NaOH",
@@ -283,37 +299,152 @@
       "description": "Molekulo sestavljata dva vodikova in dva kisikova atoma, povezana z enojnimi kovalentnimi vezmi. Kisikova atoma sta povezana med seboj. Snov počasi razpade na vodo in kisik.",
       "foundIn": "V majhnih količinah nastaja v celicah in v ozračju.",
       "uses": "Razkuževanje ran (3 % raztopina), beljenje las, papirja in zob.",
-      "hint": "Poskusi vodo združiti še z enim atomom kisika."
+      "hint": "Poskusi združiti dva delca OH."
+    },
+    {
+      "id": "OH",
+      "formula": "OH",
+      "name": "hidroksilni radikal",
+      "level": 2,
+      "kind": "fragment",
+      "bond": "covalent",
+      "bondOrder": 1,
+      "polarity": null,
+      "acidBase": null,
+      "freeElectrons": 1,
+      "description": "Kisikov atom je vezan z enim vodikom in ima še 1 prost elektron, zato se hitro veže naprej: z vodikom nastane voda, z drugim OH pa vodikov peroksid. Obstaja le kratek čas.",
+      "foundIn": "V ozračju, kjer razgrajuje onesnažila (pravimo mu »detergent ozračja«), in v plamenih."
+    },
+    {
+      "id": "CH",
+      "formula": "CH",
+      "name": "metilidinski radikal",
+      "level": 2,
+      "kind": "fragment",
+      "bond": "covalent",
+      "bondOrder": 1,
+      "polarity": null,
+      "acidBase": null,
+      "freeElectrons": 3,
+      "description": "Ogljik lahko tvori 4 vezi. Ena je porabljena za vodik, zato ima še 3 proste elektrone in »hoče« še 3 vodike.",
+      "foundIn": "V plamenih in v medzvezdnem prostoru."
+    },
+    {
+      "id": "CH2",
+      "formula": "CH₂",
+      "name": "metilen",
+      "level": 2,
+      "kind": "fragment",
+      "bond": "covalent",
+      "bondOrder": 1,
+      "polarity": null,
+      "acidBase": null,
+      "freeElectrons": 2,
+      "description": "Ogljik je vezan z dvema vodikoma in ima še 2 prosta elektrona. Je zelo reaktiven in obstaja le trenutek.",
+      "foundIn": "Nastaja v plamenih kot vmesni delec pri gorenju."
+    },
+    {
+      "id": "CH3",
+      "formula": "CH₃",
+      "name": "metilni radikal",
+      "level": 2,
+      "kind": "fragment",
+      "bond": "covalent",
+      "bondOrder": 1,
+      "polarity": null,
+      "acidBase": null,
+      "freeElectrons": 1,
+      "description": "Ogljik je vezan s tremi vodiki in ima še 1 prost elektron. Ko se veže še četrti vodik, nastane stabilen metan.",
+      "foundIn": "Nastaja pri gorenju metana."
+    },
+    {
+      "id": "NH",
+      "formula": "NH",
+      "name": "imino radikal",
+      "level": 2,
+      "kind": "fragment",
+      "bond": "covalent",
+      "bondOrder": 1,
+      "polarity": null,
+      "acidBase": null,
+      "freeElectrons": 2,
+      "description": "Dušik lahko tvori 3 vezi. Ena je porabljena za vodik, zato ima še 2 prosta elektrona.",
+      "foundIn": "Najden v repih kometov."
+    },
+    {
+      "id": "NH2",
+      "formula": "NH₂",
+      "name": "amino radikal",
+      "level": 2,
+      "kind": "fragment",
+      "bond": "covalent",
+      "bondOrder": 1,
+      "polarity": null,
+      "acidBase": null,
+      "freeElectrons": 1,
+      "description": "Dušik je vezan z dvema vodikoma in ima še 1 prost elektron. Ko se veže še tretji vodik, nastane amoniak. Po njem se imenuje amino skupina.",
+      "foundIn": "V ozračju in plamenih, ko razpada amoniak."
     }
   ],
   "recipes": [
-    { "reactants": ["H", "H"], "products": ["H2"] },
-    { "reactants": ["O", "O"], "products": ["O2"] },
-    { "reactants": ["N", "N"], "products": ["N2"] },
-    { "reactants": ["Cl", "Cl"], "products": ["Cl2"] },
-
-    { "reactants": ["H2", "O"], "products": ["H2O"] },
-    { "reactants": ["H", "Cl"], "products": ["HCl"] },
-    { "reactants": ["H2", "Cl2"], "products": ["HCl"] },
-    { "reactants": ["C", "H2"], "products": ["CH4"] },
-    { "reactants": ["C", "O2"], "products": ["CO2"] },
-    { "reactants": ["CO", "O"], "products": ["CO2"] },
-    { "reactants": ["N2", "H2"], "products": ["NH3"] },
-    { "reactants": ["C", "O"], "products": ["CO"] },
-
-    { "reactants": ["Na", "Cl"], "products": ["NaCl"] },
-    { "reactants": ["Na", "Cl2"], "products": ["NaCl"] },
-    { "reactants": ["Mg", "O"], "products": ["MgO"] },
-    { "reactants": ["Mg", "O2"], "products": ["MgO"] },
-    { "reactants": ["Ca", "O"], "products": ["CaO"] },
-    { "reactants": ["Ca", "O2"], "products": ["CaO"] },
-    { "reactants": ["Mg", "Cl2"], "products": ["MgCl2"] },
-
-    { "reactants": ["S", "O2"], "products": ["SO2"] },
-    { "reactants": ["H2O", "O"], "products": ["H2O2"] },
-    { "reactants": ["SO2", "H2O2"], "products": ["H2SO4"] },
-    { "reactants": ["Na", "H2O"], "products": ["NaOH", "H2"] },
-    { "reactants": ["CaO", "H2O"], "products": ["Ca(OH)2"] },
-    { "reactants": ["NaOH", "HCl"], "products": ["NaCl", "H2O"] }
-  ]
+    {"reactants": ["H", "H"], "products": ["H2"], "type": "elementary", "note": "Rekombinacija atomov."},
+    {"reactants": ["O", "O"], "products": ["O2"], "type": "elementary"},
+    {"reactants": ["N", "N"], "products": ["N2"], "type": "elementary", "note": "Trojna vez je zelo močna, zato je N₂ skoraj nereaktiven."},
+    {"reactants": ["Cl", "Cl"], "products": ["Cl2"], "type": "elementary"},
+    {"reactants": ["H", "O"], "products": ["OH"], "type": "elementary"},
+    {"reactants": ["OH", "H"], "products": ["H2O"], "type": "elementary"},
+    {"reactants": ["H2", "O"], "products": ["OH", "H"], "type": "elementary", "note": "Ključni korak gorenja vodika."},
+    {"reactants": ["OH", "H2"], "products": ["H2O", "H"], "type": "elementary", "note": "Glavni korak, v katerem v plamenu nastane voda."},
+    {"reactants": ["H", "O2"], "products": ["OH", "O"], "type": "elementary", "note": "Najpomembnejša reakcija pri gorenju vodika."},
+    {"reactants": ["H2O", "O"], "products": ["OH", "OH"], "type": "elementary"},
+    {"reactants": ["OH", "OH"], "products": ["H2O2"], "type": "elementary", "note": "Realen nastanek vodikovega peroksida."},
+    {"reactants": ["H", "Cl"], "products": ["HCl"], "type": "elementary"},
+    {"reactants": ["H", "Cl2"], "products": ["HCl", "Cl"], "type": "elementary", "note": "Verižna reakcija klora z vodikom na svetlobi."},
+    {"reactants": ["Cl", "H2"], "products": ["HCl", "H"], "type": "elementary", "note": "Drugi korak iste verižne reakcije."},
+    {"reactants": ["H2", "Cl2"], "products": ["HCl", "HCl"], "type": "net", "note": "Šolska reakcija: H₂ + Cl₂ → 2 HCl."},
+    {"reactants": ["C", "H"], "products": ["CH"], "type": "elementary"},
+    {"reactants": ["CH", "H"], "products": ["CH2"], "type": "elementary"},
+    {"reactants": ["CH2", "H"], "products": ["CH3"], "type": "elementary"},
+    {"reactants": ["CH3", "H"], "products": ["CH4"], "type": "elementary"},
+    {"reactants": ["CH", "H2"], "products": ["CH2", "H"], "type": "elementary"},
+    {"reactants": ["CH2", "H2"], "products": ["CH3", "H"], "type": "elementary"},
+    {"reactants": ["CH3", "H2"], "products": ["CH4", "H"], "type": "elementary"},
+    {"reactants": ["N", "H"], "products": ["NH"], "type": "elementary"},
+    {"reactants": ["NH", "H"], "products": ["NH2"], "type": "elementary"},
+    {"reactants": ["NH2", "H"], "products": ["NH3"], "type": "elementary"},
+    {"reactants": ["NH", "H2"], "products": ["NH2", "H"], "type": "elementary"},
+    {"reactants": ["NH2", "H2"], "products": ["NH3", "H"], "type": "elementary"},
+    {"reactants": ["C", "O"], "products": ["CO"], "type": "elementary", "note": "Zgodi se v plamenu."},
+    {"reactants": ["C", "O2"], "products": ["CO", "O"], "type": "elementary", "note": "Nepopolno gorenje ogljika."},
+    {"reactants": ["CO", "O"], "products": ["CO2"], "type": "elementary"},
+    {"reactants": ["CO", "OH"], "products": ["CO2", "H"], "type": "elementary", "note": "Glavni način, kako v plamenu CO postane CO₂."},
+    {"reactants": ["CO", "O2"], "products": ["CO2", "O"], "type": "elementary", "note": "Počasna, a realna reakcija."},
+    {"reactants": ["Na", "Cl"], "products": ["NaCl"], "type": "elementary", "note": "V plinski fazi."},
+    {"reactants": ["Na", "Cl2"], "products": ["NaCl", "Cl"], "type": "elementary", "note": "»Harpunska« reakcija."},
+    {"reactants": ["Mg", "O"], "products": ["MgO"], "type": "elementary", "note": "V plinski fazi."},
+    {"reactants": ["Mg", "O2"], "products": ["MgO", "O"], "type": "net", "note": "Polovica šolske reakcije 2 Mg + O₂ → 2 MgO."},
+    {"reactants": ["Ca", "O"], "products": ["CaO"], "type": "elementary", "note": "V plinski fazi."},
+    {"reactants": ["Ca", "O2"], "products": ["CaO", "O"], "type": "net", "note": "Polovica šolske reakcije 2 Ca + O₂ → 2 CaO."},
+    {"reactants": ["Mg", "Cl2"], "products": ["MgCl2"], "type": "net"},
+    {"reactants": ["S", "O2"], "products": ["SO2"], "type": "net", "note": "Gorenje žvepla."},
+    {"reactants": ["SO2", "O"], "products": ["SO3"], "type": "elementary", "note": "Oksidacija v ozračju."},
+    {"reactants": ["SO3", "H2O"], "products": ["H2SO4"], "type": "elementary", "note": "Kisli dež in kontaktni postopek."},
+    {"reactants": ["SO2", "H2O2"], "products": ["H2SO4"], "type": "elementary", "note": "Glavna pot kislega dežja v oblačnih kapljicah."},
+    {"reactants": ["Na", "H2O"], "products": ["NaOH", "H"], "type": "net", "note": "Polovica šolske reakcije 2 Na + 2 H₂O → 2 NaOH + H₂."},
+    {"reactants": ["CaO", "H2O"], "products": ["Ca(OH)2"], "type": "net", "note": "Gašenje apna."},
+    {"reactants": ["NaOH", "HCl"], "products": ["NaCl", "H2O"], "type": "net", "note": "Nevtralizacija."}
+  ],
+  "rejections": [
+    {"reactants": ["N2", "H2"], "reason": "Trojna vez v N₂ je zelo močna. V industriji amoniak delajo s katalizatorjem pri 450 °C in visokem tlaku (Haber-Boschev postopek). Poskusi z atomom N."},
+    {"reactants": ["C", "H2"], "reason": "Ogljik potrebuje 4 vodike. Gradi postopoma: najprej C + H."},
+    {"reactants": ["H2", "O2"], "reason": "Mešanica vodika in kisika potrebuje iskro. Poskusi H + O₂."},
+    {"reactants": ["CH4", "O2"], "reason": "Gorenje metana poteka v mnogo korakih. V tej igri ga ne sestavljamo."},
+    {"reactants": ["H2O", "H2O"], "reason": "Voda se ne veže sama s sabo v novo snov."},
+    {"reactants": ["Mg", "Cl"], "reason": "Magnezij odda 2 elektrona, zato potrebuje 2 klora. Poskusi Mg + Cl₂."},
+    {"reactants": ["CO2", "H2O"], "reason": "V vodi se nekaj CO₂ raztopi v ogljikovo kislino, a te igra ne vsebuje."}
+  ],
+  "rejectionDefaults": {
+    "metals": "Kovine ne tvorijo molekul, ampak kovinsko mrežo.",
+    "default": "Ti delci ne tvorijo stabilne snovi."
+  }
 }

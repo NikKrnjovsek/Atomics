@@ -22,9 +22,21 @@ export function formatEquation(reactants, products) {
 /**
  * Sestavi funkcijo combine nad podanimi podatki.
  *
- * @param {{ atoms: object[], substances: object[], recipes: { reactants: string[], products: string[] }[] }} data
+ * @param {{
+ *   atoms: object[],
+ *   substances: object[],
+ *   recipes: { reactants: string[], products: string[], type?: string, note?: string }[],
+ *   rejections?: { reactants: string[], reason: string }[],
+ *   rejectionDefaults?: { metals?: string, default?: string },
+ * }} data
  */
-export function createCombiner({ atoms, substances, recipes }) {
+export function createCombiner({
+  atoms,
+  substances,
+  recipes,
+  rejections = [],
+  rejectionDefaults = {},
+}) {
   const byId = new Map()
   for (const atom of atoms) {
     byId.set(atom.symbol, { ...atom, id: atom.symbol, formula: atom.symbol, type: 'atom' })
@@ -47,13 +59,30 @@ export function createCombiner({ atoms, substances, recipes }) {
     recipesByKey.set(key, recipe)
   }
 
+  const rejectionsByKey = new Map()
+  for (const { reactants, reason } of rejections) {
+    for (const id of reactants) {
+      if (!byId.has(id)) throw new Error(`Zavrnitev uporablja neznano snov: ${id}`)
+    }
+    const key = recipeKey(...reactants)
+    if (recipesByKey.has(key)) throw new Error(`Zavrnjena kombinacija je tudi recept: ${key}`)
+    rejectionsByKey.set(key, reason)
+  }
+
   const getSubstance = (id) => byId.get(id) ?? null
+  const isFragment = (id) => getSubstance(id)?.kind === 'fragment'
+  // Fragmenti in dodatne snovi (countsInProgress: false, npr. SO₃) ne štejejo v napredek x/19.
+  const countsInProgress = (id) => {
+    const substance = getSubstance(id)
+    return substance?.type === 'substance' && !isFragment(id) && substance.countsInProgress !== false
+  }
 
   /**
    * Preveri, ali kombinacija a + b ustreza receptu.
    * Vrne null, če recepta ni, sicer
-   * { product, products, reactants, equation }, kjer je product glavna nova snov,
-   * products pa vse nastale snovi (nevtralizacija da npr. NaCl in H₂O).
+   * { product, products, reactants, equation, type, note }, kjer je product glavna nova
+   * snov, ostali products pa ostanki (npr. H₂ + O → OH + H). Vsak recept ohranja atome.
+   * type je 'elementary' (dejanski trk delcev) ali 'net' (šolska reakcija).
    */
   function combine(a, b) {
     const idA = toSubstanceId(a)
@@ -71,13 +100,38 @@ export function createCombiner({ atoms, substances, recipes }) {
       products,
       reactants,
       equation: formatEquation(reactants, products),
+      type: recipe.type ?? null,
+      note: recipe.note ?? null,
     }
   }
 
+  /**
+   * Razlaga, zakaj se a in b ne združita (za povratno informacijo, US10).
+   * Vrne null, če recept obstaja; sicer posebno razlago za ta par,
+   * razlago za dve kovini ali splošno besedilo.
+   */
+  function explainRejection(a, b) {
+    const idA = toSubstanceId(a)
+    const idB = toSubstanceId(b)
+    const key = recipeKey(idA, idB)
+    if (recipesByKey.has(key)) return null
+    if (rejectionsByKey.has(key)) return rejectionsByKey.get(key)
+
+    const isMetal = (id) => getSubstance(id)?.group === 'kovina'
+    if (isMetal(idA) && isMetal(idB) && rejectionDefaults.metals) return rejectionDefaults.metals
+
+    return rejectionDefaults.default ?? 'Ti delci ne tvorijo stabilne snovi.'
+  }
+
+  const allSubstances = substances.map((s) => byId.get(s.id))
+
   return {
     combine,
+    explainRejection,
     getSubstance,
-    allSubstances: substances.map((s) => byId.get(s.id)),
+    isFragment,
+    countsInProgress,
+    allSubstances,
     recipes,
   }
 }
