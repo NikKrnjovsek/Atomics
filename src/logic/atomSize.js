@@ -5,6 +5,7 @@ const PX_PER_PM = 0.28
 export const DEFAULT_DIAMETER = 56
 
 const CHARGE_LABELS = { '+': '⁺', '2+': '²⁺', '-': '⁻', '2-': '²⁻' }
+export const CHARGE_VALUES = { '+': 1, '2+': 2, '-': -1, '2-': -2 }
 
 export function atomDiameter(atomType, charge) {
   const radius = charge ? atomType?.ionRadius : atomType?.radius

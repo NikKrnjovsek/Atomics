@@ -113,6 +113,30 @@ test('ostanek se pojavi na platnu poleg glavnega produkta', () => {
   assert.deepEqual(s.lastResult.newDiscoveries, ['CO'])
 })
 
+test('postavitev produktov dobi preostale elemente in meje platna', () => {
+  let received
+  const reducer = createGameReducer({
+    combine,
+    atoms,
+    createId: () => 'new',
+    placeProducts: (params) => {
+      received = params
+      return [{ x: 1, y: 2 }, { x: 3, y: 4 }]
+    },
+  })
+  const state = withCanvas([['a', 'C', 0, 0], ['b', 'O2', 200, 100], ['c', 'N2', 50, 50]])
+  const bounds = { width: 800, height: 600 }
+  const s = reducer(state, { ...bond('a', 'b'), bounds })
+
+  assert.deepEqual(received.productIds, ['CO', 'O'])
+  assert.deepEqual(received.others.map((item) => item.id), ['c'])
+  assert.deepEqual(received.bounds, bounds)
+  assert.deepEqual(
+    s.canvas.slice(1).map(({ substanceId, x, y }) => [substanceId, x, y]),
+    [['CO', 1, 2], ['O', 3, 4]],
+  )
+})
+
 test('ponovno odkritje ni novo odkritje', () => {
   const { reducer, state: s0 } = setup()
   const s = run(reducer, s0, [
