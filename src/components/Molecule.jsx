@@ -26,7 +26,7 @@ function BondLines({ from, to, order }) {
   })
 }
 
-const defaultRenderAtom = (atom) => <Atom symbol={atom.symbol} label={atom.label} />
+const defaultRenderAtom = (atom) => <Atom symbol={atom.symbol} label={atom.label} size={atom.size} />
 
 // Molekula je izrisana okoli svojega središča (0, 0); atomi imajo odmike iz structures.json.
 function Molecule({ substanceId, renderAtom = defaultRenderAtom }) {

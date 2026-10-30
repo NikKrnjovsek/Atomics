@@ -33,10 +33,11 @@ function PlacedItem({ id, substanceId, x, y, bondSourceAtom, nudge, onBondStart,
   const renderAtom = (atom, index) => (
     <div
       className={`atom-handle ${index === bondSourceAtom ? 'atom-handle--source' : ''}`}
+      style={{ '--atom-size': `${atom.size}px` }}
       data-item-id={id}
       onPointerDown={(event) => handleEdgeDown(event, atom, index)}
     >
-      <Atom symbol={atom.symbol} label={atom.label} />
+      <Atom symbol={atom.symbol} label={atom.label} size={atom.size} />
       <div className="atom-handle__move" {...listeners} />
     </div>
   )
