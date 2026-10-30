@@ -1,4 +1,6 @@
-export const ELECTRON_DISTANCE = 36
+import { DEFAULT_DIAMETER } from './atomSize.js'
+
+export const ELECTRON_GAP = 8
 const ELECTRON_SPREAD = (70 * Math.PI) / 180
 
 function bondedNeighbours({ atoms, bonds }, index) {
@@ -28,12 +30,13 @@ export function freeElectronPositions(structure) {
     if (count === 0) return []
 
     const direction = directionAwayFromBonds(atom, bondedNeighbours(structure, index))
+    const distance = (atom.size ?? DEFAULT_DIAMETER) / 2 + ELECTRON_GAP
 
     return Array.from({ length: count }, (_, i) => {
       const angle = direction + (i - (count - 1) / 2) * ELECTRON_SPREAD
       return {
-        x: atom.x + Math.cos(angle) * ELECTRON_DISTANCE,
-        y: atom.y + Math.sin(angle) * ELECTRON_DISTANCE,
+        x: atom.x + Math.cos(angle) * distance,
+        y: atom.y + Math.sin(angle) * distance,
       }
     })
   })

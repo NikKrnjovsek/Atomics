@@ -39,7 +39,7 @@
 
 /* Rob za vlečenje vezi je nekoliko večji od atoma, da ga je lažje zadeti. */
 .atom-handle {
-  --handle-size: 76px;
+  --handle-size: calc(var(--atom-size) + 20px);
   position: relative;
   display: grid;
   place-items: center;
@@ -70,8 +70,8 @@
 
 .atom-handle__move {
   position: absolute;
-  width: 46px;
-  height: 46px;
+  width: calc(var(--atom-size) * 0.8);
+  height: calc(var(--atom-size) * 0.8);
   border-radius: 50%;
   cursor: grab;
 }
