@@ -26,6 +26,9 @@ export const ActionTypes = {
 // Odmik ostankov od glavnega produkta (npr. H pri H₂ + O → OH + H).
 export const PRODUCT_SPACING = 56
 
+const placeSideBySide = ({ target, productIds }) =>
+  productIds.map((_, i) => ({ x: target.x + i * PRODUCT_SPACING, y: target.y }))
+
 export function createInitialState(atoms) {
   return {
     canvas: [],
@@ -48,6 +51,7 @@ export function progressOf(discoveries, countsInProgress) {
  *   atoms: object[],
  *   isFragment?: (id: string) => boolean,
  *   explainRejection?: (a: string, b: string) => string | null,
+ *   placeProducts?: (params: object) => { x: number, y: number }[],
  *   createId?: () => string,
  * }} deps
  */
@@ -56,6 +60,7 @@ export function createGameReducer({
   atoms,
   isFragment = () => false,
   explainRejection = () => null,
+  placeProducts = placeSideBySide,
   createId = newId,
 }) {
   return function gameReducer(state, action) {
@@ -101,13 +106,20 @@ export function createGameReducer({
           }
         }
 
-        // Glavni produkt nastane na mestu cilja, ostanki malo desno od njega.
+        // Glavni produkt nastane na mestu cilja, ostanki ob njem.
         const productIds = result.products.map((product) => product.id)
+        const remaining = state.canvas.filter((item) => item.id !== source.id && item.id !== target.id)
+        const positions = placeProducts({
+          source,
+          target,
+          productIds,
+          others: remaining,
+          bounds: action.bounds,
+        })
         const newItems = productIds.map((substanceId, i) => ({
           id: createId(),
           substanceId,
-          x: target.x + i * PRODUCT_SPACING,
-          y: target.y,
+          ...positions[i],
         }))
 
         const known = new Set(state.discoveries.map((d) => d.id))
@@ -123,10 +135,7 @@ export function createGameReducer({
 
         return {
           ...state,
-          canvas: [
-            ...state.canvas.filter((item) => item.id !== source.id && item.id !== target.id),
-            ...newItems,
-          ],
+          canvas: [...remaining, ...newItems],
           inventory: [...state.inventory, ...newInventory],
           discoveries: [...state.discoveries, ...newDiscoveries.map((id) => ({ id, discoveredAt: at }))],
           lastResult: {

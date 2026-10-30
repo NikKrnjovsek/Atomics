@@ -30,6 +30,96 @@
   visibility: hidden;
 }
 
+.placed-item__body {
+  position: relative;
+}
+
+/* Združevanje: reaktanta se zlijeta v cilj, produkti zrastejo iz njega, ostanki odletijo. */
+.fusion-ghost {
+  position: absolute;
+  pointer-events: none;
+  animation: fuse-together 0.26s ease-in forwards;
+}
+
+.placed-item__body--appearing {
+  animation: product-appear 0.42s cubic-bezier(0.34, 1.4, 0.64, 1) 0.18s both;
+}
+
+.placed-item__body--appearing .molecule__bonds line {
+  stroke-dasharray: var(--bond-length);
+  animation: draw-bond 0.35s ease-out 0.3s both;
+}
+
+.electron-transfer {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--electron);
+  box-shadow: 0 0 0 2px var(--canvas);
+  pointer-events: none;
+  animation: electron-jump 0.45s ease-in-out calc(0.35s + var(--delay)) both;
+}
+
+.atom-handle--ionizing .atom {
+  animation: ion-resize 0.4s ease-out 0.75s both;
+}
+
+@keyframes fuse-together {
+  to {
+    transform: translate(var(--to-x), var(--to-y)) scale(0.6);
+    opacity: 0;
+  }
+}
+
+@keyframes product-appear {
+  from {
+    transform: translate(var(--from-x), var(--from-y)) scale(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes draw-bond {
+  from {
+    stroke-dashoffset: var(--bond-length);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes electron-jump {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(calc(-50% + var(--to-x)), calc(-50% + var(--to-y)));
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(-50% + var(--to-x)), calc(-50% + var(--to-y))) scale(0.4);
+    opacity: 0;
+  }
+}
+
+@keyframes ion-resize {
+  from {
+    transform: scale(var(--from-scale));
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 .drag-preview {
   display: grid;
   place-items: center;

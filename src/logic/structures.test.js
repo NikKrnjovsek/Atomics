@@ -1,14 +1,13 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
-import { atomDiameter } from './atomSize.js'
+import { atomDiameter, CHARGE_VALUES } from './atomSize.js'
 
 const load = (path) => JSON.parse(readFileSync(new URL(path, import.meta.url), 'utf8'))
 const structures = load('../data/structures.json')
 const molecules = load('../data/molecules.json')
 const atomTypes = new Map(load('../data/atoms.json').map((atom) => [atom.symbol, atom]))
 
-const CHARGES = { '+': 1, '2+': 2, '-': -1, '2-': -2 }
 const MIN_GAP = 1
 
 const countSymbols = (symbols) =>
@@ -61,7 +60,7 @@ test('vsaka snov in vmesni delec ima zgradbo', () => {
 
 test('ionske spojine so nevtralne, kovalentne pa brez nabojev', () => {
   for (const substance of molecules.substances) {
-    const charges = structures[substance.id].atoms.map((atom) => CHARGES[atom.charge] ?? 0)
+    const charges = structures[substance.id].atoms.map((atom) => CHARGE_VALUES[atom.charge] ?? 0)
     if (substance.bond === 'ionic') {
       assert.equal(charges.reduce((sum, charge) => sum + charge, 0), 0, substance.id)
     } else {

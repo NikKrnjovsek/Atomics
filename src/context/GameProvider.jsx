@@ -8,10 +8,18 @@ import {
   isFragment,
   TOTAL_SUBSTANCES,
 } from '../logic/gameData.js'
+import { placeProducts } from '../logic/placeProducts.js'
+import { moleculeExtent } from '../logic/structures.js'
 import { GameContext } from './GameContext.js'
 import { ActionTypes, createGameReducer, createInitialState, progressOf } from './gameReducer.js'
 
-const gameReducer = createGameReducer({ combine, atoms, isFragment, explainRejection })
+const gameReducer = createGameReducer({
+  combine,
+  atoms,
+  isFragment,
+  explainRejection,
+  placeProducts: (params) => placeProducts({ ...params, extentOf: moleculeExtent }),
+})
 
 // Globalno stanje igre: atomi na platnu, inventar in odkritja.
 // Shranjevanje v localStorage (US8) dodamo v sprintu 2; stanje je že serializabilno.
@@ -25,8 +33,8 @@ function GameProvider({ children, initialState }) {
       moveOnCanvas: (id, x, y) => dispatch({ type: ActionTypes.MOVE_ON_CANVAS, id, x, y }),
       removeFromCanvas: (id) => dispatch({ type: ActionTypes.REMOVE_FROM_CANVAS, id }),
       clearCanvas: () => dispatch({ type: ActionTypes.CLEAR_CANVAS }),
-      combineOnCanvas: (sourceId, targetId) =>
-        dispatch({ type: ActionTypes.COMBINE, sourceId, targetId, at: Date.now() }),
+      combineOnCanvas: (sourceId, targetId, bounds) =>
+        dispatch({ type: ActionTypes.COMBINE, sourceId, targetId, bounds, at: Date.now() }),
       dismissResult: () => dispatch({ type: ActionTypes.DISMISS_RESULT }),
       unlockAtom: (symbol) => dispatch({ type: ActionTypes.UNLOCK_ATOM, symbol }),
       reset: () => dispatch({ type: ActionTypes.RESET }),

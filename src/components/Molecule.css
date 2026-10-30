@@ -14,10 +14,21 @@
   stroke-linecap: round;
 }
 
+/* Prosti elektroni rahlo utripajo: delec "hoče" še eno vez. */
 .molecule__electron {
   fill: var(--electron);
   stroke: var(--canvas);
   stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: electron-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes electron-pulse {
+  50% {
+    transform: scale(1.35);
+    opacity: 0.6;
+  }
 }
 
 .molecule__atom {

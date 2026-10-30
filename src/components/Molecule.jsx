@@ -17,6 +17,7 @@ function BondLines({ from, to, order }) {
     return (
       <line
         key={i}
+        style={{ '--bond-length': length }}
         x1={from.x + nx * offset}
         y1={from.y + ny * offset}
         x2={to.x + nx * offset}

@@ -4,11 +4,15 @@ import { atoms as atomTypes, getSubstance } from './gameData.js'
 
 const atomTypesBySymbol = new Map(atomTypes.map((atomType) => [atomType.symbol, atomType]))
 
-const withSize = (atom) => ({
-  ...atom,
-  label: atom.label ?? chargeLabel(atom.symbol, atom.charge),
-  size: atomDiameter(atomTypesBySymbol.get(atom.symbol), atom.charge),
-})
+const withSize = (atom) => {
+  const atomType = atomTypesBySymbol.get(atom.symbol)
+  return {
+    ...atom,
+    label: atom.label ?? chargeLabel(atom.symbol, atom.charge),
+    size: atomDiameter(atomType, atom.charge),
+    neutralSize: atomDiameter(atomType),
+  }
+}
 
 const sizedStructures = new Map(
   Object.entries(structures).map(([id, { atoms, bonds }]) => [id, { atoms: atoms.map(withSize), bonds }]),
@@ -22,4 +26,10 @@ export function getStructure(substanceId) {
   const substance = getSubstance(substanceId)
   const label = substance?.type === 'substance' ? substance.formula : substanceId
   return { atoms: [withSize({ symbol: substanceId, label, x: 0, y: 0 })], bonds: [] }
+}
+
+// Polmer kroga okoli središča, v katerem je cela molekula.
+export function moleculeExtent(substanceId) {
+  const { atoms } = getStructure(substanceId)
+  return Math.max(...atoms.map((atom) => Math.hypot(atom.x, atom.y) + atom.size / 2))
 }
