@@ -34,6 +34,10 @@
   position: relative;
 }
 
+.placed-item .molecule__bonds line {
+  cursor: grab;
+}
+
 /* Združevanje: reaktanta se zlijeta v cilj, produkti zrastejo iz njega, ostanki odletijo. */
 .fusion-ghost {
   position: absolute;
