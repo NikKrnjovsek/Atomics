@@ -20,6 +20,7 @@ export const ActionTypes = {
   COMBINE: 'COMBINE',
   DISMISS_RESULT: 'DISMISS_RESULT',
   UNLOCK_ATOM: 'UNLOCK_ATOM',
+  SET_UNLOCK_ALL: 'SET_UNLOCK_ALL',
   RESET: 'RESET',
 }
 
@@ -35,6 +36,7 @@ export function createInitialState(atoms) {
     inventory: atoms.filter((atom) => atom.unlocked).map((atom) => atom.symbol),
     discoveries: [],
     lastResult: null,
+    allUnlocked: false,
   }
 }
 
@@ -67,7 +69,7 @@ export function createGameReducer({
     switch (action.type) {
       case ActionTypes.ADD_TO_CANVAS: {
         const { substanceId, x, y } = action
-        if (!state.inventory.includes(substanceId)) return state
+        if (!state.allUnlocked && !state.inventory.includes(substanceId)) return state
         return { ...state, canvas: [...state.canvas, { id: createId(), substanceId, x, y }] }
       }
 
@@ -154,6 +156,10 @@ export function createGameReducer({
 
       case ActionTypes.DISMISS_RESULT:
         return { ...state, lastResult: null }
+
+      // "odkleni vse": dovoli vse aatome
+      case ActionTypes.SET_UNLOCK_ALL:
+        return { ...state, allUnlocked: action.value }
 
       case ActionTypes.UNLOCK_ATOM: {
         const exists = atoms.some((atom) => atom.symbol === action.symbol)

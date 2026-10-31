@@ -37,12 +37,14 @@ function SandboxPage() {
         inventory,
         discoveredSubstances,
         lastResult,
+        allUnlocked,
         addToCanvas,
         moveOnCanvas,
         removeFromCanvas,
         combineOnCanvas,
         getSubstance,
         dismissResult,
+        setUnlockAll,
     } = useGame()
 
     // INFOBOX MAIN
@@ -113,6 +115,8 @@ function SandboxPage() {
                         inventory={inventory}
                         discovered={discoveredSubstances}
                         onSelect={setDetailSubstance}
+                        allUnlocked={allUnlocked}
+                        onToggleUnlockAll={setUnlockAll}
                     />
 
                     <main className="sandbox-canvas">
