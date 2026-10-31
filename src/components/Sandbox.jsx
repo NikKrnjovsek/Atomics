@@ -42,7 +42,6 @@ function ElectronTransfers({ substanceId }) {
   ))
 }
 
-// Sredina atoma premika celo molekulo (dnd-kit), rob atoma pa začne vleči vez.
 function PlacedItem({
   id,
   substanceId,
@@ -59,9 +58,11 @@ function PlacedItem({
     data: { substanceId, canvasId: id, x, y },
   })
 
+  // Sredina atoma in vezi premikajo molekulo (dnd-kit na telesu), rob atoma pa začne vez,
+  // zato dogodka z roba ne pustimo do telesa.
   const handleEdgeDown = (event, atom, index) => {
-    // Dogodek s sredine atoma pride sem samo z mehurčkanjem; tistega obdela dnd-kit.
     if (event.target !== event.currentTarget) return
+    event.stopPropagation()
     onBondStart(id, index, { x: x + atom.x, y: y + atom.y })
   }
 
@@ -81,11 +82,10 @@ function PlacedItem({
           '--atom-size': `${atom.size}px`,
           '--from-scale': resizes ? atom.neutralSize / atom.size : 1,
         }}
-        data-item-id={id}
         onPointerDown={(event) => handleEdgeDown(event, atom, index)}
       >
         <Atom symbol={atom.symbol} label={atom.label} size={atom.size} />
-        <div className="atom-handle__move" {...listeners} />
+        <div className="atom-handle__move" />
       </div>
     )
   }
@@ -105,12 +105,14 @@ function PlacedItem({
       ref={setNodeRef}
       className={`placed-item ${isDragging ? 'placed-item--dragging' : ''}`}
       style={{ left: x, top: y }}
+      data-item-id={id}
       {...attributes}
     >
       <div
         className={bodyClass.filter(Boolean).join(' ')}
         style={bodyStyle(nudge, appear)}
         onAnimationEnd={handleAnimationEnd}
+        {...listeners}
       >
         <Molecule substanceId={substanceId} renderAtom={renderAtom} />
         {ionizing && <ElectronTransfers substanceId={substanceId} />}
