@@ -8,18 +8,39 @@ import Sidebar, { SIDEBAR_ID } from '../components/Sidebar.jsx'
 import Sandbox, { SANDBOX_ID } from '../components/Sandbox.jsx'
 import { useGame } from '../context/useGame.js'
 import { dropPosition } from '../logic/dropPosition.js'
-import { combine } from '../logic/gameData.js'
+import { atoms } from '../logic/gameData.js'
+
+const metalSymbols = new Set(atoms.filter((atom) => atom.group === 'kovina').map((atom) => atom.symbol))
+
+// Reaktanta (ki ju reducer odstrani s platna) se kot duhova zlijeta v cilj,
+// produkti pa zrastejo iz te točke.
+function describeFusion(lastBond, lastResult, canvas) {
+    const [source, target] = lastBond.reactants
+    const ghosts = lastBond.reactants.map((item) => ({
+        ...item,
+        toX: target.x - item.x,
+        toY: target.y - item.y,
+    }))
+    const appearing = new Map(
+        lastResult.createdIds.flatMap((id) => {
+            const item = canvas.find((candidate) => candidate.id === id)
+            return item ? [[id, { fromX: target.x - item.x, fromY: target.y - item.y }]] : []
+        }),
+    )
+    const ionizing = [source, target].some((item) => metalSymbols.has(item.substanceId))
+    return { key: lastResult.createdIds.join(), ghosts, appearing, ionizing }
+}
 
 function SandboxPage() {
     const {
         canvas,
         inventory,
         discoveredSubstances,
+        lastResult,
         addToCanvas,
         moveOnCanvas,
         removeFromCanvas,
         combineOnCanvas,
-        lastResult,
         getSubstance,
         dismissResult,
     } = useGame()
@@ -31,21 +52,24 @@ function SandboxPage() {
     // REJECTION INFOBOX
     const rejectedReactants =
         lastResult?.type === 'no-recipe' ? lastResult.reactants.map(getSubstance) : null
+
     const [dragged, setDragged] = useState(null)
-    const [rejection, setRejection] = useState(null)
+    const [lastBond, setLastBond] = useState(null)
     // INFOBOX DETAIL: snov, izbrana klikom v stranski vrstici (null = zaprto)
     const [detailSubstance, setDetailSubstance] = useState(null)
 
-    // Reducer pri neuspehu ne poda elementov -> tu animacija sprozena
-    const handleBond = (sourceId, targetId) => {
-        const [source, target] = [sourceId, targetId].map((id) =>
-            canvas.find((item) => item.id === id),
-        )
-        if (!combine(source.substanceId, target.substanceId)) {
-            setRejection({ sourceId, targetId })
-        }
-        combineOnCanvas(sourceId, targetId)
+    const handleBond = (sourceId, targetId, bounds) => {
+        const reactants = [sourceId, targetId].map((id) => canvas.find((item) => item.id === id))
+        setLastBond({ sourceId, targetId, reactants })
+        combineOnCanvas(sourceId, targetId, bounds)
     }
+
+    const outcome =
+        lastBond && lastResult?.sourceId === lastBond.sourceId && lastResult.targetId === lastBond.targetId
+            ? lastResult
+            : null
+    const rejection = outcome?.type === 'no-recipe' ? lastBond : null
+    const fusion = outcome && outcome.type !== 'no-recipe' ? describeFusion(lastBond, outcome, canvas) : null
 
     const handleDragStart = ({ active }) => {
         const { substanceId, canvasId } = active.data.current
@@ -93,8 +117,9 @@ function SandboxPage() {
                         <Sandbox
                             items={canvas}
                             rejection={rejection}
+                            fusion={fusion}
                             onBond={handleBond}
-                            onRejectEnd={() => setRejection(null)}
+                            onRejectEnd={() => setLastBond(null)}
                         />
                     </main>
                 </div>

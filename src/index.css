@@ -25,12 +25,16 @@
   --atom-text: #ffffff;
   --atom-unknown: #6f6b63;
   --bond: #4a4a4a;
+  --electron: #2b2a28;
   --atom-H: #8fa3b8;
   --atom-O: #e5484d;
   --atom-C: #3a3a3a;
   --atom-N: #3e63dd;
   --atom-Cl: #30a46c;
   --atom-Na: #8e4ec6;
+  --atom-Mg: #3d9a8b;
+  --atom-Ca: #c4703a;
+  --atom-S: #c99a06;
 
   font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
   color: var(--text);
@@ -47,4 +51,15 @@ body,
 h1,
 p {
   margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,11 +1,11 @@
 [
-  { "symbol": "H", "name": "vodik", "group": "nekovina", "unlocked": true, "unlockLevel": 1 },
-  { "symbol": "O", "name": "kisik", "group": "nekovina", "unlocked": true, "unlockLevel": 1 },
-  { "symbol": "C", "name": "ogljik", "group": "nekovina", "unlocked": true, "unlockLevel": 1 },
-  { "symbol": "N", "name": "dušik", "group": "nekovina", "unlocked": true, "unlockLevel": 1 },
-  { "symbol": "Cl", "name": "klor", "group": "halogen", "unlocked": true, "unlockLevel": 1 },
-  { "symbol": "Na", "name": "natrij", "group": "kovina", "unlocked": true, "unlockLevel": 1 },
-  { "symbol": "Mg", "name": "magnezij", "group": "kovina", "unlocked": false, "unlockLevel": 3 },
-  { "symbol": "Ca", "name": "kalcij", "group": "kovina", "unlocked": false, "unlockLevel": 3 },
-  { "symbol": "S", "name": "žveplo", "group": "nekovina", "unlocked": false, "unlockLevel": 4 }
+  { "symbol": "H", "name": "vodik", "group": "nekovina", "unlocked": true, "unlockLevel": 1, "radius": 31 },
+  { "symbol": "O", "name": "kisik", "group": "nekovina", "unlocked": true, "unlockLevel": 1, "radius": 66, "ionRadius": 140 },
+  { "symbol": "C", "name": "ogljik", "group": "nekovina", "unlocked": true, "unlockLevel": 1, "radius": 76 },
+  { "symbol": "N", "name": "dušik", "group": "nekovina", "unlocked": true, "unlockLevel": 1, "radius": 71 },
+  { "symbol": "Cl", "name": "klor", "group": "halogen", "unlocked": true, "unlockLevel": 1, "radius": 102, "ionRadius": 181 },
+  { "symbol": "Na", "name": "natrij", "group": "kovina", "unlocked": true, "unlockLevel": 1, "radius": 186, "ionRadius": 102 },
+  { "symbol": "Mg", "name": "magnezij", "group": "kovina", "unlocked": false, "unlockLevel": 3, "radius": 160, "ionRadius": 72 },
+  { "symbol": "Ca", "name": "kalcij", "group": "kovina", "unlocked": false, "unlockLevel": 3, "radius": 197, "ionRadius": 100 },
+  { "symbol": "S", "name": "žveplo", "group": "nekovina", "unlocked": false, "unlockLevel": 4, "radius": 105 }
 ]

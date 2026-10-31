@@ -4,8 +4,13 @@
 //   canvas       – elementi na platnu: { id, substanceId, x, y }
 //                  (substanceId je simbol atoma, npr. 'H', ali ID snovi, npr. 'H2O')
 //   inventory    – ID-ji, ki jih učenec lahko vleče na platno (odklenjeni atomi + odkrite snovi)
-//   discoveries  – odkrite snovi po vrsti: { id, discoveredAt }
-//   lastResult   – izid zadnjega združevanja za infoboks / povratno informacijo (ali null)
+//                  (fragmenti, npr. OH, CH₃, sem ne spadajo – obstajajo samo na platnu)
+//   discoveries  – odkrite snovi in fragmenti po vrsti: { id, discoveredAt }
+//   lastResult   – izid zadnjega združevanja za infoboks, animacijo in povratno informacijo:
+//                  uspeh:   { type: 'discovery' | 'known', sourceId, targetId, createdIds,
+//                             products, newDiscoveries, equation, recipeType, note }
+//                  neuspeh: { type: 'no-recipe', sourceId, targetId, reactants, reason }
+//                  createdIds so ID-ji novih elementov na platnu; prvi je glavni produkt.
 
 export const ActionTypes = {
   ADD_TO_CANVAS: 'ADD_TO_CANVAS',
@@ -18,8 +23,11 @@ export const ActionTypes = {
   RESET: 'RESET',
 }
 
-// Razmik med produkti, kadar reakcija ustvari več snovi naenkrat.
+// Odmik ostankov od glavnega produkta (npr. H pri H₂ + O → OH + H).
 export const PRODUCT_SPACING = 56
+
+const placeSideBySide = ({ target, productIds }) =>
+  productIds.map((_, i) => ({ x: target.x + i * PRODUCT_SPACING, y: target.y }))
 
 export function createInitialState(atoms) {
   return {
@@ -32,10 +40,29 @@ export function createInitialState(atoms) {
 
 const newId = () => crypto.randomUUID()
 
+// Napredek x/19: šteje samo stabilne snovi (brez fragmentov in dodatnih snovi, kot je SO₃).
+export function progressOf(discoveries, countsInProgress) {
+  return discoveries.filter((d) => countsInProgress(d.id)).length
+}
+
 /**
- * @param {{ combine: Function, atoms: object[], createId?: () => string }} deps
+ * @param {{
+ *   combine: Function,
+ *   atoms: object[],
+ *   isFragment?: (id: string) => boolean,
+ *   explainRejection?: (a: string, b: string) => string | null,
+ *   placeProducts?: (params: object) => { x: number, y: number }[],
+ *   createId?: () => string,
+ * }} deps
  */
-export function createGameReducer({ combine, atoms, createId = newId }) {
+export function createGameReducer({
+  combine,
+  atoms,
+  isFragment = () => false,
+  explainRejection = () => null,
+  placeProducts = placeSideBySide,
+  createId = newId,
+}) {
   return function gameReducer(state, action) {
     switch (action.type) {
       case ActionTypes.ADD_TO_CANVAS: {
@@ -64,21 +91,35 @@ export function createGameReducer({ combine, atoms, createId = newId }) {
         const target = state.canvas.find((item) => item.id === action.targetId)
         if (!source || !target || source.id === target.id) return state
 
-        const result = combine(source.substanceId, target.substanceId)
+        const reactants = [source.substanceId, target.substanceId]
+        const result = combine(...reactants)
         if (!result) {
           return {
             ...state,
-            lastResult: { type: 'no-recipe', reactants: [source.substanceId, target.substanceId] },
+            lastResult: {
+              type: 'no-recipe',
+              sourceId: source.id,
+              targetId: target.id,
+              reactants,
+              reason: explainRejection(...reactants),
+            },
           }
         }
 
+        // Glavni produkt nastane na mestu cilja, ostanki ob njem.
         const productIds = result.products.map((product) => product.id)
-        const startX = target.x - ((productIds.length - 1) * PRODUCT_SPACING) / 2
+        const remaining = state.canvas.filter((item) => item.id !== source.id && item.id !== target.id)
+        const positions = placeProducts({
+          source,
+          target,
+          productIds,
+          others: remaining,
+          bounds: action.bounds,
+        })
         const newItems = productIds.map((substanceId, i) => ({
           id: createId(),
           substanceId,
-          x: startX + i * PRODUCT_SPACING,
-          y: target.y,
+          ...positions[i],
         }))
 
         const known = new Set(state.discoveries.map((d) => d.id))
@@ -86,21 +127,27 @@ export function createGameReducer({ combine, atoms, createId = newId }) {
         const newDiscoveries = [...new Set(productIds)].filter(
           (id) => !known.has(id) && !atomSymbols.has(id),
         )
+        // Fragmenti so nestabilni, zato ne gredo v inventar (ne moreš jih vleči iz vrstice).
+        const newInventory = newDiscoveries.filter(
+          (id) => !isFragment(id) && !state.inventory.includes(id),
+        )
         const at = action.at ?? Date.now()
 
         return {
           ...state,
-          canvas: [
-            ...state.canvas.filter((item) => item.id !== source.id && item.id !== target.id),
-            ...newItems,
-          ],
-          inventory: [...state.inventory, ...newDiscoveries.filter((id) => !state.inventory.includes(id))],
+          canvas: [...remaining, ...newItems],
+          inventory: [...state.inventory, ...newInventory],
           discoveries: [...state.discoveries, ...newDiscoveries.map((id) => ({ id, discoveredAt: at }))],
           lastResult: {
             type: newDiscoveries.length > 0 ? 'discovery' : 'known',
-            equation: result.equation,
+            sourceId: source.id,
+            targetId: target.id,
+            createdIds: newItems.map((item) => item.id),
             products: productIds,
             newDiscoveries,
+            equation: result.equation,
+            recipeType: result.type ?? null,
+            note: result.note ?? null,
           },
         }
       }

@@ -66,5 +66,149 @@
       { "from": 0, "to": 2, "order": 1 },
       { "from": 0, "to": 3, "order": 1 }
     ]
+  },
+  "OH": {
+    "atoms": [{ "symbol": "O", "x": -40, "y": 0, "freeElectrons": 1 }, { "symbol": "H", "x": 40, "y": 0 }],
+    "bonds": [{ "from": 0, "to": 1, "order": 1 }]
+  },
+  "CH": {
+    "atoms": [{ "symbol": "C", "x": -40, "y": 0, "freeElectrons": 3 }, { "symbol": "H", "x": 40, "y": 0 }],
+    "bonds": [{ "from": 0, "to": 1, "order": 1 }]
+  },
+  "CH2": {
+    "atoms": [
+      { "symbol": "C", "x": 0, "y": -25, "freeElectrons": 2 },
+      { "symbol": "H", "x": -63, "y": 24 },
+      { "symbol": "H", "x": 63, "y": 24 }
+    ],
+    "bonds": [{ "from": 0, "to": 1, "order": 1 }, { "from": 0, "to": 2, "order": 1 }]
+  },
+  "CH3": {
+    "atoms": [
+      { "symbol": "C", "x": 0, "y": 0, "freeElectrons": 1 },
+      { "symbol": "H", "x": 0, "y": -80 },
+      { "symbol": "H", "x": 69, "y": 40 },
+      { "symbol": "H", "x": -69, "y": 40 }
+    ],
+    "bonds": [
+      { "from": 0, "to": 1, "order": 1 },
+      { "from": 0, "to": 2, "order": 1 },
+      { "from": 0, "to": 3, "order": 1 }
+    ]
+  },
+  "NH": {
+    "atoms": [{ "symbol": "N", "x": -40, "y": 0, "freeElectrons": 2 }, { "symbol": "H", "x": 40, "y": 0 }],
+    "bonds": [{ "from": 0, "to": 1, "order": 1 }]
+  },
+  "NH2": {
+    "atoms": [
+      { "symbol": "N", "x": 0, "y": -25, "freeElectrons": 1 },
+      { "symbol": "H", "x": -63, "y": 24 },
+      { "symbol": "H", "x": 63, "y": 24 }
+    ],
+    "bonds": [{ "from": 0, "to": 1, "order": 1 }, { "from": 0, "to": 2, "order": 1 }]
+  },
+  "H2O2": {
+    "atoms": [
+      { "symbol": "O", "x": -40, "y": 0 },
+      { "symbol": "O", "x": 40, "y": 0 },
+      { "symbol": "H", "x": -90, "y": -62 },
+      { "symbol": "H", "x": 90, "y": 62 }
+    ],
+    "bonds": [
+      { "from": 0, "to": 1, "order": 1 },
+      { "from": 0, "to": 2, "order": 1 },
+      { "from": 1, "to": 3, "order": 1 }
+    ]
+  },
+  "SO2": {
+    "atoms": [
+      { "symbol": "S", "x": 0, "y": -25 },
+      { "symbol": "O", "x": -63, "y": 24 },
+      { "symbol": "O", "x": 63, "y": 24 }
+    ],
+    "bonds": [{ "from": 0, "to": 1, "order": 2 }, { "from": 0, "to": 2, "order": 2 }]
+  },
+  "SO3": {
+    "atoms": [
+      { "symbol": "S", "x": 0, "y": 0 },
+      { "symbol": "O", "x": 0, "y": -80 },
+      { "symbol": "O", "x": 69, "y": 40 },
+      { "symbol": "O", "x": -69, "y": 40 }
+    ],
+    "bonds": [
+      { "from": 0, "to": 1, "order": 2 },
+      { "from": 0, "to": 2, "order": 2 },
+      { "from": 0, "to": 3, "order": 2 }
+    ]
+  },
+  "H2SO4": {
+    "atoms": [
+      { "symbol": "S", "x": 0, "y": 0 },
+      { "symbol": "O", "x": 0, "y": -80 },
+      { "symbol": "O", "x": 0, "y": 80 },
+      { "symbol": "O", "x": -80, "y": 0 },
+      { "symbol": "O", "x": 80, "y": 0 },
+      { "symbol": "H", "x": -136, "y": -57 },
+      { "symbol": "H", "x": 136, "y": -57 }
+    ],
+    "bonds": [
+      { "from": 0, "to": 1, "order": 2 },
+      { "from": 0, "to": 2, "order": 2 },
+      { "from": 0, "to": 3, "order": 1 },
+      { "from": 0, "to": 4, "order": 1 },
+      { "from": 3, "to": 5, "order": 1 },
+      { "from": 4, "to": 6, "order": 1 }
+    ]
+  },
+  "NaCl": {
+    "atoms": [
+      { "symbol": "Na", "charge": "+", "x": -38, "y": 0 },
+      { "symbol": "Cl", "charge": "-", "x": 38, "y": 0 }
+    ],
+    "bonds": []
+  },
+  "MgO": {
+    "atoms": [
+      { "symbol": "Mg", "charge": "2+", "x": -33, "y": 0 },
+      { "symbol": "O", "charge": "2-", "x": 33, "y": 0 }
+    ],
+    "bonds": []
+  },
+  "CaO": {
+    "atoms": [
+      { "symbol": "Ca", "charge": "2+", "x": -35, "y": 0 },
+      { "symbol": "O", "charge": "2-", "x": 35, "y": 0 }
+    ],
+    "bonds": []
+  },
+  "MgCl2": {
+    "atoms": [
+      { "symbol": "Mg", "charge": "2+", "x": 0, "y": 0 },
+      { "symbol": "Cl", "charge": "-", "x": -72, "y": 0 },
+      { "symbol": "Cl", "charge": "-", "x": 72, "y": 0 }
+    ],
+    "bonds": []
+  },
+  "NaOH": {
+    "atoms": [
+      { "symbol": "Na", "charge": "+", "x": -75, "y": 0 },
+      { "symbol": "O", "charge": "-", "x": -5, "y": 0 },
+      { "symbol": "H", "x": 75, "y": 0 }
+    ],
+    "bonds": [{ "from": 1, "to": 2, "order": 1 }]
+  },
+  "Ca(OH)2": {
+    "atoms": [
+      { "symbol": "Ca", "charge": "2+", "x": 0, "y": 0 },
+      { "symbol": "O", "charge": "-", "x": -70, "y": 0 },
+      { "symbol": "O", "charge": "-", "x": 70, "y": 0 },
+      { "symbol": "H", "x": -126, "y": -57 },
+      { "symbol": "H", "x": 126, "y": -57 }
+    ],
+    "bonds": [
+      { "from": 1, "to": 3, "order": 1 },
+      { "from": 2, "to": 4, "order": 1 }
+    ]
   }
 }

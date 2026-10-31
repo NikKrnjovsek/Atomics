@@ -1,5 +1,7 @@
 import { useRef } from 'react'
 import { useDraggable, useDroppable } from '@dnd-kit/core'
+import { electronTransfers } from '../logic/electronTransfers.js'
+import { getStructure } from '../logic/structures.js'
 import { useBondDrag } from '../logic/useBondDrag.js'
 import Atom from './Atom.jsx'
 import Molecule from './Molecule.jsx'
@@ -17,8 +19,41 @@ function nudgeToward(item, other) {
   return { x: (dx / length) * NUDGE_DISTANCE, y: (dy / length) * NUDGE_DISTANCE }
 }
 
+function bodyStyle(nudge, appear) {
+  if (nudge) return { '--nudge-x': `${nudge.x}px`, '--nudge-y': `${nudge.y}px` }
+  if (appear) return { '--from-x': `${appear.fromX}px`, '--from-y': `${appear.fromY}px` }
+  return undefined
+}
+
+// Elektron preleti s kovine na nekovino; nato se kation skrči, anion pa zraste.
+function ElectronTransfers({ substanceId }) {
+  return electronTransfers(getStructure(substanceId).atoms).map(({ from, to }, i) => (
+    <span
+      key={i}
+      className="electron-transfer"
+      style={{
+        left: from.x,
+        top: from.y,
+        '--to-x': `${to.x - from.x}px`,
+        '--to-y': `${to.y - from.y}px`,
+        '--delay': `${i * 120}ms`,
+      }}
+    />
+  ))
+}
+
 // Sredina atoma premika celo molekulo (dnd-kit), rob atoma pa začne vleči vez.
-function PlacedItem({ id, substanceId, x, y, bondSourceAtom, nudge, onBondStart, onRejectEnd }) {
+function PlacedItem({
+  id,
+  substanceId,
+  x,
+  y,
+  bondSourceAtom,
+  nudge,
+  appear,
+  onBondStart,
+  onRejectEnd,
+}) {
   const { setNodeRef, listeners, attributes, isDragging } = useDraggable({
     id,
     data: { substanceId, canvasId: id, x, y },
@@ -30,20 +65,40 @@ function PlacedItem({ id, substanceId, x, y, bondSourceAtom, nudge, onBondStart,
     onBondStart(id, index, { x: x + atom.x, y: y + atom.y })
   }
 
-  const renderAtom = (atom, index) => (
-    <div
-      className={`atom-handle ${index === bondSourceAtom ? 'atom-handle--source' : ''}`}
-      data-item-id={id}
-      onPointerDown={(event) => handleEdgeDown(event, atom, index)}
-    >
-      <Atom symbol={atom.symbol} label={atom.label} />
-      <div className="atom-handle__move" {...listeners} />
-    </div>
-  )
+  const ionizing = appear?.ionizing
+
+  const renderAtom = (atom, index) => {
+    const resizes = ionizing && atom.charge
+    const className = [
+      'atom-handle',
+      index === bondSourceAtom && 'atom-handle--source',
+      resizes && 'atom-handle--ionizing',
+    ]
+    return (
+      <div
+        className={className.filter(Boolean).join(' ')}
+        style={{
+          '--atom-size': `${atom.size}px`,
+          '--from-scale': resizes ? atom.neutralSize / atom.size : 1,
+        }}
+        data-item-id={id}
+        onPointerDown={(event) => handleEdgeDown(event, atom, index)}
+      >
+        <Atom symbol={atom.symbol} label={atom.label} size={atom.size} />
+        <div className="atom-handle__move" {...listeners} />
+      </div>
+    )
+  }
 
   const handleAnimationEnd = (event) => {
-    if (event.target === event.currentTarget) onRejectEnd()
+    if (event.target === event.currentTarget && event.animationName === 'reject-nudge') onRejectEnd()
   }
+
+  const bodyClass = [
+    'placed-item__body',
+    nudge && 'placed-item__body--rejected',
+    appear && 'placed-item__body--appearing',
+  ]
 
   return (
     <div
@@ -53,12 +108,25 @@ function PlacedItem({ id, substanceId, x, y, bondSourceAtom, nudge, onBondStart,
       {...attributes}
     >
       <div
-        className={`placed-item__body ${nudge ? 'placed-item__body--rejected' : ''}`}
-        style={nudge && { '--nudge-x': `${nudge.x}px`, '--nudge-y': `${nudge.y}px` }}
+        className={bodyClass.filter(Boolean).join(' ')}
+        style={bodyStyle(nudge, appear)}
         onAnimationEnd={handleAnimationEnd}
       >
         <Molecule substanceId={substanceId} renderAtom={renderAtom} />
+        {ionizing && <ElectronTransfers substanceId={substanceId} />}
       </div>
+    </div>
+  )
+}
+
+function FusionGhost({ substanceId, x, y, toX, toY }) {
+  return (
+    <div
+      className="fusion-ghost"
+      style={{ left: x, top: y, '--to-x': `${toX}px`, '--to-y': `${toY}px` }}
+      aria-hidden="true"
+    >
+      <Molecule substanceId={substanceId} />
     </div>
   )
 }
@@ -71,10 +139,13 @@ function BondPreview({ from, to }) {
   )
 }
 
-function Sandbox({ items, rejection, onBond, onRejectEnd }) {
+function Sandbox({ items, rejection, fusion, onBond, onRejectEnd }) {
   const canvasRef = useRef(null)
   const { setNodeRef, isOver } = useDroppable({ id: SANDBOX_ID })
-  const { bond, startBond } = useBondDrag(canvasRef, onBond)
+  const { bond, startBond } = useBondDrag(canvasRef, (sourceId, targetId) => {
+    const { width, height } = canvasRef.current.getBoundingClientRect()
+    onBond(sourceId, targetId, { width, height })
+  })
 
   const setRefs = (node) => {
     setNodeRef(node)
@@ -96,16 +167,23 @@ function Sandbox({ items, rejection, onBond, onRejectEnd }) {
   return (
     <section ref={setRefs} className={className} aria-label="Platno za sestavljanje atomov">
       {items.length === 0 && <p className="sandbox-hint">Sem povleci atome</p>}
-      {items.map((item) => (
-        <PlacedItem
-          key={item.id}
-          {...item}
-          bondSourceAtom={bond?.sourceId === item.id ? bond.sourceAtom : null}
-          nudge={nudgeFor(item)}
-          onBondStart={startBond}
-          onRejectEnd={onRejectEnd}
-        />
+      {fusion?.ghosts.map((ghost) => (
+        <FusionGhost key={`${fusion.key}-${ghost.id}`} {...ghost} />
       ))}
+      {items.map((item) => {
+        const appear = fusion?.appearing.get(item.id)
+        return (
+          <PlacedItem
+            key={item.id}
+            {...item}
+            bondSourceAtom={bond?.sourceId === item.id ? bond.sourceAtom : null}
+            nudge={nudgeFor(item)}
+            appear={appear && { ...appear, ionizing: fusion.ionizing }}
+            onBondStart={startBond}
+            onRejectEnd={onRejectEnd}
+          />
+        )
+      })}
       {bond && <BondPreview from={bond.from} to={bond.to} />}
     </section>
   )
