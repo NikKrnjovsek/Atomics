@@ -59,6 +59,8 @@ function SandboxPage() {
     const handleDragStart = ({ active }) => {
         const { substanceId, canvasId } = active.data.current
         setDragged({ substanceId, fromPalette: !canvasId })
+        // Premik prestavi element na konec seznama in brskalnik bi animacije nastanka zagnal znova.
+        if (canvasId) setLastBond(null)
     }
 
     const handleDragEnd = (event) => {
