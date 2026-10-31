@@ -95,9 +95,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
-  height: 72px;
-  padding: 0;
+  gap: 6px;
+  min-height: 92px;
+  padding: 10px 4px;
   border-radius: 10px;
   background-color: var(--color-surface);
   border: 2px solid var(--color-border);
@@ -105,12 +105,6 @@
   font-family: inherit;
   cursor: grab;
   touch-action: none;
-}
-
-.atom-tile__symbol {
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1;
 }
 
 .atom-tile__name {
@@ -149,8 +143,10 @@
   cursor: not-allowed;
 }
 
-.atom-tile--locked .atom-tile__symbol {
-  color: var(--color-text-subtle);
+/* Zaklenjen atom: krog v nevtralno sivi (brez barve elementa), kot neznan atom na platnu. */
+.atom-tile--locked .atom {
+  background-color: var(--atom-unknown);
+  box-shadow: none;
 }
 
 .atom-tile__lock {
@@ -212,8 +208,29 @@
   border-radius: 999px;
   border: 2px solid var(--color-border);
   background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: inherit;
   font-size: 0.8rem;
   font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.discovered-pill:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.discovered-pill:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .discovered-pill {
+    transition: none;
+  }
 }
 
 /* --- Namig na dnu --- */

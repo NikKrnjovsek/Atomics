@@ -1,5 +1,6 @@
 import { useDraggable, useDroppable } from '@dnd-kit/core'
 import atomTypes from '../data/atoms.json'
+import Atom from './Atom.jsx'
 import './Sidebar.css'
 
 export const SIDEBAR_ID = 'sidebar'
@@ -38,7 +39,8 @@ function AtomTile({ symbol, name, group }) {
       {...listeners}
       {...attributes}
     >
-      <span className="atom-tile__symbol">{symbol}</span>
+      {/* Enak barvni krog kot na platnu*/}
+      <Atom symbol={symbol} />
       <span className="atom-tile__name">{name}</span>
     </button>
   )
@@ -51,14 +53,15 @@ function LockedTile({ symbol, name }) {
       aria-label={`${capitalize(name)} – zaklenjeno`}
     >
       <LockIcon />
-      <span className="atom-tile__symbol">{symbol}</span>
+      {/* Zaklenjen atom: sivi krog brez barve elementa */}
+      <div className="atom atom--locked">{symbol}</div>
     </div>
   )
 }
 
-function Sidebar({ inventory = [], discovered = [] }) {
+function Sidebar({ inventory = [], discovered = [], onSelect }) {
   const { setNodeRef, isOver, active } = useDroppable({ id: SIDEBAR_ID })
-  // Odstranimo lahko samo atome s platna, ne tistih, ki jih vlečemo iz palete.
+
   const isRemoving = isOver && Boolean(active?.data.current?.canvasId)
 
   return (
@@ -106,8 +109,15 @@ function Sidebar({ inventory = [], discovered = [] }) {
         ) : (
           <ul className="discovered-list">
             {discovered.map((item, i) => (
-              <li key={item.id ?? item.formula ?? i} className="discovered-pill">
-                {item.formula ?? item.label ?? item}
+              <li key={item.id ?? item.formula ?? i}>
+                <button
+                  type="button"
+                  className="discovered-pill"
+                  onClick={() => onSelect?.(item)}
+                  aria-label={`${item.name ?? item.formula ?? item} – podrobnosti`}
+                >
+                  {item.formula ?? item.label ?? item}
+                </button>
               </li>
             ))}
           </ul>
