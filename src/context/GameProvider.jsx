@@ -37,6 +37,7 @@ function GameProvider({ children, initialState }) {
         dispatch({ type: ActionTypes.COMBINE, sourceId, targetId, bounds, at: Date.now() }),
       dismissResult: () => dispatch({ type: ActionTypes.DISMISS_RESULT }),
       unlockAtom: (symbol) => dispatch({ type: ActionTypes.UNLOCK_ATOM, symbol }),
+      setUnlockAll: (value) => dispatch({ type: ActionTypes.SET_UNLOCK_ALL, value }),
       reset: () => dispatch({ type: ActionTypes.RESET }),
     }
 

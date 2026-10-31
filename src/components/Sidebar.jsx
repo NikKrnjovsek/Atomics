@@ -59,7 +59,7 @@ function LockedTile({ symbol, name }) {
   )
 }
 
-function Sidebar({ inventory = [], discovered = [], onSelect }) {
+function Sidebar({ inventory = [], discovered = [], onSelect, allUnlocked = false, onToggleUnlockAll }) {
   const { setNodeRef, isOver, active } = useDroppable({ id: SIDEBAR_ID })
 
   const isRemoving = isOver && Boolean(active?.data.current?.canvasId)
@@ -74,10 +74,22 @@ function Sidebar({ inventory = [], discovered = [], onSelect }) {
       </div>
 
       <section className="sidebar-section">
-        <h2 className="sidebar-heading">Atomi</h2>
+        <div className="sidebar-section__head">
+          <h2 className="sidebar-heading">Atomi</h2>
+          {/* Toggle odkleni vse atome */}
+          <label className="sidebar-toggle" title="Odkleni vse atome">
+            <input
+              type="checkbox"
+              checked={allUnlocked}
+              onChange={(event) => onToggleUnlockAll?.(event.target.checked)}
+              aria-label="Odkleni vse atome"
+            />
+            <span className="sidebar-toggle__track" aria-hidden="true" />
+          </label>
+        </div>
         <div className="atom-grid">
           {atomTypes.map((atom) =>
-            inventory.includes(atom.symbol) ? (
+            allUnlocked || inventory.includes(atom.symbol) ? (
               <AtomTile key={atom.symbol} {...atom} />
             ) : (
               <LockedTile key={atom.symbol} {...atom} />
