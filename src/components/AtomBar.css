@@ -41,13 +41,6 @@
   touch-action: none;
 }
 
-.atom-chip--substance {
-  font-size: 0.95rem;
-  padding: 0 6px;
-  width: auto;
-  min-width: 54px;
-}
-
 .atom-chip--kovina {
   background-color: var(--color-kovina);
 }

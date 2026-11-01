@@ -11,9 +11,29 @@
   transition: border-color 0.15s, color 0.15s, background-color 0.15s;
 }
 
+.trash-island__icon {
+  display: inline-flex;
+  transform-origin: 50% 70%;
+}
+
 .trash-island:focus-visible {
   outline: 3px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+/* Med vlečenjem katerega koli elementa se ikona koša rahlo trese. */
+.trash-island--shaking .trash-island__icon {
+  animation: trash-shake 0.5s ease-in-out infinite;
+}
+
+@keyframes trash-shake {
+  0%,
+  100% {
+    transform: rotate(-7deg);
+  }
+  50% {
+    transform: rotate(7deg);
+  }
 }
 
 /* Poudarek, ko nad košem vlečemo element s platna. */
@@ -26,5 +46,9 @@
 @media (prefers-reduced-motion: reduce) {
   .trash-island {
     transition: none;
+  }
+
+  .trash-island--shaking .trash-island__icon {
+    animation: none;
   }
 }

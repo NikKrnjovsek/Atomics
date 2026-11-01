@@ -40,31 +40,10 @@ function LockedChip({ symbol, name }) {
   )
 }
 
-// Odkrita snov (npr. H₂O) – ista draggable logika kot atomi, da jo je mogoče vleči na platno.
-function SubstanceChip({ substance }) {
-  const { setNodeRef, listeners, attributes } = useDraggable({
-    id: `palette-${substance.id}`,
-    data: { substanceId: substance.id },
-  })
-
-  return (
-    <button
-      type="button"
-      ref={setNodeRef}
-      className="atom-chip atom-chip--substance"
-      title={substance.name}
-      aria-label={substance.name}
-      {...listeners}
-      {...attributes}
-    >
-      {substance.formula ?? substance.id}
-    </button>
-  )
-}
-
-// Plavajoči otok z atomi na vrhu zaslona.
-// inventory – odklenjene snovi; discovered – odkrite snovi (za ločilno črto); allUnlocked – toggle.
-function AtomBar({ inventory = [], discovered = [], allUnlocked = false, onToggleUnlockAll }) {
+// Island z atomi na vrhu zaslona – prikazuje SAMO atome.
+// Odkrite snovi so zdaj v laboratorijskem dnevniku (JournalButton), ne več tukaj.
+// inventory – odklenjeni atomi; allUnlocked – Toggle"odkleni vse".
+function AtomBar({ inventory = [], allUnlocked = false, onToggleUnlockAll }) {
   return (
     <div className="island atom-bar">
       <div className="atom-bar__row">
@@ -76,17 +55,6 @@ function AtomBar({ inventory = [], discovered = [], allUnlocked = false, onToggl
           ),
         )}
       </div>
-
-      {discovered.length > 0 && (
-        <>
-          <span className="atom-bar__divider" aria-hidden="true" />
-          <div className="atom-bar__row">
-            {discovered.map((substance) => (
-              <SubstanceChip key={substance.id} substance={substance} />
-            ))}
-          </div>
-        </>
-      )}
 
       {/* Toggle "odkleni vse atome" – ohranjen, ker odklepanje po stopnjah še ni implementirano. */}
       <span className="atom-bar__divider" aria-hidden="true" />

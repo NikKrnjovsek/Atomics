@@ -25,20 +25,31 @@ function TrashIcon() {
   )
 }
 
-// Floating island delete gumb
-// (prek obstoječega removeFromCanvas v SandboxPage). Med vlečenjem elementa s platna se poudari.
-function TrashButton() {
+// Floating island delete gumb (prek obstoječega removeFromCanvas v SandboxPage).
+// isDragging – ali trenutno vlečemo kak element (takrat se ikona rahlo trese)
+function TrashButton({ isDragging = false }) {
   const { setNodeRef, isOver, active } = useDroppable({ id: TRASH_ID })
   const armed = isOver && Boolean(active?.data.current?.canvasId)
+
+  const className = [
+    'island',
+    'trash-island',
+    isDragging && 'trash-island--shaking',
+    armed && 'trash-island--armed',
+  ]
+    .filter(Boolean)
+    .join(' ')
 
   return (
     <button
       ref={setNodeRef}
       type="button"
-      className={`island trash-island ${armed ? 'trash-island--armed' : ''}`}
+      className={className}
       aria-label="Koš – povleci element sem za brisanje"
     >
-      <TrashIcon />
+      <span className="trash-island__icon">
+        <TrashIcon />
+      </span>
     </button>
   )
 }

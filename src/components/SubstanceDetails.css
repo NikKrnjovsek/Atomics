@@ -1,0 +1,74 @@
+.substance-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.substance-details__empty {
+  margin: 0;
+  color: var(--color-text-subtle);
+  font-size: 0.95rem;
+}
+
+.substance-details__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.substance-details__title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.substance-details__formula {
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.substance-details__name {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+}
+
+.substance-details__equation {
+  margin: 16px 0 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: var(--color-bg);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.substance-details__rows {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.substance-details__row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  align-items: start;
+  font-size: 0.9rem;
+}
+
+.substance-details__label {
+  color: var(--color-text-subtle);
+}
+
+.substance-details__value {
+  color: var(--color-text);
+}
+
+.substance-details__description {
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border-soft);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}

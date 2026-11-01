@@ -1,4 +1,5 @@
 .journal-island {
+  position: fixed;
   bottom: 24px;
   right: 24px;
   width: 60px;
@@ -21,8 +22,53 @@
   outline-offset: 2px;
 }
 
+.journal-island__icon {
+  display: inline-flex;
+  transform-origin: 50% 50%;
+}
+
+/* Enkratno tresenje ob novem odkritju (span se prek key ponovno vgradi). */
+.journal-island__icon--shake {
+  animation: journal-shake 0.5s ease-in-out;
+}
+
+@keyframes journal-shake {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-12deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-6deg);
+  }
+  80% {
+    transform: rotate(4deg);
+  }
+}
+
+/* Rdeča pika: neopaženo odkritje. */
+.journal-island__badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: var(--color-remove);
+  border: 2px solid var(--color-surface);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .journal-island {
     transition: none;
+  }
+
+  .journal-island__icon--shake {
+    animation: none;
   }
 }
