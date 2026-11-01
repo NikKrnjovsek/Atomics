@@ -14,6 +14,9 @@
   --color-kovina: #e2e2de;
   --color-remove: #e5484d;
   --color-remove-tint: rgba(229, 72, 77, 0.1);
+  /* Zavrnitev: temnejša rdeča z dovolj kontrasta za besedilo (>= 4.5:1 na beli) + blag poudarek. */
+  --color-danger: #c0392b;
+  --color-danger-bg: #fdecea;
 
   --background: #faf8f3;
   --canvas: #ffffff;
