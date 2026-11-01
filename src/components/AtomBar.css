@@ -1,0 +1,129 @@
+.atom-bar {
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: calc(100vw - 48px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+}
+
+.atom-bar__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.atom-bar__divider {
+  align-self: stretch;
+  width: 2px;
+  border-radius: 1px;
+  background-color: var(--color-border-soft);
+}
+
+/* --- Ploščica atoma --- */
+.atom-chip {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 2px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: grab;
+  touch-action: none;
+}
+
+.atom-chip--substance {
+  font-size: 0.95rem;
+  padding: 0 6px;
+  width: auto;
+  min-width: 54px;
+}
+
+.atom-chip--kovina {
+  background-color: var(--color-kovina);
+}
+
+.atom-chip--halogen {
+  border-style: dashed;
+}
+
+.atom-chip:active {
+  cursor: grabbing;
+}
+
+.atom-chip:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Zaklenjen atom */
+.atom-chip--locked {
+  background-color: var(--color-bg);
+  border: 2px dotted var(--color-locked);
+  color: var(--color-text-subtle);
+  cursor: not-allowed;
+}
+
+/* --- Preklopnik "odkleni vse" --- */
+.atom-bar__toggle {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.atom-bar__toggle input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.atom-bar__toggle-track {
+  position: relative;
+  width: 34px;
+  height: 18px;
+  border-radius: 999px;
+  background-color: var(--color-locked);
+  transition: background-color 0.15s ease;
+}
+
+.atom-bar__toggle-track::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  transition: transform 0.15s ease;
+}
+
+.atom-bar__toggle input:checked + .atom-bar__toggle-track {
+  background-color: var(--color-primary);
+}
+
+.atom-bar__toggle input:checked + .atom-bar__toggle-track::after {
+  transform: translateX(16px);
+}
+
+.atom-bar__toggle input:focus-visible + .atom-bar__toggle-track {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atom-bar__toggle-track,
+  .atom-bar__toggle-track::after {
+    transition: none;
+  }
+}

@@ -1,0 +1,30 @@
+.trash-island {
+  bottom: 24px;
+  left: 24px;
+  width: 60px;
+  height: 60px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+}
+
+.trash-island:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Poudarek, ko nad košem vlečemo element s platna. */
+.trash-island--armed {
+  border-color: var(--color-remove);
+  background-color: var(--color-remove-tint);
+  color: var(--color-remove);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trash-island {
+    transition: none;
+  }
+}

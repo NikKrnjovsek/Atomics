@@ -1,0 +1,27 @@
+/* Celozaslonski sandbox: platno zapolni ves zaslon, plavajoči otoki lebdijo nad njim. */
+.sandbox-page {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Platno (Sandbox) raztegnemo čez cel zaslon in dodamo pikčasto mrežo v ozadju.
+   Stilov komponente Sandbox ne spreminjamo – le preglasimo postavitev za novo razporeditev. */
+.sandbox-page .sandbox {
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  outline: none;
+  background-image: radial-gradient(circle, var(--color-dot-grid) 1.4px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* --- Skupni videz plavajočih otokov --- */
+.island {
+  position: fixed;
+  z-index: 5;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.08);
+}
