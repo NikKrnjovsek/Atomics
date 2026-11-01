@@ -1,11 +1,27 @@
 import { useEffect } from 'react'
-import { describeRejection } from '../logic/describeSubstance.js'
 import './Infobox.css'
 
-// genericni infoboks ob zavrnjeni kombinaciji
-// razlog za posamezno snov ŠE NI IMPLEMENTIRAN!!!
-// reactants - polje reaktantov iz getSubstance(); onClose - zapre infoboks
-function RejectionInfobox({ reactants, onClose }) {
+function AlertIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M15 9l-6 6M9 9l6 6" />
+    </svg>
+  )
+}
+
+// Generični infoboks ob zavrnjeni kombinaciji – isti otok kot uspeh, z rdečimi poudarki.
+// Props reactants (in kasneje reason) se še NE prikazujeta, a ju SandboxPage še naprej
+// podaja – ostajata za kasnejšo razlago posameznega para. onClose – zapre infoboks.
+function RejectionInfobox({ onClose }) {
   useEffect(() => {
     const onKey = (event) => {
       if (event.key === 'Escape') onClose()
@@ -14,36 +30,26 @@ function RejectionInfobox({ reactants, onClose }) {
     return () => window.removeEventListener('keydown', onKey)
   }, [onClose])
 
-  const description = describeRejection(reactants)
-  if (!description) return null
-
   return (
-    <div className="infobox-overlay" onClick={onClose}>
+    <div className="infobox-anchor">
       <section
         className="infobox infobox--rejection"
-        role="dialog"
-        aria-modal="true"
+        role="status"
+        aria-live="polite"
         aria-label="Kombinacija ne deluje"
-        onClick={(event) => event.stopPropagation()}
       >
         <header className="infobox-head">
-          <span className="infobox-eyebrow">Ne gre skupaj</span>
+          <span className="infobox-eyebrow">
+            <AlertIcon />
+            Ne gre skupaj
+          </span>
           <button type="button" className="infobox-close" onClick={onClose} aria-label="Zapri">
             ×
           </button>
         </header>
 
-        <p className="infobox-reject-formula">{description.formula}</p>
-
-        <p className="infobox-reject-lead">Ti dve snovi se ne povežeta v novo molekulo.</p>
-        <p className="infobox-description">
-          V naravi se povežejo le določene kombinacije atomov in molekul. To še ni ena izmed
-          njih – izberi drugo snov in poskusi znova.
-        </p>
-
-        <button type="button" className="infobox-cta" onClick={onClose}>
-          Poskusi znova
-        </button>
+        <p className="infobox-reject-title">Te snovi se ne povežeta</p>
+        <p className="infobox-reject-text">Poskusi z drugo kombinacijo atomov.</p>
       </section>
     </div>
   )

@@ -185,7 +185,6 @@ function SandboxPage() {
                 <Infobox
                     substance={discovery}
                     variant="discovery"
-                    equation={lastResult.equation}
                     onClose={dismissResult}
                 />
             )}
