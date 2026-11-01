@@ -19,16 +19,24 @@ function BookIcon() {
   )
 }
 
-// TODO: tu se bo kasneje odprl laboratorijski dnevnik (med drugim detail infoboks snovi).
-function JournalButton() {
+// Odpre laboratorijski dnevnik (Journal). Ob novem odkritju se enkrat zatrese
+// in dobi rdečo piko (hasUnseen); pika/tresenje sta UI stanje v SandboxPage.
+// shakeKey se poveča ob vsakem novem odkritju – prek key sproži animacijo znova.
+function JournalButton({ onClick, hasUnseen = false, shakeKey = 0 }) {
   return (
     <button
       type="button"
       className="island journal-island"
-      aria-label="Laboratorijski dnevnik"
-      onClick={() => { }}
+      aria-label={hasUnseen ? 'Laboratorijski dnevnik – novo odkritje' : 'Laboratorijski dnevnik'}
+      onClick={onClick}
     >
-      <BookIcon />
+      <span
+        key={shakeKey}
+        className={`journal-island__icon ${hasUnseen ? 'journal-island__icon--shake' : ''}`}
+      >
+        <BookIcon />
+      </span>
+      {hasUnseen && <span className="journal-island__badge" aria-hidden="true" />}
     </button>
   )
 }

@@ -7,6 +7,7 @@ import RejectionInfobox from '../components/RejectionInfobox.jsx'
 import AtomBar from '../components/AtomBar.jsx'
 import TrashButton, { TRASH_ID } from '../components/TrashButton.jsx'
 import JournalButton from '../components/JournalButton.jsx'
+import Journal from '../components/Journal.jsx'
 import ProgressBar from '../components/ProgressBar.jsx'
 import Sandbox, { SANDBOX_ID } from '../components/Sandbox.jsx'
 import { useGame } from '../context/useGame.js'
@@ -40,6 +41,7 @@ function SandboxPage() {
         canvas,
         inventory,
         discoveredSubstances,
+        discoveries,
         lastResult,
         allUnlocked,
         addToCanvas,
@@ -47,6 +49,7 @@ function SandboxPage() {
         removeFromCanvas,
         combineOnCanvas,
         getSubstance,
+        isFragment,
         dismissResult,
         setUnlockAll,
     } = useGame()
@@ -61,10 +64,38 @@ function SandboxPage() {
 
     const [dragged, setDragged] = useState(null)
     const [lastBond, setLastBond] = useState(null)
-    // INFOBOX DETAIL: snov za podroben prikaz. Prej ga je odpiral Sidebar (onSelect), ki je odstranjen;
-    // zaenkrat ostaja NEPOVEZAN (nič ne nastavi detailSubstance) – kasneje ga bo odprl
-    // Laboratorijski dnevnik (JournalButton). Koda infoboksa spodaj ISTA pred odstranitvijo Sidebarja.
-    const [detailSubstance, setDetailSubstance] = useState(null)
+
+    // LABORATORIJSKI DNEVNIK – samo UI stanje (ne v reducerju):
+    // *journalOpen        – ali je dnevnik odprt
+    // *hasUnseenDiscovery – rdeča pika na gumbu
+    // *newIds             – snovi, označene "novo", dokler jih ne izberemo
+    // *journalShake       – poveča ob vsakem odkritju, da gumb znova zatrese
+    const [journalOpen, setJournalOpen] = useState(false)
+    const [hasUnseenDiscovery, setHasUnseenDiscovery] = useState(false)
+    const [newIds, setNewIds] = useState([])
+    const [journalShake, setJournalShake] = useState(0)
+    const [seenResult, setSeenResult] = useState(null)
+
+    // Ob vsakem novem izidu preverimo, ali je odkritje nove snovi (brez fragmentov – ti niso
+    // v dnevniku). Če je, vklopi piko, zatrese gumb in doda oznako "novo".
+    // Prilagajanje stanja med izrisom (ne v efektu)
+    if (lastResult !== seenResult) {
+        setSeenResult(lastResult)
+        if (lastResult?.type === 'discovery') {
+            const fresh = (lastResult.newDiscoveries ?? []).filter((id) => !isFragment(id))
+            if (fresh.length > 0) {
+                setHasUnseenDiscovery(true)
+                setNewIds((prev) => [...new Set([...prev, ...fresh])])
+                setJournalShake((count) => count + 1)
+            }
+        }
+    }
+
+    const openJournal = () => {
+        setJournalOpen(true)
+        setHasUnseenDiscovery(false)
+    }
+    const markSeen = (id) => setNewIds((prev) => prev.filter((seen) => seen !== id))
 
     const handleBond = (sourceId, targetId, bounds) => {
         const reactants = [sourceId, targetId].map((id) => canvas.find((item) => item.id === id))
@@ -129,13 +160,16 @@ function SandboxPage() {
                     {/* Floating islands nad platnom */}
                     <AtomBar
                         inventory={inventory}
-                        discovered={discoveredSubstances}
                         allUnlocked={allUnlocked}
                         onToggleUnlockAll={setUnlockAll}
                     />
-                    <TrashButton />
+                    <TrashButton isDragging={dragged !== null} />
                     <ProgressBar />
-                    <JournalButton />
+                    <JournalButton
+                        onClick={openJournal}
+                        hasUnseen={hasUnseenDiscovery}
+                        shakeKey={journalShake}
+                    />
                 </div>
 
                 <DragOverlay modifiers={overlayModifiers} dropAnimation={null}>
@@ -160,11 +194,13 @@ function SandboxPage() {
                 <RejectionInfobox reactants={rejectedReactants} onClose={dismissResult} />
             )}
 
-            {detailSubstance && (
-                <Infobox
-                    substance={detailSubstance}
-                    variant="detail"
-                    onClose={() => setDetailSubstance(null)}
+            {journalOpen && (
+                <Journal
+                    substances={discoveredSubstances}
+                    discoveries={discoveries}
+                    newIds={newIds}
+                    onClose={() => setJournalOpen(false)}
+                    onSeen={markSeen}
                 />
             )}
         </>

@@ -1,0 +1,12 @@
+.molecule-preview {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Molekula je izrisana okoli svojega središča (0,0), zato jo zasidramo na sredino okvira. */
+.molecule-preview__inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+}
