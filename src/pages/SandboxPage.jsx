@@ -4,11 +4,15 @@ import { snapCenterToCursor } from '@dnd-kit/modifiers'
 import Molecule from '../components/Molecule.jsx'
 import Infobox from '../components/Infobox.jsx'
 import RejectionInfobox from '../components/RejectionInfobox.jsx'
-import Sidebar, { SIDEBAR_ID } from '../components/Sidebar.jsx'
+import AtomBar from '../components/AtomBar.jsx'
+import TrashButton, { TRASH_ID } from '../components/TrashButton.jsx'
+import JournalButton from '../components/JournalButton.jsx'
+import ProgressBar from '../components/ProgressBar.jsx'
 import Sandbox, { SANDBOX_ID } from '../components/Sandbox.jsx'
 import { useGame } from '../context/useGame.js'
 import { dropPosition } from '../logic/dropPosition.js'
 import { atoms } from '../logic/gameData.js'
+import './SandboxPage.css'
 
 const metalSymbols = new Set(atoms.filter((atom) => atom.group === 'kovina').map((atom) => atom.symbol))
 
@@ -57,7 +61,9 @@ function SandboxPage() {
 
     const [dragged, setDragged] = useState(null)
     const [lastBond, setLastBond] = useState(null)
-    // INFOBOX DETAIL: snov, izbrana klikom v stranski vrstici (null = zaprto)
+    // INFOBOX DETAIL: snov za podroben prikaz. Prej ga je odpiral Sidebar (onSelect), ki je odstranjen;
+    // zaenkrat ostaja NEPOVEZAN (nič ne nastavi detailSubstance) – kasneje ga bo odprl
+    // Laboratorijski dnevnik (JournalButton). Koda infoboksa spodaj ISTA pred odstranitvijo Sidebarja.
     const [detailSubstance, setDetailSubstance] = useState(null)
 
     const handleBond = (sourceId, targetId, bounds) => {
@@ -85,7 +91,7 @@ function SandboxPage() {
         const { substanceId, canvasId, x, y } = event.active.data.current
         const target = event.over?.id
 
-        if (target === SIDEBAR_ID) {
+        if (target === TRASH_ID) {
             if (canvasId) removeFromCanvas(canvasId)
             return
         }
@@ -110,24 +116,26 @@ function SandboxPage() {
                 onDragEnd={handleDragEnd}
                 onDragCancel={() => setDragged(null)}
             >
-                <div className="sandbox-layout">
-                    <Sidebar
+                <div className="sandbox-page">
+                    {/* Platno čez cel zaslon */}
+                    <Sandbox
+                        items={canvas}
+                        rejection={rejection}
+                        fusion={fusion}
+                        onBond={handleBond}
+                        onRejectEnd={() => setLastBond(null)}
+                    />
+
+                    {/* Floating islands nad platnom */}
+                    <AtomBar
                         inventory={inventory}
                         discovered={discoveredSubstances}
-                        onSelect={setDetailSubstance}
                         allUnlocked={allUnlocked}
                         onToggleUnlockAll={setUnlockAll}
                     />
-
-                    <main className="sandbox-canvas">
-                        <Sandbox
-                            items={canvas}
-                            rejection={rejection}
-                            fusion={fusion}
-                            onBond={handleBond}
-                            onRejectEnd={() => setLastBond(null)}
-                        />
-                    </main>
+                    <TrashButton />
+                    <ProgressBar />
+                    <JournalButton />
                 </div>
 
                 <DragOverlay modifiers={overlayModifiers} dropAnimation={null}>

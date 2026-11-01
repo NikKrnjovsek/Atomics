@@ -1,0 +1,28 @@
+.journal-island {
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.journal-island:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.journal-island:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journal-island {
+    transition: none;
+  }
+}
