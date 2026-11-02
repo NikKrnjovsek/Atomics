@@ -1,0 +1,217 @@
+/* Besedilo levo, slika in dejstva desno. */
+.featured-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 32px;
+}
+
+/* V dnevniku je prostora za en sam stolpec. */
+.featured-content--stacked {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+.featured__main,
+.featured__side {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.featured__intro {
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+.featured__heading {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.featured__text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+/* Postopek nastanka: oštevilčeni koraki, povezani z navpično črto. */
+.featured__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.featured__step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 14px;
+}
+
+.featured__step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 34px;
+  bottom: -16px;
+  width: 2px;
+  background-color: var(--color-border-soft);
+}
+
+.featured__step-number {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  font-weight: 700;
+}
+
+.featured__step-title {
+  margin: 4px 0 4px;
+  font-size: 1rem;
+}
+
+.featured__equation {
+  display: inline-block;
+  margin: 8px 0 0;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background-color: var(--color-bg);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+/* Krog snovi: koraki s puščicami, zadnji se vrne na začetek. */
+.featured__cycle {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.featured__cycle li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.featured__cycle li:not(:first-child)::before {
+  content: '→';
+  color: var(--color-text-subtle);
+}
+
+.featured__cycle li:last-child::after {
+  content: '↺';
+  font-size: 1.2rem;
+  color: var(--color-primary);
+}
+
+.featured__cycle span {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--color-primary) 9%, var(--color-surface));
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.featured__figure {
+  margin: 0;
+  border: 2px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+.featured__figure img {
+  display: block;
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  background-color: #111;
+}
+
+.featured__figure figcaption {
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+.featured__facts {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.featured__fact {
+  padding: 10px 12px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+}
+
+.featured__fact dt {
+  font-size: 0.75rem;
+  color: var(--color-text-subtle);
+}
+
+.featured__fact dd {
+  margin: 2px 0 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.featured__trivia {
+  padding: 16px 18px;
+  border-radius: 14px;
+  background-color: color-mix(in srgb, var(--color-primary) 7%, var(--color-surface));
+}
+
+.featured__trivia ul {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.featured__sources {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+.featured__sources a {
+  color: var(--color-primary);
+}
+
+.featured__license {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: var(--color-text-subtle);
+}
+
+@media (max-width: 760px) {
+  .featured-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -5,6 +5,7 @@
 //   explainRejection('N2', 'H2') // → 'Trojna vez v N₂ je zelo močna ...'
 import atoms from '../data/atoms.json'
 import molecules from '../data/molecules.json'
+import featured from '../data/featured.json'
 import { createCombiner } from './combine.js'
 
 export const {
@@ -26,3 +27,6 @@ export const {
 export { atoms }
 // Števec napredka (x/19): brez fragmentov in dodatnih snovi, kot je SO₃.
 export const TOTAL_SUBSTANCES = allSubstances.filter((s) => countsInProgress(s.id)).length
+
+// Ključne snovi (ključi v featured.json) ob odkritju odprejo velik, opisni infoboks.
+export const getFeatured = (id) => featured[id] ?? null

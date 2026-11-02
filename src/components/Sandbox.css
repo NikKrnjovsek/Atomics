@@ -30,6 +30,11 @@
   visibility: hidden;
 }
 
+/* Ključna snov je odletela v velik infoboks (FeaturedInfobox). */
+body:has(.featured-overlay) .placed-item--lifted {
+  visibility: hidden;
+}
+
 .placed-item__body {
   position: relative;
 }
