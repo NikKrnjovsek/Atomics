@@ -66,6 +66,34 @@
   cursor: not-allowed;
 }
 
+/* Pravkar odklenjen atom: kratek poskok + modro svetenje (≤ 1 s), da ga učenec opazi. */
+.atom-chip--new {
+  animation: atom-unlock 0.8s ease;
+}
+
+@keyframes atom-unlock {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-primary) 55%, transparent);
+  }
+  30% {
+    transform: scale(1.18) translateY(-4px);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+  60% {
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-primary) 0%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atom-chip--new {
+    animation: none;
+  }
+}
+
 /* --- Preklopnik "odkleni vse" --- */
 .atom-bar__toggle {
   display: inline-flex;
