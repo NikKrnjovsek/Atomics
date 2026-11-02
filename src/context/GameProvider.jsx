@@ -1,4 +1,4 @@
-import { useMemo, useReducer } from 'react'
+import { useEffect, useMemo, useReducer } from 'react'
 import {
   atoms,
   combine,
@@ -8,6 +8,7 @@ import {
   isFragment,
   TOTAL_SUBSTANCES,
 } from '../logic/gameData.js'
+import { clearState, loadState, saveState } from '../logic/persistence.js'
 import { placeProducts } from '../logic/placeProducts.js'
 import { moleculeExtent } from '../logic/structures.js'
 import { GameContext } from './GameContext.js'
@@ -21,10 +22,34 @@ const gameReducer = createGameReducer({
   placeProducts: (params) => placeProducts({ ...params, extentOf: moleculeExtent }),
 })
 
+// localStorage je lahko nedosegljiv (zasebni način, testi brez brskalnika).
+function getStorage() {
+  try {
+    return typeof window !== 'undefined' ? window.localStorage : undefined
+  } catch {
+    return undefined
+  }
+}
+
+const persistenceDeps = {
+  initialState: createInitialState(atoms),
+  exists: (id) => getSubstance(id) != null,
+  isFragment,
+}
+
+// Ob zagonu nadaljujemo shranjeno igro (US8), sicer začnemo znova.
+function initState(initialState) {
+  return initialState ?? loadState(getStorage(), persistenceDeps) ?? createInitialState(atoms)
+}
+
 // Globalno stanje igre: atomi na platnu, inventar in odkritja.
-// Shranjevanje v localStorage (US8) dodamo v sprintu 2; stanje je že serializabilno.
+// Stanje se ob vsaki spremembi shrani v localStorage, zato se ohrani po osvežitvi strani.
 function GameProvider({ children, initialState }) {
-  const [state, dispatch] = useReducer(gameReducer, initialState ?? createInitialState(atoms))
+  const [state, dispatch] = useReducer(gameReducer, initialState, initState)
+
+  useEffect(() => {
+    saveState(getStorage(), state)
+  }, [state])
 
   const value = useMemo(() => {
     const actions = {
@@ -38,7 +63,11 @@ function GameProvider({ children, initialState }) {
       dismissResult: () => dispatch({ type: ActionTypes.DISMISS_RESULT }),
       unlockAtom: (symbol) => dispatch({ type: ActionTypes.UNLOCK_ATOM, symbol }),
       setUnlockAll: (value) => dispatch({ type: ActionTypes.SET_UNLOCK_ALL, value }),
-      reset: () => dispatch({ type: ActionTypes.RESET }),
+      // Začni znova: izbriše shranjen napredek in vrne igro na začetek.
+      reset: () => {
+        clearState(getStorage())
+        dispatch({ type: ActionTypes.RESET })
+      },
     }
 
     return {

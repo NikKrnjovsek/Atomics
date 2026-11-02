@@ -6,8 +6,10 @@ import './Journal.css'
 // Laboratorijski dnevnik: celozaslonski overlay v obliki odprte knjige.
 // substances – odkrite snovi (brez fragmentov); discoveries – [{ id, discoveredAt }] za čas odkritja;
 // newIds – ID-ji, označeni "novo", dokler jih uporabnik ne izbere; onSeen(id) odstrani oznako.
-function Journal({ substances = [], discoveries = [], newIds = [], onClose, onSeen }) {
+// onReset – izbriše ves napredek (gumb "Začni znova" s potrditvijo v dveh korakih).
+function Journal({ substances = [], discoveries = [], newIds = [], onClose, onSeen, onReset }) {
   const [selectedId, setSelectedId] = useState(null)
+  const [confirmingReset, setConfirmingReset] = useState(false)
   const closeRef = useRef(null)
 
   const discoveredAtById = new Map(discoveries.map((d) => [d.id, d.discoveredAt]))
@@ -77,6 +79,26 @@ function Journal({ substances = [], discoveries = [], newIds = [], onClose, onSe
                 </li>
               ))}
             </ul>
+          )}
+
+          {onReset && (
+            <div className="journal__reset">
+              {confirmingReset ? (
+                <>
+                  <span className="journal__reset-question">Res izbrišem ves napredek?</span>
+                  <button type="button" className="journal__reset-button journal__reset-button--danger" onClick={onReset}>
+                    Da, začni znova
+                  </button>
+                  <button type="button" className="journal__reset-button" onClick={() => setConfirmingReset(false)}>
+                    Prekliči
+                  </button>
+                </>
+              ) : (
+                <button type="button" className="journal__reset-button" onClick={() => setConfirmingReset(true)}>
+                  Začni znova
+                </button>
+              )}
+            </div>
           )}
         </div>
 
