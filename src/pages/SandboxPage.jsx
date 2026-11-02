@@ -228,7 +228,11 @@ function SandboxPage() {
             )}
 
             {rejectedReactants && (
-                <RejectionInfobox reactants={rejectedReactants} onClose={dismissResult} />
+                <RejectionInfobox
+                    reactants={rejectedReactants}
+                    reason={lastResult.reason}
+                    onClose={dismissResult}
+                />
             )}
 
             {journalOpen && (

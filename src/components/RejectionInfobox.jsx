@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { describeRejection } from '../logic/describeSubstance.js'
 import './Infobox.css'
 
 function AlertIcon() {
@@ -18,10 +19,15 @@ function AlertIcon() {
   )
 }
 
-// Generični infoboks ob zavrnjeni kombinaciji – isti otok kot uspeh, z rdečimi poudarki.
-// Props reactants (in kasneje reason) se še NE prikazujeta, a ju SandboxPage še naprej
-// podaja – ostajata za kasnejšo razlago posameznega para. onClose – zapre infoboks.
-function RejectionInfobox({ onClose }) {
+// Infoboks ob zavrnjeni kombinaciji – isti otok kot uspeh, z rdečimi poudarki.
+// reactants – snovi, ki ju je učenec poskušal združiti (prikaz "H₂ + O₂");
+// reason – razlaga za ta par iz molecules.json (explainRejection), npr. zakaj N₂ + H₂ ne reagira;
+// onClose – zapre infoboks.
+const FALLBACK_REASON = 'Poskusi z drugo kombinacijo atomov.'
+
+function RejectionInfobox({ reactants, reason, onClose }) {
+  const attempt = describeRejection(reactants)
+
   useEffect(() => {
     const onKey = (event) => {
       if (event.key === 'Escape') onClose()
@@ -49,7 +55,12 @@ function RejectionInfobox({ onClose }) {
         </header>
 
         <p className="infobox-reject-title">Te snovi se ne povežeta</p>
-        <p className="infobox-reject-text">Poskusi z drugo kombinacijo atomov.</p>
+        {attempt && (
+          <p className="infobox-reject-formula" aria-label={attempt.names.join(' in ')}>
+            {attempt.formula}
+          </p>
+        )}
+        <p className="infobox-reject-text">{reason || FALLBACK_REASON}</p>
       </section>
     </div>
   )
