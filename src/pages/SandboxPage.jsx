@@ -3,6 +3,7 @@ import { DndContext, DragOverlay, pointerWithin } from '@dnd-kit/core'
 import { snapCenterToCursor } from '@dnd-kit/modifiers'
 import Molecule from '../components/Molecule.jsx'
 import Infobox from '../components/Infobox.jsx'
+import FeaturedInfobox from '../components/FeaturedInfobox.jsx'
 import RejectionInfobox from '../components/RejectionInfobox.jsx'
 import AtomBar from '../components/AtomBar.jsx'
 import TrashButton, { TRASH_ID } from '../components/TrashButton.jsx'
@@ -12,7 +13,7 @@ import ProgressBar from '../components/ProgressBar.jsx'
 import Sandbox, { SANDBOX_ID } from '../components/Sandbox.jsx'
 import { useGame } from '../context/useGame.js'
 import { dropPosition } from '../logic/dropPosition.js'
-import { atoms } from '../logic/gameData.js'
+import { atoms, getFeatured } from '../logic/gameData.js'
 import './SandboxPage.css'
 
 const metalSymbols = new Set(atoms.filter((atom) => atom.group === 'kovina').map((atom) => atom.symbol))
@@ -57,6 +58,8 @@ function SandboxPage() {
     // INFOBOX MAIN
     const discovery =
         lastResult?.type === 'discovery' ? getSubstance(lastResult.products[0]) : null
+    const featured = discovery && getFeatured(discovery.id)
+    const liftedId = featured ? lastResult.createdIds[0] : null
 
     // REJECTION INFOBOX
     const rejectedReactants =
@@ -153,6 +156,7 @@ function SandboxPage() {
                         items={canvas}
                         rejection={rejection}
                         fusion={fusion}
+                        liftedId={liftedId}
                         onBond={handleBond}
                         onRejectEnd={() => setLastBond(null)}
                     />
@@ -181,7 +185,17 @@ function SandboxPage() {
                 </DragOverlay>
             </DndContext>
 
-            {discovery && (
+            {featured && (
+                <FeaturedInfobox
+                    key={liftedId}
+                    substance={discovery}
+                    featured={featured}
+                    originId={liftedId}
+                    onClose={dismissResult}
+                />
+            )}
+
+            {discovery && !featured && (
                 <Infobox
                     substance={discovery}
                     variant="discovery"

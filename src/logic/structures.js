@@ -33,3 +33,8 @@ export function moleculeExtent(substanceId) {
   const { atoms } = getStructure(substanceId)
   return Math.max(...atoms.map((atom) => Math.hypot(atom.x, atom.y) + atom.size / 2))
 }
+
+// Pomanjšava, pri kateri se molekula prilega kvadratu size × size px (nikoli ne poveča).
+export function previewScale(substanceId, size, padding = 10) {
+  return Math.min(1, (size / 2 - padding) / moleculeExtent(substanceId))
+}

@@ -48,6 +48,7 @@ function PlacedItem({
   x,
   y,
   bondSourceAtom,
+  lifted,
   nudge,
   appear,
   onBondStart,
@@ -103,7 +104,9 @@ function PlacedItem({
   return (
     <div
       ref={setNodeRef}
-      className={`placed-item ${isDragging ? 'placed-item--dragging' : ''}`}
+      className={['placed-item', isDragging && 'placed-item--dragging', lifted && 'placed-item--lifted']
+        .filter(Boolean)
+        .join(' ')}
       style={{ left: x, top: y }}
       data-item-id={id}
       {...attributes}
@@ -141,7 +144,7 @@ function BondPreview({ from, to }) {
   )
 }
 
-function Sandbox({ items, rejection, fusion, onBond, onRejectEnd }) {
+function Sandbox({ items, rejection, fusion, liftedId, onBond, onRejectEnd }) {
   const canvasRef = useRef(null)
   const { setNodeRef, isOver } = useDroppable({ id: SANDBOX_ID })
   const { bond, startBond } = useBondDrag(canvasRef, (sourceId, targetId) => {
@@ -179,6 +182,7 @@ function Sandbox({ items, rejection, fusion, onBond, onRejectEnd }) {
             key={item.id}
             {...item}
             bondSourceAtom={bond?.sourceId === item.id ? bond.sourceAtom : null}
+            lifted={item.id === liftedId}
             nudge={nudgeFor(item)}
             appear={appear && { ...appear, ionizing: fusion.ionizing }}
             onBondStart={startBond}

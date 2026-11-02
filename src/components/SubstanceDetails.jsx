@@ -1,6 +1,7 @@
 import { describeBond, describeProperty } from '../logic/describeSubstance.js'
 import { formatEquation } from '../logic/combine.js'
-import { getSubstance, recipes } from '../logic/gameData.js'
+import { getFeatured, getSubstance, recipes } from '../logic/gameData.js'
+import FeaturedContent from './FeaturedContent.jsx'
 import MoleculePreview from './MoleculePreview.jsx'
 import './SubstanceDetails.css'
 
@@ -40,15 +41,37 @@ function SubstanceDetails({ substance, discoveredAt }) {
     : null
   const madeFrom = recipe ? recipe.reactants.map((id) => getSubstance(id)?.formula ?? id).join(' + ') : null
 
+  const featured = getFeatured(substance.id)
+  const discoveredLabel = discoveredAt ? new Date(discoveredAt).toLocaleString('sl-SI') : null
+
+  const head = (
+    <header className="substance-details__head">
+      <MoleculePreview substanceId={substance.id} size={120} />
+      <div className="substance-details__title">
+        <span className="substance-details__formula">{substance.formula}</span>
+        <span className="substance-details__name">{substance.name}</span>
+        {featured && <span className="substance-details__tagline">{featured.tagline}</span>}
+      </div>
+    </header>
+  )
+
+  // Ključne snovi pokažejo vsebino iz učbenika (enako kot velik infoboks).
+  if (featured) {
+    return (
+      <div className="substance-details">
+        {head}
+        {equation && <p className="substance-details__equation">{equation}</p>}
+        {discoveredLabel && <p className="substance-details__discovered">Odkrito {discoveredLabel}</p>}
+        <div className="substance-details__featured">
+          <FeaturedContent featured={featured} stacked />
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="substance-details">
-      <header className="substance-details__head">
-        <MoleculePreview substanceId={substance.id} size={120} />
-        <div className="substance-details__title">
-          <span className="substance-details__formula">{substance.formula}</span>
-          <span className="substance-details__name">{substance.name}</span>
-        </div>
-      </header>
+      {head}
 
       {equation && <p className="substance-details__equation">{equation}</p>}
 
@@ -60,10 +83,7 @@ function SubstanceDetails({ substance, discoveredAt }) {
         <Row label="Kje najdemo" value={substance.foundIn} />
         <Row label="Uporaba" value={substance.uses} />
         <Row label="Opomba" value={recipe?.note} />
-        <Row
-          label="Odkrito"
-          value={discoveredAt ? new Date(discoveredAt).toLocaleString('sl-SI') : null}
-        />
+        <Row label="Odkrito" value={discoveredLabel} />
       </div>
 
       {substance.description && (
