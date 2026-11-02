@@ -56,6 +56,7 @@ function SandboxPage() {
         dismissResult,
         setUnlockAll,
         unlockAtom,
+        reset,
     } = useGame()
 
     // Odklepanje atomov po stopnjah: iz odkritij izračunamo trenutno stopnjo in odklenemo atome
@@ -114,6 +115,14 @@ function SandboxPage() {
         setHasUnseenDiscovery(false)
     }
     const markSeen = (id) => setNewIds((prev) => prev.filter((seen) => seen !== id))
+
+    // Začni znova: izbriše shranjen napredek in počisti oznake dnevnika.
+    const handleReset = () => {
+        reset()
+        setNewIds([])
+        setHasUnseenDiscovery(false)
+        setJournalOpen(false)
+    }
 
     const handleBond = (sourceId, targetId, bounds) => {
         const reactants = [sourceId, targetId].map((id) => canvas.find((item) => item.id === id))
@@ -229,6 +238,7 @@ function SandboxPage() {
                     newIds={newIds}
                     onClose={() => setJournalOpen(false)}
                     onSeen={markSeen}
+                    onReset={handleReset}
                 />
             )}
         </>
