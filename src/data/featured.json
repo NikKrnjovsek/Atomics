@@ -1,0 +1,1838 @@
+{
+  "H2O": {
+    "tagline": "Spojina vodika in kisika",
+    "image": {
+      "src": "/featured/voda.jpg",
+      "alt": "Planet Zemlja iz vesolja",
+      "caption": "Voda, zrak in kamnine Zemljine skorje so viri elementov in njihovih spojin. V vodi so vezane velike količine vodika in kisika."
+    },
+    "intro": "Voda je spojina kisika in vodika. V naravi jo najdemo v vseh treh agregatnih stanjih: kot led, tekočo vodo in vodno paro. Delci vode so v vseh treh stanjih enaki – razlikujeta se le njihova razdalja in gibanje.",
+    "sections": [
+      {
+        "title": "Zgradba molekule",
+        "text": "Kisikov atom ima v zunanji lupini 6 elektronov in do polne lupine potrebuje še 2. Vsak vodikov atom prispeva en elektron v skupni elektronski par, zato se s kisikom povežeta dva vodikova atoma z dvema kovalentnima vezema. Tako vodik doseže elektronsko konfiguracijo helija, kisik pa neona."
+      },
+      {
+        "title": "Zakaj je molekula kotna",
+        "text": "Molekula vode ima dva vezna in dva nevezna elektronska para. Pari se med seboj odbijajo, nevezna najmočneje, zato potisneta vezna para bližje skupaj. Kot med vezema se zmanjša na 104° in molekula je kotne oblike."
+      },
+      {
+        "title": "Zakaj je molekula polarna",
+        "text": "Kisikov atom močneje privlači elektrone skupnih parov kot vodik. Ob kisiku je zato več negativnega naboja, ob vodikovih atomih pa več pozitivnega. Naboj v molekuli ni enakomerno razporejen, zato je voda polarna molekula."
+      },
+      {
+        "title": "Voda kot topilo",
+        "text": "Kuhinjska sol se v vodi raztopi, ker je voda polarna. Molekule vode se s pozitivnim polom približajo kloridnim ionom, z negativnim pa natrijevim, jih obdajo in izvlečejo iz kristalne mreže. Voda, ki teče po apnenčastih tleh, raztaplja kalcijeve soli in postane trda, deževnica pa je mehka."
+      }
+    ],
+    "process": {
+      "title": "Kako voda nastane",
+      "steps": [
+        {
+          "title": "Iz vodika in kisika",
+          "text": "Vodik reagira s kisikom in nastane voda. Dve molekuli vodika in ena molekula kisika dajo dve molekuli vode. Pri reakciji se sprošča toplota – je eksotermna.",
+          "equation": "2 H₂ + O₂ → 2 H₂O"
+        },
+        {
+          "title": "Pri gorenju",
+          "text": "Pri sežigu organskih snovi nastajata ogljikov dioksid in voda. Tako gori tudi metan, ki ga uporabljamo kot gospodinjski plin.",
+          "equation": "CH₄ + 2 O₂ → CO₂ + 2 H₂O"
+        },
+        {
+          "title": "Pri nevtralizaciji",
+          "text": "Pri reakciji med kislino in bazo nastaneta sol in voda. Klorovodikova kislina in natrijev hidroksid dasta natrijev klorid in vodo, raztopina pa postane nevtralna.",
+          "equation": "HCl + NaOH → NaCl + H₂O"
+        },
+        {
+          "title": "Pecilni prašek in kis",
+          "text": "Natrijev hidrogenkarbonat iz pecilnega praška reagira s kislinami. Nastanejo sol, voda in plin ogljikov dioksid, zato zmes močno peni.",
+          "equation": "CH₃COOH + NaHCO₃ → NaCH₃COO + H₂O + CO₂"
+        },
+        {
+          "title": "V kraških jamah",
+          "text": "Kapniki nastanejo, ko raztopina kalcijevega hidrogenkarbonata pronica skozi pore v skalah in pride v stik z zrakom. Poleg kalcijevega karbonata nastaneta voda in ogljikov dioksid.",
+          "equation": "Ca(HCO₃)₂ → CaCO₃ + H₂O + CO₂"
+        }
+      ]
+    },
+    "cycle": {
+      "title": "Prehodi med agregatnimi stanji",
+      "steps": [
+        "Taljenje: led → voda",
+        "Izparevanje: voda → para",
+        "Kondenzacija: para → voda",
+        "Strjevanje: voda → led"
+      ]
+    },
+    "facts": [
+      {
+        "label": "Rel. molekulska masa",
+        "value": "18"
+      },
+      {
+        "label": "Kot med vezema",
+        "value": "104°"
+      },
+      {
+        "label": "Oblika",
+        "value": "kotna"
+      },
+      {
+        "label": "Vezni / nevezni pari",
+        "value": "2 / 2"
+      },
+      {
+        "label": "Vodna para v zraku",
+        "value": "1–4 %"
+      },
+      {
+        "label": "Polarnost",
+        "value": "polarna"
+      }
+    ],
+    "didYouKnow": [
+      "Slana nastane s sublimacijo – vodna para preide neposredno v trdno stanje.",
+      "Z električnim tokom lahko vodo razgradimo na vodik in kisik (elektroliza vode).",
+      "Za rjavenje železa sta potrebna kisik in voda.",
+      "Delež vodne pare v zraku vpliva na vreme – na dež, meglo, sneg in točo."
+    ],
+    "sources": [
+      {
+        "title": "Molekula vode je polarna molekula",
+        "url": "https://eucbeniki.sio.si/kemija8/941/index4.html"
+      },
+      {
+        "title": "Agregatna stanja",
+        "url": "https://eucbeniki.sio.si/kemija8/931/index1.html"
+      },
+      {
+        "title": "Topnost kuhinjske soli in sladkorja",
+        "url": "https://eucbeniki.sio.si/kemija8/942/index2.html"
+      },
+      {
+        "title": "Uporaba zemeljskoalkalijskih kovin",
+        "url": "https://eucbeniki.sio.si/kemija8/952/index5.html"
+      },
+      {
+        "title": "Vir elementov je voda",
+        "url": "https://eucbeniki.sio.si/kemija8/948/index4.html"
+      },
+      {
+        "title": "Vodik",
+        "url": "https://eucbeniki.sio.si/kemija8/954/index5.html"
+      },
+      {
+        "title": "Kisik",
+        "url": "https://eucbeniki.sio.si/kemija8/954/index7.html"
+      },
+      {
+        "title": "Nevtralizacija: reakcija med kislino in bazo",
+        "url": "https://eucbeniki.sio.si/kemija8/1230/index3.html"
+      },
+      {
+        "title": "Kako si pomagamo pri pikih žuželk",
+        "url": "https://eucbeniki.sio.si/kemija8/1227/index3.html"
+      },
+      {
+        "title": "Povzetek: kapniki",
+        "url": "https://eucbeniki.sio.si/kemija8/947/index4.html"
+      }
+    ]
+  },
+  "CO2": {
+    "tagline": "Binarna spojina ogljika in kisika",
+    "image": {
+      "src": "/featured/ogljikov-dioksid.jpg",
+      "alt": "Izbruh ognjenika z enačbama nastanka ogljikove in žveplove kisline",
+      "caption": "Ognjeniki poleg vodne pare izbruhajo predvsem ogljikov in žveplov dioksid. Ta plina z vodo tvorita kisline, ki padajo na Zemljo kot kisli dež."
+    },
+    "intro": "Ogljikov dioksid je binarna spojina – sestavljen je iz atomov le dveh elementov, ogljika in kisika. V zraku ga je približno 0,04 %. Zelene rastline ga porabljajo pri fotosintezi, nastaja pa pri gorenju in pri številnih drugih kemijskih reakcijah.",
+    "sections": [
+      {
+        "title": "Ime in formula",
+        "text": "Spojine elementov s kisikom imenujemo oksidi, po latinskem imenu za kisik (oxygenium). Število 2 za simbolom kisika pove, da sta v molekuli dva atoma kisika, zato pred oksid dodamo grški števnik di-: ogljikov dioksid, CO₂."
+      },
+      {
+        "title": "Ogljikov dioksid in rastline",
+        "text": "Zelene rastline v listih iz vode in ogljikovega dioksida pod vplivom sončne svetlobe pridelujejo hrano – sladkorje. Kot stranski produkt pri tem v zrak izločajo kisik. Fotosinteza je endotermna reakcija: za potek potrebuje energijo."
+      },
+      {
+        "title": "V vsakdanjem življenju",
+        "text": "Gazirane pijače vsebujejo raztopljen ogljikov dioksid, delno v obliki ogljikove kisline, ki daje pijači značilen okus. Ko citronska kislina reagira z natrijevim hidrogenkarbonatom, nastaja ogljikov dioksid, ki zmes napihuje – tako kot pri vzhajanju testa za kruh."
+      },
+      {
+        "title": "Vpliv na okolje",
+        "text": "Pri izbruhih ognjenikov je v mešanici plinov poleg vodne pare predvsem ogljikov in žveplov dioksid. Ogljikovi oksidi nastajajo tudi pri zgorevanju fosilnih goriv (premog, nafta, zemeljski plin). Ti plini z vodo tvorijo kisline, ki padajo na Zemljo kot kisli dež."
+      }
+    ],
+    "process": {
+      "title": "Kako ogljikov dioksid nastane",
+      "steps": [
+        {
+          "title": "Pri gorenju ogljika",
+          "text": "Trden ogljik, na primer premog ali oglje na žaru, reagira s kisikom. Gorenje premoga je eksotermna reakcija – sprošča se toplota.",
+          "equation": "C + O₂ → CO₂"
+        },
+        {
+          "title": "Pri gorenju metana",
+          "text": "Pri sežigu organskih snovi, kot je metan v zemeljskem plinu, nastajata ogljikov dioksid in voda.",
+          "equation": "CH₄ + 2 O₂ → CO₂ + 2 H₂O"
+        },
+        {
+          "title": "Iz ogljikovega oksida",
+          "text": "Če je pri gorenju kisika premalo, namesto ogljikovega dioksida nastaja strupen ogljikov oksid. Ta s kisikom reagira naprej v ogljikov dioksid.",
+          "equation": "2 CO + O₂ → 2 CO₂"
+        },
+        {
+          "title": "Pri fermentaciji glukoze",
+          "text": "Pri fermentaciji glukoze nastajata etanol in ogljikov dioksid. Atomi se le preuredijo, zato je masa produktov enaka masi glukoze.",
+          "equation": "C₆H₁₂O₆ → 2 C₂H₅OH + 2 CO₂"
+        },
+        {
+          "title": "Pri razpadu apnenca",
+          "text": "Kalcijev karbonat pri segrevanju nad 900 °C razpade na kalcijev oksid (žgano apno) in ogljikov dioksid.",
+          "equation": "CaCO₃ → CaO + CO₂"
+        },
+        {
+          "title": "Pecilni prašek in kis",
+          "text": "Natrijev hidrogenkarbonat iz pecilnega praška reagira s kislinami. Nastanejo sol, voda in ogljikov dioksid, ki iz raztopine izhaja kot plin.",
+          "equation": "CH₃COOH + NaHCO₃ → NaCH₃COO + H₂O + CO₂"
+        },
+        {
+          "title": "V kraških jamah",
+          "text": "Ko nastajajo kapniki, kot v Postojnski jami (zrastejo približno 0,1 mm na leto), se sprošča tudi ogljikov dioksid.",
+          "equation": "Ca(HCO₃)₂ → CaCO₃ + H₂O + CO₂"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Rel. molekulska masa",
+        "value": "44"
+      },
+      {
+        "label": "Delež v zraku",
+        "value": "0,04 %"
+      },
+      {
+        "label": "Vrsta spojine",
+        "value": "binarna, oksid"
+      },
+      {
+        "label": "Atomi v molekuli",
+        "value": "1 C, 2 O"
+      },
+      {
+        "label": "Agregatno stanje",
+        "value": "plin (g)"
+      },
+      {
+        "label": "Iz 12 t premoga",
+        "value": "44 t CO₂"
+      }
+    ],
+    "didYouKnow": [
+      "V polarnih kapah na Marsu so zmrznjen ogljikov dioksid, led in prah.",
+      "Ko iz zraka pridobivajo dušik in kisik, morajo iz njega najprej odstraniti ogljikov dioksid.",
+      "Fotosinteza je endotermna reakcija, gorenje premoga pa eksotermna."
+    ],
+    "sources": [
+      {
+        "title": "Imena elementov pogosto odražajo lastnosti",
+        "url": "https://eucbeniki.sio.si/kemija8/933/index1.html"
+      },
+      {
+        "title": "Fotosinteza",
+        "url": "https://eucbeniki.sio.si/kemija8/954/index8.html"
+      },
+      {
+        "title": "Urejanje enačbe kemijske reakcije",
+        "url": "https://eucbeniki.sio.si/kemija8/947/index2.html"
+      },
+      {
+        "title": "Masa reaktantov in produktov",
+        "url": "https://eucbeniki.sio.si/kemija8/946/index3.html"
+      },
+      {
+        "title": "Nastanek kislin v ozračju",
+        "url": "https://eucbeniki.sio.si/kemija8/1227/index1.html"
+      },
+      {
+        "title": "Raztopine",
+        "url": "https://eucbeniki.sio.si/kemija8/1232/index.html"
+      },
+      {
+        "title": "Povzetek: kapniki",
+        "url": "https://eucbeniki.sio.si/kemija8/947/index4.html"
+      },
+      {
+        "title": "Razgradnja spojine",
+        "url": "https://eucbeniki.sio.si/kemija8/944/index3.html"
+      },
+      {
+        "title": "Toplota se porablja",
+        "url": "https://eucbeniki.sio.si/kemija8/945/index2.html"
+      },
+      {
+        "title": "Kako si pomagamo pri pikih žuželk",
+        "url": "https://eucbeniki.sio.si/kemija8/1227/index3.html"
+      },
+      {
+        "title": "Urejanje kemijskih enačb (naloge)",
+        "url": "https://eucbeniki.sio.si/kemija8/1235/index3.html"
+      }
+    ]
+  },
+  "O2": {
+    "tagline": "Plin, ki ga potrebujemo za dihanje",
+    "image": {
+      "src": "/featured/kisik.jpg",
+      "alt": "Zelen list drevesa v sončni svetlobi",
+      "caption": "Kisik v naravi nastaja v listih zelenih rastlin kot stranski produkt fotosinteze."
+    },
+    "intro": "Kisik je 8. element periodnega sistema. Pri sobni temperaturi je dvoatomni plin O₂ – brezbarven in brez okusa. Živa bitja ga potrebujemo za dihanje. Najdemo ga v zraku, vodi ter v različnih mineralih in rudah.",
+    "sections": [
+      {
+        "title": "Zgradba molekule",
+        "text": "Kisikov atom ima v zunanji lupini 6 elektronov in potrebuje še dva. Atoma kisika si zato delita dva skupna elektronska para – štiri elektrone – in se povežeta z dvojno kovalentno vezjo. Tako ima vsak v zunanji lupini osem elektronov, kot atomi žlahtnih plinov."
+      },
+      {
+        "title": "Kisik v zraku",
+        "text": "Zrak je zmes plinov: približno 78 % je dušika, 21 % kisika in 1 % argona. Ogljikovega dioksida, neona in helija je manj kot odstotek. Visoko nad 30 km je tudi ozon, O₃, ki vpija ultravijolično svetlobo in nas ščiti pred njenimi škodljivimi posledicami."
+      },
+      {
+        "title": "Kisik v živih bitjih",
+        "text": "Kisik je sestavni del živih organizmov – predstavlja kar 65 % mase človeškega telesa. Atomi kisika so skupaj z ogljikom in vodikom vgrajeni v številne molekule, ki so osnovni gradniki celic."
+      },
+      {
+        "title": "Kisik in gorenje",
+        "text": "Kisik je nujno potreben za gorenje. Pri sežigu organskih snovi nastajata ogljikov dioksid in voda. Če kisika ni dovolj, gorenje ni popolno in nastaja ogljikov oksid, ki lahko povzroči zastrupitev."
+      }
+    ],
+    "process": {
+      "title": "Kako kisik nastane in ga pridobivamo",
+      "steps": [
+        {
+          "title": "Fotosinteza v rastlinah",
+          "text": "Zelene rastline iz vode in ogljikovega dioksida pod vplivom svetlobe pridelujejo sladkorje, kisik pa izločajo v zrak. Malo več kot polovico (55 %) ga pridelajo kopenske rastline, skoraj polovico (45 %) pa rastline v oceanih."
+        },
+        {
+          "title": "Frakcionirna destilacija zraka",
+          "text": "Zrak močno ohladijo, da se utekočini, nato ga postopno segrevajo. Dušik zavre prvi pri −196 °C in se zbira na vrhu kolone, tekoči kisik (vrelišče −183 °C) pa ostane na dnu."
+        },
+        {
+          "title": "Elektroliza vode",
+          "text": "Z električnim tokom molekule vode razgradimo na molekule vodika in kisika.",
+          "equation": "2 H₂O → 2 H₂ + O₂"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Vrstno število",
+        "value": "8"
+      },
+      {
+        "label": "Zunanji elektroni",
+        "value": "6"
+      },
+      {
+        "label": "Vez v molekuli",
+        "value": "dvojna kovalentna"
+      },
+      {
+        "label": "Delež v zraku",
+        "value": "21 %"
+      },
+      {
+        "label": "Vrelišče",
+        "value": "−183 °C"
+      },
+      {
+        "label": "Delež v telesu",
+        "value": "65 %"
+      }
+    ],
+    "didYouKnow": [
+      "Kisik uporabljajo v medicini za pomoč pri dihanju, potapljači in astronavti pa za dihanje pod vodo in v vesolju.",
+      "Uporabljajo ga za rezanje in varjenje kovin, utekočinjen pa tudi kot raketno gorivo.",
+      "Za rjavenje železa sta potrebna kisik in voda."
+    ],
+    "sources": [
+      {
+        "title": "Kisik",
+        "url": "https://eucbeniki.sio.si/kemija8/954/index7.html"
+      },
+      {
+        "title": "Fotosinteza",
+        "url": "https://eucbeniki.sio.si/kemija8/954/index8.html"
+      },
+      {
+        "title": "Nastanek dvojne kovalentne vezi",
+        "url": "https://eucbeniki.sio.si/kemija8/940/index3.html"
+      },
+      {
+        "title": "Vir elementov je zrak",
+        "url": "https://eucbeniki.sio.si/kemija8/948/index3.html"
+      },
+      {
+        "title": "Nekovine",
+        "url": "https://eucbeniki.sio.si/kemija8/951/index4.html"
+      }
+    ]
+  },
+  "H2": {
+    "tagline": "Najmanjši in najlažji element",
+    "image": {
+      "src": "/featured/vodik.jpg",
+      "alt": "Sonce",
+      "caption": "V Soncu se zlivajo vodikova jedra. Pri tem nastajajo težji elementi, odvečna energija pa se sprošča v obliki svetlobe."
+    },
+    "intro": "Vodik je najmanjši in najlažji kemijski element. Ima vrstno število 1 – en proton v jedru in en elektron v ovojnici. Pri sobni temperaturi je brezbarven dvoatomni plin H₂ z manjšo gostoto od zraka. Je najbolj razširjen element v vesolju in predstavlja 75 % njegove znane mase. Vsebujejo ga voda in vse organske molekule.",
+    "sections": [
+      {
+        "title": "Zgradba molekule",
+        "text": "Vodikov atom ima v zunanji lupini en elektron in potrebuje še enega. Vsak atom prispeva svoj elektron v skupni elektronski par, zato se atoma povežeta z enojno kovalentno vezjo. Oba imata tako po dva elektrona, kot atom žlahtnega plina helija."
+      },
+      {
+        "title": "Nepolarna molekula",
+        "text": "Skupni elektronski par enakovredno pripada obema atomoma in je enakomerno porazdeljen med obe jedri. Naboj je zato razporejen simetrično – vez je nepolarna kovalentna, molekula vodika pa nepolarna."
+      },
+      {
+        "title": "Odkritje in ime",
+        "text": "Vodik je leta 1766 odkril Henry Cavendish in ga imenoval flogistonirani zrak. Ime hydrogenium mu je leta 1787 dal Antoine Lavoisier, ker pri gorenju s kisikom nastane voda – grško hydro pomeni voda, gennan pa tvoriti."
+      },
+      {
+        "title": "Vodik v zvezdah",
+        "text": "Oblaki vodika se v vesolju zaradi privlaka združujejo v zvezde. Ko se dovolj segrejejo, se začnejo jedra atomov zlivati. Nastajajo težji elementi, najprej helij, sprosti pa se veliko energije. Zlivanje vodikovih jeder v Soncu ima ključno vlogo za življenje na Zemlji."
+      }
+    ],
+    "process": {
+      "title": "Kako vodik pridobivamo",
+      "steps": [
+        {
+          "title": "Cink in klorovodikova kislina",
+          "text": "V laboratoriju vodik pridobivamo z reakcijo med cinkom in klorovodikovo kislino. Nastajajo mehurčki, v katerih je plin vodik.",
+          "equation": "2 HCl + Zn → ZnCl₂ + H₂"
+        },
+        {
+          "title": "Elektroliza vode",
+          "text": "Z električnim tokom razgradimo molekule vode na molekule vodika in kisika.",
+          "equation": "2 H₂O → 2 H₂ + O₂"
+        },
+        {
+          "title": "Natrij in voda",
+          "text": "Natrij z vodo burno reagira – šviga po gladini in slišno šumi. Nastaneta raztopina natrijevega hidroksida in plin vodik.",
+          "equation": "2 Na + 2 H₂O → 2 NaOH + H₂"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Vrstno število",
+        "value": "1"
+      },
+      {
+        "label": "Rel. molekulska masa",
+        "value": "2"
+      },
+      {
+        "label": "Delež mase vesolja",
+        "value": "75 %"
+      },
+      {
+        "label": "Vez v molekuli",
+        "value": "enojna kovalentna"
+      },
+      {
+        "label": "Polarnost",
+        "value": "nepolarna"
+      },
+      {
+        "label": "Odkrit",
+        "value": "1766"
+      }
+    ],
+    "didYouKnow": [
+      "Po nesreči zrakoplova Hindenburg leta 1937, v kateri je v trenutku zgorel ves vodik v balonu, za plovbo uporabljajo helij.",
+      "Vodik je gorivo za vesoljske polete, izdelani pa so tudi avtomobili na vodikov pogon.",
+      "Vodik hitro difundira skozi različne materiale."
+    ],
+    "sources": [
+      {
+        "title": "Vodik",
+        "url": "https://eucbeniki.sio.si/kemija8/954/index5.html"
+      },
+      {
+        "title": "Uporaba vodika",
+        "url": "https://eucbeniki.sio.si/kemija8/954/index6.html"
+      },
+      {
+        "title": "Kovalentna vez",
+        "url": "https://eucbeniki.sio.si/kemija8/940/index.html"
+      },
+      {
+        "title": "Nastanek enojne kovalentne vezi",
+        "url": "https://eucbeniki.sio.si/kemija8/940/index1.html"
+      },
+      {
+        "title": "Nepolarna vez v molekuli vodika",
+        "url": "https://eucbeniki.sio.si/kemija8/941/index1.html"
+      },
+      {
+        "title": "Reaktivnost alkalijskih kovin",
+        "url": "https://eucbeniki.sio.si/kemija8/952/index2.html"
+      }
+    ]
+  },
+  "CH4": {
+    "tagline": "Glavna sestavina zemeljskega plina",
+    "image": {
+      "src": "/featured/metan.png",
+      "alt": "Moder plamen plinskega gorilnika",
+      "caption": "Metan se uporablja kot gospodinjski plin. Pri gorenju se sprosti veliko toplote, ki nam omogoča kuhanje."
+    },
+    "intro": "Metan je spojina ogljika in vodika s formulo CH₄. Zemeljski plin je pretežno metan, zato ga uporabljamo kot energent v gospodinjstvih in za pogon mestnih avtobusov.",
+    "sections": [
+      {
+        "title": "Zgradba molekule",
+        "text": "Ogljikov atom ima v zunanji lupini 4 elektrone in potrebuje še 4. Vsak od štirih vodikovih atomov prispeva en elektron v skupni par, zato nastanejo štiri kovalentne vezi. Vodik tako doseže konfiguracijo helija, ogljik pa neona."
+      },
+      {
+        "title": "Oblika tetraedra",
+        "text": "Štiri vezi so v prostoru enakomerno razporejene in usmerjene k ogliščem tetraedra, v njegovem središču pa je ogljikov atom. Koti med vezmi so 109°."
+      },
+      {
+        "title": "Polarne vezi, nepolarna molekula",
+        "text": "Vezi med ogljikom in vodikom so polarne, a so razporejene tako, da je pozitivni naboj na vodikovih atomih v prostoru enakomerno porazdeljen. Molekula metana je zato nepolarna."
+      },
+      {
+        "title": "Gorenje metana",
+        "text": "Pri gorenju metan reagira s kisikom in nastaneta ogljikov dioksid in voda. Tej reakciji rečemo tudi oksidacija. Sprošča se toplota, zato je reakcija eksotermna."
+      }
+    ],
+    "process": {
+      "title": "Kje metan nastane in kje ga dobimo",
+      "steps": [
+        {
+          "title": "Pri gnitju brez kisika",
+          "text": "Ko organski odpadki gnijejo ob prisotnosti kisika, nastane kompost. Če gnijejo brez pristopa kisika, se razvija plin metan, ki ga zbirajo in uporabljajo za gorivo."
+        },
+        {
+          "title": "Zemeljski plin in nafta",
+          "text": "Zemeljski plin je pretežno metan. Metan je tudi tista frakcija pri predelavi nafte, ki ima najnižje vrelišče."
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Rel. molekulska masa",
+        "value": "16"
+      },
+      {
+        "label": "Kot med vezmi",
+        "value": "109°"
+      },
+      {
+        "label": "Oblika",
+        "value": "tetraeder"
+      },
+      {
+        "label": "Število vezi",
+        "value": "4 kovalentne"
+      },
+      {
+        "label": "Polarnost",
+        "value": "nepolarna"
+      },
+      {
+        "label": "Gospodinjstvo na leto",
+        "value": "≈ 748 kg"
+      }
+    ],
+    "didYouKnow": [
+      "Tipično slovensko gospodinjstvo porabi približno 1100 m³ zemeljskega plina na leto, kar je 748 kg metana.",
+      "Gorenje metana je kemijska sprememba – nastanejo nove snovi."
+    ],
+    "sources": [
+      {
+        "title": "Molekula metana je nepolarna molekula",
+        "url": "https://eucbeniki.sio.si/kemija8/941/index3.html"
+      },
+      {
+        "title": "Gorenje snovi",
+        "url": "https://eucbeniki.sio.si/kemija8/943/index3.html"
+      },
+      {
+        "title": "Reaktanti in produkti",
+        "url": "https://eucbeniki.sio.si/kemija8/944/index.html"
+      },
+      {
+        "title": "Zakon o ohranitvi mase: povzetek",
+        "url": "https://eucbeniki.sio.si/kemija8/946/index4.html"
+      },
+      {
+        "title": "Viri elementov in spojin: povzetek",
+        "url": "https://eucbeniki.sio.si/kemija8/948/index6.html"
+      },
+      {
+        "title": "Pomen kemije danes",
+        "url": "https://eucbeniki.sio.si/kemija8/930/index4.html"
+      }
+    ]
+  },
+  "NaCl": {
+    "tagline": "Glavna sestavina kuhinjske soli",
+    "image": {
+      "src": "/featured/natrijev-klorid.gif",
+      "alt": "Sečoveljske soline ob morju",
+      "caption": "Morska sol nastaja v solinah. Največje delujoče slovenske soline so Sečoveljske soline."
+    },
+    "intro": "Natrijev klorid je ionska spojina in glavna sestavina kuhinjske soli. V ustreznih količinah je nepogrešljiv za delovanje organizma – v telesnih tekočinah pomaga ohranjati ravnovesje ionov.",
+    "sections": [
+      {
+        "title": "Od atomov do ionov",
+        "text": "Natrijev atom ima en elektron več, kot bi ga potreboval za zasedeno zunanjo lupino, kakršno ima neon, zato ga rad odda. Klorov atom ima v zunanji lupini 7 elektronov in enega rad sprejme. Tako nastaneta pozitivni natrijev kation Na⁺ in negativni kloridni anion Cl⁻."
+      },
+      {
+        "title": "Ionski kristal",
+        "text": "Ioni se med seboj močno privlačijo in se pravilno uredijo v ionski kristal: okoli vsakega natrijevega iona je šest kloridnih ionov. Zapis NaCl(s) torej ne pomeni molekul, ampak kristal iz pravilno razporejenih ionov Na⁺ in Cl⁻."
+      },
+      {
+        "title": "Lastnosti",
+        "text": "Zaradi močnih ionskih vezi se natrijev klorid stali šele pri 801 °C, sladkor pa že pri 180 °C. Vodna raztopina soli prevaja električni tok, ker vsebuje prosto gibljive ione z nabojem."
+      },
+      {
+        "title": "Sol v vsakdanu",
+        "text": "Sol uporabljamo pri pripravi jedi in za posipanje cest. Kakovostna sol vsebuje najmanj 97 % natrijevega klorida ter jod, ki preprečuje golšavost. Pretirano uživanje soli lahko zviša krvni tlak. V zgodovini je bila sol dragocena surovina in trgovsko blago."
+      }
+    ],
+    "process": {
+      "title": "Kako natrijev klorid nastane in ga pridobivamo",
+      "steps": [
+        {
+          "title": "Iz natrija in klora",
+          "text": "Natrijev klorid nastane pri reakciji elementarnega natrija s plinom klorom. Oba reaktanta sta strupena – natrij je zelo reaktivna kovina, klor pa rumeno zelen plin – nastala sol pa je užitna.",
+          "equation": "2 Na + Cl₂ → 2 NaCl"
+        },
+        {
+          "title": "Pri nevtralizaciji",
+          "text": "Klorovodikova kislina in natrijev hidroksid reagirata v natrijev klorid in vodo. Ker je nastala sol nevtralna, je raztopina nevtralna (pH = 7).",
+          "equation": "HCl + NaOH → NaCl + H₂O"
+        },
+        {
+          "title": "Iz morske vode",
+          "text": "Morska sol nastaja v solinah – prostorih ob morju, urejenih za pridobivanje soli iz morske vode. Morska voda vsebuje tudi magnezijeve in kalcijeve spojine ter jod."
+        },
+        {
+          "title": "Iz rudnikov",
+          "text": "Kameno sol kopljejo v solnih rudnikih. Ker ne vsebuje joda, ji ga dodajajo v obliki kalijevega ali natrijevega jodida."
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Tališče",
+        "value": "801 °C"
+      },
+      {
+        "label": "Topnost (20 °C)",
+        "value": "36 g / 100 mL vode"
+      },
+      {
+        "label": "Gradniki",
+        "value": "Na⁺ in Cl⁻"
+      },
+      {
+        "label": "Ionov okoli Na⁺",
+        "value": "6 Cl⁻"
+      },
+      {
+        "label": "NaCl v kakovostni soli",
+        "value": "≥ 97 %"
+      },
+      {
+        "label": "Posipanje cest",
+        "value": "do −8 °C"
+      }
+    ],
+    "didYouKnow": [
+      "Preden so iznašli hladilnike, je bila sol edino znano učinkovito sredstvo za konzerviranje živil.",
+      "Približno 75 % morske soli predelajo v klor, natrijev hidroksid in klorovodikovo kislino.",
+      "Mokro soljenje z dodatkom kalcijevega ali magnezijevega klorida deluje do −18 °C."
+    ],
+    "sources": [
+      {
+        "title": "Ionska vez",
+        "url": "https://eucbeniki.sio.si/kemija8/939/index.html"
+      },
+      {
+        "title": "Nastanek natrijevega klorida iz elementov",
+        "url": "https://eucbeniki.sio.si/kemija8/939/index1.html"
+      },
+      {
+        "title": "Nastanek ionov iz atomov",
+        "url": "https://eucbeniki.sio.si/kemija8/939/index2.html"
+      },
+      {
+        "title": "Nastanek ionske vezi in ionskega kristala",
+        "url": "https://eucbeniki.sio.si/kemija8/939/index3.html"
+      },
+      {
+        "title": "Taljenje kuhinjske soli in sladkorja",
+        "url": "https://eucbeniki.sio.si/kemija8/942/index1.html"
+      },
+      {
+        "title": "Električna prevodnost",
+        "url": "https://eucbeniki.sio.si/kemija8/942/index3.html"
+      },
+      {
+        "title": "Topnost",
+        "url": "https://eucbeniki.sio.si/kemija8/1232/index1.html"
+      },
+      {
+        "title": "Soli v našem okolju",
+        "url": "https://eucbeniki.sio.si/kemija8/1234/index2.html"
+      },
+      {
+        "title": "Nevtralizacija: reakcija med kislino in bazo",
+        "url": "https://eucbeniki.sio.si/kemija8/1230/index3.html"
+      },
+      {
+        "title": "Vir elementov je voda",
+        "url": "https://eucbeniki.sio.si/kemija8/948/index4.html"
+      }
+    ]
+  },
+  "N2": {
+    "tagline": "Glavna sestavina zraka",
+    "image": {
+      "src": "/featured/dusik.jpg",
+      "alt": "Stolpi za frakcionirno destilacijo zraka",
+      "caption": "Stolpi za zbiranje frakcij pri destilaciji zraka. Dušik se zbira na vrhu kolone, tekoči kisik pa na dnu."
+    },
+    "intro": "Zrak, ki ga dihamo, je zmes plinov in ga kar 78 % sestavlja dušik. V živih organizmih je dušik potreben za tvorbo beljakovin, skupaj s fosforjem in kalijem pa je med najpomembnejšimi elementi za rast rastlin.",
+    "sections": [
+      {
+        "title": "Zgradba molekule",
+        "text": "Dušikov atom ima v zunanji lupini 5 elektronov in potrebuje še 3. Atoma si zato delita tri skupne elektronske pare – šest elektronov – in se povežeta s trojno kovalentno vezjo. Molekula ima tudi dva nevezna elektronska para."
+      },
+      {
+        "title": "Dušik in rastline",
+        "text": "Rastline dušik črpajo iz snovi v zemlji. Če ga primanjkuje, ga dodajamo z gnojili. Preveč gnojil dež spere v vode, kjer pospešijo rast alg; ko te odmrejo, bakterije pri razgradnji porabljajo kisik in ribam ga primanjkuje. Temu pravimo evtrofikacija."
+      },
+      {
+        "title": "Amonijak iz dušika",
+        "text": "Postopek za pridobivanje amonijaka iz dušika in vodika sta razvila Fritz Haber in Carl Bosch. Reakcija poteka pri visoki temperaturi in tlaku ob katalizatorju. Amonijak je surovina za umetna gnojila."
+      },
+      {
+        "title": "Dušik in kisli dež",
+        "text": "Ob udaru strele ali pri zgorevanju goriv v motorjih se dušik in kisik iz zraka spojita v dušikov oksid. Ta s kisikom tvori dušikov dioksid, iz katerega z vodo nastane dušikova kislina, ki povzroča kisli dež."
+      }
+    ],
+    "process": {
+      "title": "Kako dušik pridobivamo in kroži v naravi",
+      "steps": [
+        {
+          "title": "Frakcionirna destilacija zraka",
+          "text": "Zrak močno ohladijo, da se utekočini, nato ga postopno segrevajo. Dušik ima najnižje vrelišče (−196 °C), zato zavre prvi in se zbira na vrhu kolone."
+        },
+        {
+          "title": "Kroženje dušika v naravi",
+          "text": "Dušik pride v zemljo iz odpadnih rastlinskih in živalskih beljakovin. Bakterije, ki te beljakovine razgrajujejo, vračajo nekaj dušika nazaj v zrak."
+        },
+        {
+          "title": "Razpad amonijevega nitrita",
+          "text": "Amonijev nitrit razpade na vodo in dušik, plinast element iz dvoatomnih molekul.",
+          "equation": "NH₄NO₂ → 2 H₂O + N₂"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Delež v zraku",
+        "value": "78 %"
+      },
+      {
+        "label": "Vrelišče",
+        "value": "−196 °C"
+      },
+      {
+        "label": "Vez v molekuli",
+        "value": "trojna kovalentna"
+      },
+      {
+        "label": "Zunanji elektroni",
+        "value": "5"
+      },
+      {
+        "label": "Rel. molekulska masa",
+        "value": "28"
+      },
+      {
+        "label": "Delež v telesu",
+        "value": "3 %"
+      }
+    ],
+    "didYouKnow": [
+      "Dušik uporabljajo v živilski industriji pri pakiranju in hitrem zamrzovanju hrane.",
+      "Čeprav je dušika v zraku veliko, ga rastline večinoma dobijo iz snovi, raztopljenih v zemlji.",
+      "Zakon minimuma: rodovitnost prsti določa element, ki ga je v njej najmanj."
+    ],
+    "sources": [
+      {
+        "title": "Nastanek trojne kovalentne vezi",
+        "url": "https://eucbeniki.sio.si/kemija8/940/index4.html"
+      },
+      {
+        "title": "Vir elementov je zrak",
+        "url": "https://eucbeniki.sio.si/kemija8/948/index3.html"
+      },
+      {
+        "title": "Nekovine",
+        "url": "https://eucbeniki.sio.si/kemija8/951/index4.html"
+      },
+      {
+        "title": "NPK",
+        "url": "https://eucbeniki.sio.si/kemija8/954/index9.html"
+      },
+      {
+        "title": "Nastanek kislin v ozračju",
+        "url": "https://eucbeniki.sio.si/kemija8/1227/index1.html"
+      },
+      {
+        "title": "Zakon o ohranitvi mase: povzetek",
+        "url": "https://eucbeniki.sio.si/kemija8/1235/index5.html"
+      }
+    ]
+  },
+  "Cl2": {
+    "tagline": "Strupen plin, s katerim razkužujemo vodo",
+    "image": {
+      "src": "/featured/klor.jpg",
+      "alt": "Plavalni bazen",
+      "caption": "S klorom uničujemo mikroorganizme v pitni vodi in v plavalnih bazenih."
+    },
+    "intro": "Klor je pri sobnih pogojih svetlo zelen plin zelo ostrega vonja, ki ga sestavljajo dvoatomne molekule Cl₂. Je zelo reaktiven in strupen. Odkril ga je Šved Carl William Scheele leta 1774, ime pa izhaja iz grške besede chloros, ki pomeni svetlo zelen.",
+    "sections": [
+      {
+        "title": "Zgradba molekule",
+        "text": "Klorov atom ima v zunanji lupini 7 elektronov, do polne lupine mu manjka en sam. Dva atoma klora zato tvorita skupni elektronski par in se povežeta z enojno kovalentno vezjo."
+      },
+      {
+        "title": "Halogeni",
+        "text": "Klor spada med halogene, elemente VII. skupine periodnega sistema. Ker jim do stabilnosti žlahtnih plinov manjka le en elektron, so zelo reaktivni. Ime izhaja iz grške besede hals, ki pomeni sol, ker v reakcijah radi tvorijo soli."
+      },
+      {
+        "title": "Uporaba in nevarnost",
+        "text": "Zaradi strupenosti klor uporabljamo za uničevanje mikroorganizmov v pitni vodi in bazenih. Če ga uvajamo v natrijev hidroksid, dobimo varikino – razkužilo, čistilo in belilo. Pri vdihavanju klor poškoduje dihala."
+      }
+    ],
+    "process": {
+      "title": "Kje klor najdemo in kako reagira",
+      "steps": [
+        {
+          "title": "Samo v spojinah",
+          "text": "Halogenov v naravi ne najdemo v elementarnem stanju. Glavno nahajališče je morska voda, kjer klor pridobivamo iz natrijevega klorida. Približno 75 % morske soli predelajo v klor, natrijev hidroksid in klorovodikovo kislino."
+        },
+        {
+          "title": "Z natrijem",
+          "text": "Klor rad reagira z elementi I. skupine. Z natrijem nastane kuhinjska sol.",
+          "equation": "2 Na + Cl₂ → 2 NaCl"
+        },
+        {
+          "title": "Z magnezijem",
+          "text": "Reagira tudi z elementi II. skupine, na primer z magnezijem.",
+          "equation": "Mg + Cl₂ → MgCl₂"
+        },
+        {
+          "title": "Z vodikom",
+          "text": "Pri spajanju vodika in klora nastane vodikov klorid.",
+          "equation": "H₂ + Cl₂ → 2 HCl"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Valenčni elektroni",
+        "value": "7"
+      },
+      {
+        "label": "Vez v molekuli",
+        "value": "enojna kovalentna"
+      },
+      {
+        "label": "Skupina",
+        "value": "VII. (halogeni)"
+      },
+      {
+        "label": "Odkrit",
+        "value": "1774"
+      },
+      {
+        "label": "Rel. molekulska masa",
+        "value": "71"
+      },
+      {
+        "label": "Agregatno stanje",
+        "value": "plin"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Imena elementov pogosto odražajo lastnosti",
+        "url": "https://eucbeniki.sio.si/kemija8/933/index1.html"
+      },
+      {
+        "title": "Nastanek molekule vodikovega klorida",
+        "url": "https://eucbeniki.sio.si/kemija8/940/index2.html"
+      },
+      {
+        "title": "Halogeni",
+        "url": "https://eucbeniki.sio.si/kemija8/953/index4.html"
+      },
+      {
+        "title": "Nahajališča halogenov",
+        "url": "https://eucbeniki.sio.si/kemija8/953/index5.html"
+      },
+      {
+        "title": "Nastanek natrijevega klorida iz elementov",
+        "url": "https://eucbeniki.sio.si/kemija8/939/index1.html"
+      },
+      {
+        "title": "Nastanek spojine",
+        "url": "https://eucbeniki.sio.si/kemija8/944/index2.html"
+      },
+      {
+        "title": "Vir elementov je voda",
+        "url": "https://eucbeniki.sio.si/kemija8/948/index4.html"
+      }
+    ]
+  },
+  "HCl": {
+    "tagline": "Plin, ki v vodi tvori močno kislino",
+    "image": {
+      "src": "/featured/vodikov-klorid.jpg",
+      "alt": "Model delcev v vodni raztopini klorovodikove kisline",
+      "caption": "V vodni raztopini klorovodikove kisline ni molekul HCl, ampak samo molekule vode, oksonijevi ioni H₃O⁺ in kloridni ioni Cl⁻."
+    },
+    "intro": "Vodikov klorid je spojina vodika in klora. Je plin, ki se raztaplja v vodi – vodna raztopina je klorovodikova kislina. Ta je ena izmed kislin, ki jih v laboratoriju srečamo najpogosteje, imamo pa jo tudi v želodcu.",
+    "sections": [
+      {
+        "title": "Zgradba molekule",
+        "text": "Vodikov atom ima v zunanji lupini en elektron, klorov pa sedem. Vsakemu manjka en elektron, zato tvorita skupni elektronski par in se povežeta z enojno kovalentno vezjo."
+      },
+      {
+        "title": "Polarna molekula",
+        "text": "Klorov atom močneje privlači skupni elektronski par, zato je ta v povprečju bliže kloru. Na klorovem atomu je presežek negativnega naboja, na vodikovem pozitivnega. Vez je polarna kovalentna, molekula pa polarna."
+      },
+      {
+        "title": "Zakaj je raztopina kisla",
+        "text": "Molekula HCl molekuli vode odda vodikov ion H⁺ (proton). Nastaneta oksonijev ion H₃O⁺ in kloridni ion Cl⁻. Zaradi oksonijevih ionov je raztopina kisla in modri lakmusov papir obarva rdeče. Ker v vodi razpadejo na ione vse molekule, je klorovodikova kislina močna kislina."
+      },
+      {
+        "title": "V našem telesu",
+        "text": "V želodcu imamo približno liter razredčene klorovodikove kisline, ki pomaga razgraditi zaužito hrano. Če se raven kisline poveča, jo zmanjšamo z zdravilom, ki je bazična snov."
+      }
+    ],
+    "process": {
+      "title": "Kako vodikov klorid nastane in reagira",
+      "steps": [
+        {
+          "title": "Sinteza iz vodika in klora",
+          "text": "Pri spajanju vodika in klora nastane ena sama snov – vodikov klorid.",
+          "equation": "H₂ + Cl₂ → 2 HCl"
+        },
+        {
+          "title": "Iz morske soli",
+          "text": "Približno 75 % morske soli predelajo v klor, natrijev hidroksid in klorovodikovo kislino, ki so surovine v kemični industriji."
+        },
+        {
+          "title": "Z magnezijem",
+          "text": "Magnezij se v klorovodikovi kislini raztaplja, nastaja plin vodik in temperatura se zviša – reakcija je eksotermna.",
+          "equation": "Mg + 2 HCl → MgCl₂ + H₂"
+        },
+        {
+          "title": "Nevtralizacija",
+          "text": "S natrijevim hidroksidom nastaneta natrijev klorid in voda, raztopina postane nevtralna.",
+          "equation": "HCl + NaOH → NaCl + H₂O"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Rel. molekulska masa",
+        "value": "36,5"
+      },
+      {
+        "label": "Vez v molekuli",
+        "value": "enojna kovalentna"
+      },
+      {
+        "label": "Polarnost",
+        "value": "polarna"
+      },
+      {
+        "label": "Kislina",
+        "value": "močna"
+      },
+      {
+        "label": "V želodcu",
+        "value": "≈ 1 liter"
+      },
+      {
+        "label": "Ioni v raztopini",
+        "value": "H₃O⁺ in Cl⁻"
+      }
+    ],
+    "didYouKnow": [
+      "Sanitarna čistila na osnovi klorovodikove kisline se zaradi korozivnega učinka ne smejo uporabljati.",
+      "V laboratoriju vodik pridobivamo z reakcijo cinka in klorovodikove kisline."
+    ],
+    "sources": [
+      {
+        "title": "Nastanek molekule vodikovega klorida",
+        "url": "https://eucbeniki.sio.si/kemija8/940/index2.html"
+      },
+      {
+        "title": "Polarna vez v molekuli vodikovega klorida",
+        "url": "https://eucbeniki.sio.si/kemija8/941/index2.html"
+      },
+      {
+        "title": "Vodne raztopine nekaterih snovi so kisle",
+        "url": "https://eucbeniki.sio.si/kemija8/1229/index1.html"
+      },
+      {
+        "title": "Kisle in bazične vodne raztopine",
+        "url": "https://eucbeniki.sio.si/kemija8/1229/index5.html"
+      },
+      {
+        "title": "Kisline in baze v okolju",
+        "url": "https://eucbeniki.sio.si/kemija8/1227/index.html"
+      },
+      {
+        "title": "Toplota se sprošča",
+        "url": "https://eucbeniki.sio.si/kemija8/945/index1.html"
+      },
+      {
+        "title": "Nastanek spojine",
+        "url": "https://eucbeniki.sio.si/kemija8/944/index2.html"
+      },
+      {
+        "title": "Kemijska reakcija med kislino in bazo",
+        "url": "https://eucbeniki.sio.si/kemija8/1230/index3.html"
+      },
+      {
+        "title": "Kisline, baze in soli – vpliv na okolje",
+        "url": "https://eucbeniki.sio.si/kemija8/1234/index.html"
+      },
+      {
+        "title": "Vodik",
+        "url": "https://eucbeniki.sio.si/kemija8/954/index5.html"
+      }
+    ]
+  },
+  "NH3": {
+    "tagline": "Plin, iz katerega delamo gnojila",
+    "image": {
+      "src": "/featured/amoniak.jpg",
+      "alt": "Vreče umetnih gnojil z oznakami deleža dušika",
+      "caption": "Umetna gnojila vsebujejo dušikove spojine. Reaktant za njihovo pridobivanje je tudi amonijak."
+    },
+    "intro": "Amonijak, NH₃, je plin brez barve z značilnim neprijetnim vonjem. V vodi se dobro topi, njegova vodna raztopina pa je bazična. Je pomembna surovina za umetna gnojila.",
+    "sections": [
+      {
+        "title": "Zakaj je raztopina bazična",
+        "text": "Molekula amonijaka od molekule vode sprejme vodikov ion H⁺ (proton). Nastaneta amonijev ion NH₄⁺ in hidroksidni ion OH⁻. Hidroksidni ioni naredijo raztopino bazično in rdeči lakmusov papir obarvajo modro."
+      },
+      {
+        "title": "Šibka baza",
+        "text": "Z vodo zreagira le malo molekul amonijaka, zato v raztopini prevladujejo molekule in je hidroksidnih ionov malo. Zato pravimo, da je amonijak šibka baza."
+      },
+      {
+        "title": "Amonijak in gnojila",
+        "text": "Rastline za razvoj potrebujejo predvsem dušik, fosfor in kalij. Iz amonijaka pridobivajo amonijeve sulfate, nitrate in kloride, ki jih uporabljamo v umetnih gnojilih. Preveč gnojil škoduje vodam, ker povzroči evtrofikacijo."
+      }
+    ],
+    "process": {
+      "title": "Kako amonijak nastane in reagira",
+      "steps": [
+        {
+          "title": "Iz dušika in vodika",
+          "text": "Industrijski postopek sta razvila Fritz Haber in Carl Bosch. Reakcija poteka pri visoki temperaturi in visokem tlaku ob prisotnosti katalizatorja.",
+          "equation": "N₂ + 3 H₂ → 2 NH₃"
+        },
+        {
+          "title": "Z vodo",
+          "text": "Amonijak sprejme proton od vode, zato nastanejo hidroksidni ioni.",
+          "equation": "NH₃ + H₂O → NH₄⁺ + OH⁻"
+        },
+        {
+          "title": "S kisikom",
+          "text": "Pri določenih pogojih amonijak reagira s kisikom, nastaneta didušikov oksid in voda.",
+          "equation": "2 NH₃ + 2 O₂ → N₂O + 3 H₂O"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Rel. molekulska masa",
+        "value": "17"
+      },
+      {
+        "label": "Barva",
+        "value": "brez barve"
+      },
+      {
+        "label": "Vonj",
+        "value": "neprijeten"
+      },
+      {
+        "label": "Topnost v vodi",
+        "value": "dobra"
+      },
+      {
+        "label": "Baza",
+        "value": "šibka"
+      },
+      {
+        "label": "Ioni v raztopini",
+        "value": "NH₄⁺ in OH⁻"
+      }
+    ],
+    "didYouKnow": [
+      "Blažja čistila vsebujejo raztopino amonijaka.",
+      "Amonijak je med bazami, ki jih v laboratoriju srečamo najpogosteje."
+    ],
+    "sources": [
+      {
+        "title": "NPK",
+        "url": "https://eucbeniki.sio.si/kemija8/954/index9.html"
+      },
+      {
+        "title": "Vodne raztopine nekaterih snovi so bazične",
+        "url": "https://eucbeniki.sio.si/kemija8/1229/index3.html"
+      },
+      {
+        "title": "Delci v bazičnih vodnih raztopinah",
+        "url": "https://eucbeniki.sio.si/kemija8/1229/index4.html"
+      },
+      {
+        "title": "Kisle in bazične vodne raztopine",
+        "url": "https://eucbeniki.sio.si/kemija8/1229/index5.html"
+      },
+      {
+        "title": "Kisline, baze in soli – vpliv na okolje",
+        "url": "https://eucbeniki.sio.si/kemija8/1234/index.html"
+      },
+      {
+        "title": "Urejanje kemijskih enačb (naloge)",
+        "url": "https://eucbeniki.sio.si/kemija8/1235/index3.html"
+      }
+    ]
+  },
+  "CO": {
+    "tagline": "Strupen plin pri nepopolnem gorenju",
+    "image": {
+      "src": "/featured/ogljikov-oksid.jpg",
+      "alt": "Goreče sveče",
+      "caption": "Kisik je nujno potreben za gorenje. Če ga je premalo, gorenje ni popolno."
+    },
+    "intro": "Ogljikov oksid (ogljikov monoksid), CO, je strupen plin brez barve in vonja. Nastaja, kadar pri gorenju ni dovolj kisika.",
+    "sections": [
+      {
+        "title": "Zakaj je nevaren",
+        "text": "Če je kisika pri gorenju premalo, gorenje ni popolno in namesto ogljikovega dioksida nastaja ogljikov oksid. Ogljikov oksid lahko povzroči zastrupitev in smrt."
+      },
+      {
+        "title": "Ogljikovi oksidi v ozračju",
+        "text": "Pri zgorevanju fosilnih goriv (premog, nafta, zemeljski plin) nastajata oba ogljikova oksida, poleg njiju pa še žveplov dioksid, dušikovi oksidi, saje in pepel."
+      }
+    ],
+    "process": {
+      "title": "Kako ogljikov oksid nastane in reagira",
+      "steps": [
+        {
+          "title": "Pri nepopolnem gorenju",
+          "text": "Ko organske snovi gorijo ob premajhni količini kisika, namesto ogljikovega dioksida nastaja ogljikov oksid."
+        },
+        {
+          "title": "S kisikom v ogljikov dioksid",
+          "text": "Ogljikov oksid reagira s kisikom in nastane ogljikov dioksid.",
+          "equation": "2 CO + O₂ → 2 CO₂"
+        },
+        {
+          "title": "Z vodikom v metanol",
+          "text": "S spajanjem ogljikovega oksida in vodika dobimo metanol.",
+          "equation": "CO + 2 H₂ → CH₃OH"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Rel. molekulska masa",
+        "value": "28"
+      },
+      {
+        "label": "Barva",
+        "value": "brez barve"
+      },
+      {
+        "label": "Vonj",
+        "value": "brez vonja"
+      },
+      {
+        "label": "Strupenost",
+        "value": "zelo strupen"
+      },
+      {
+        "label": "Atomi v molekuli",
+        "value": "1 C, 1 O"
+      },
+      {
+        "label": "Vrsta spojine",
+        "value": "binarna, oksid"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Fotosinteza (gorenje)",
+        "url": "https://eucbeniki.sio.si/kemija8/954/index8.html"
+      },
+      {
+        "title": "Relativna atomska masa: povzetek",
+        "url": "https://eucbeniki.sio.si/kemija8/949/index5.html"
+      },
+      {
+        "title": "Nastanek kislin v ozračju",
+        "url": "https://eucbeniki.sio.si/kemija8/1227/index1.html"
+      },
+      {
+        "title": "Urejanje kemijskih enačb (naloge)",
+        "url": "https://eucbeniki.sio.si/kemija8/1235/index3.html"
+      },
+      {
+        "title": "Reaktanti in produkti: povzetek",
+        "url": "https://eucbeniki.sio.si/kemija8/944/index4.html"
+      }
+    ]
+  },
+  "MgO": {
+    "tagline": "Nastane pri gorenju magnezija",
+    "image": {
+      "src": "/featured/magnezijev-oksid.jpg",
+      "alt": "Magnezij gori z bleščečim plamenom",
+      "caption": "Magnezij zgori na zraku z bleščečim plamenom. Pri tem nastane magnezijev oksid."
+    },
+    "intro": "Magnezijev oksid, MgO, je spojina magnezija in kisika. Nastane, ko magnezij zgori na zraku. Gradniki v njem so povezani z ionsko vezjo.",
+    "sections": [
+      {
+        "title": "Od atomov do ionov",
+        "text": "Magnezij spada med zemeljskoalkalijske kovine in ima v zunanji lupini dva valenčna elektrona, ki ju odda – nastane kation Mg²⁺. Kisikov atom sprejme dva elektrona, da napolni zunanjo lupino, in nastane oksidni anion O²⁻."
+      },
+      {
+        "title": "Oksidi",
+        "text": "Oksidi so spojine s kisikom. V kamninah so pogosti oksidi kovin, ki jih uporabljamo kot surovine za pridobivanje elementov."
+      }
+    ],
+    "process": {
+      "title": "Kako magnezijev oksid nastane",
+      "steps": [
+        {
+          "title": "Gorenje magnezija",
+          "text": "Magnezij zgori na zraku z bleščečim plamenom in se spoji s kisikom. Pri reakciji se sprošča toplota, zato je eksotermna.",
+          "equation": "2 Mg + O₂ → 2 MgO"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Rel. formulska masa",
+        "value": "40"
+      },
+      {
+        "label": "Vrsta vezi",
+        "value": "ionska"
+      },
+      {
+        "label": "Ioni",
+        "value": "Mg²⁺ in O²⁻"
+      },
+      {
+        "label": "Reakcija nastanka",
+        "value": "eksotermna"
+      }
+    ],
+    "didYouKnow": [
+      "Iz 5,0 g magnezija in 3,3 g kisika nastane 8,3 g magnezijevega oksida – masa se pri reakciji ohrani."
+    ],
+    "sources": [
+      {
+        "title": "Kemijska reakcija – naloge",
+        "url": "https://eucbeniki.sio.si/kemija8/1235/index7.html"
+      },
+      {
+        "title": "Kationi",
+        "url": "https://eucbeniki.sio.si/kemija8/937/index5.html"
+      },
+      {
+        "title": "Anioni",
+        "url": "https://eucbeniki.sio.si/kemija8/937/index2.html"
+      },
+      {
+        "title": "Zemeljskoalkalijske kovine",
+        "url": "https://eucbeniki.sio.si/kemija8/952/index4.html"
+      },
+      {
+        "title": "Kamnine so vir elementov in spojin",
+        "url": "https://eucbeniki.sio.si/kemija8/948/index1.html"
+      }
+    ]
+  },
+  "CaO": {
+    "tagline": "Žgano apno",
+    "image": {
+      "src": "/featured/kalcijev-oksid.jpg",
+      "alt": "Koščki kovinskega kalcija",
+      "caption": "Kalcij reagira s kisikom, pri tem nastane kalcijev oksid."
+    },
+    "intro": "Kalcijev oksid, CaO, imenujemo tudi žgano apno. Nastane pri segrevanju apnenca, z vodo pa se spremeni v gašeno apno, ki ga uporabljamo v gradbeništvu.",
+    "sections": [
+      {
+        "title": "Zgradba",
+        "text": "Kalcij ima v zunanji lupini dva elektrona. Ko ju odda, nastane kation Ca²⁺. Kisik sprejme dva elektrona in nastane oksidni anion O²⁻."
+      },
+      {
+        "title": "Žgano in gašeno apno",
+        "text": "Če kos kalcijevega oksida polijemo z vodo, nabrekne, začne se kaditi in drobi se v bel prah – kalcijev hidroksid ali gašeno apno. Pri tej reakciji se razvija toplota, zato moramo biti previdni, saj lahko pride do opeklin."
+      }
+    ],
+    "process": {
+      "title": "Kako kalcijev oksid nastane",
+      "steps": [
+        {
+          "title": "Iz kalcija in kisika",
+          "text": "Kalcij reagira s kisikom in nastane kalcijev oksid. Masa produkta je enaka vsoti mas kalcija in kisika.",
+          "equation": "2 Ca + O₂ → 2 CaO"
+        },
+        {
+          "title": "Pri segrevanju apnenca",
+          "text": "Apnenec (kalcijev karbonat) pri segrevanju nad 900 °C razpade na kalcijev oksid in ogljikov dioksid.",
+          "equation": "CaCO₃ → CaO + CO₂"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Rel. formulska masa",
+        "value": "56"
+      },
+      {
+        "label": "Drugo ime",
+        "value": "žgano apno"
+      },
+      {
+        "label": "Ioni",
+        "value": "Ca²⁺ in O²⁻"
+      },
+      {
+        "label": "Nastane iz apnenca",
+        "value": "nad 900 °C"
+      },
+      {
+        "label": "Z vodo",
+        "value": "gašeno apno"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Soli v našem okolju",
+        "url": "https://eucbeniki.sio.si/kemija8/1234/index3.html"
+      },
+      {
+        "title": "Razgradnja spojine",
+        "url": "https://eucbeniki.sio.si/kemija8/944/index3.html"
+      },
+      {
+        "title": "Zakon o ohranitvi mase",
+        "url": "https://eucbeniki.sio.si/kemija8/1235/index2.html"
+      },
+      {
+        "title": "Masa reaktantov in produktov",
+        "url": "https://eucbeniki.sio.si/kemija8/946/index3.html"
+      },
+      {
+        "title": "Kationi",
+        "url": "https://eucbeniki.sio.si/kemija8/937/index6.html"
+      }
+    ]
+  },
+  "MgCl2": {
+    "tagline": "Sol iz Mrtvega morja",
+    "image": {
+      "src": "/featured/magnezijev-klorid.jpg",
+      "alt": "Soline v Mrtvem morju",
+      "caption": "Približno 30 % raztopljenih soli, predvsem magnezijevega klorida, je v Mrtvem morju."
+    },
+    "intro": "Magnezijev klorid (magnezijev diklorid), MgCl₂, je sol magnezija in klora. Raztopljen je v morski vodi, posebej veliko ga je v Mrtvem morju.",
+    "sections": [
+      {
+        "title": "Zgradba",
+        "text": "Magnezij ima dva valenčna elektrona in ju odda, nastane kation Mg²⁺. Vsak klorov atom sprejme po en elektron in postane kloridni anion Cl⁻. Na en magnezijev ion zato prideta dva kloridna iona."
+      },
+      {
+        "title": "V morski vodi",
+        "text": "Poleg natrijevega klorida so v morski vodi raztopljene tudi kalcijeve, kalijeve in magnezijeve soli, predvsem kloridi, bromidi, karbonati in sulfati."
+      }
+    ],
+    "process": {
+      "title": "Kako magnezijev klorid nastane",
+      "steps": [
+        {
+          "title": "Iz magnezija in klora",
+          "text": "Halogeni pogosto reagirajo z elementi II. skupine, kot je magnezij.",
+          "equation": "Mg + Cl₂ → MgCl₂"
+        },
+        {
+          "title": "Magnezij in klorovodikova kislina",
+          "text": "Magnezij se v klorovodikovi kislini raztopi, nastaja plin vodik, temperatura pa se zviša – reakcija je eksotermna.",
+          "equation": "Mg + 2 HCl → MgCl₂ + H₂"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Rel. formulska masa",
+        "value": "95"
+      },
+      {
+        "label": "Ioni",
+        "value": "Mg²⁺ in 2 Cl⁻"
+      },
+      {
+        "label": "Vrsta vezi",
+        "value": "ionska"
+      },
+      {
+        "label": "V Mrtvem morju",
+        "value": "≈ 30 % soli"
+      }
+    ],
+    "didYouKnow": [
+      "Mokro soljenje cest z dodatkom raztopine magnezijevega ali kalcijevega klorida učinkuje do −18 °C."
+    ],
+    "sources": [
+      {
+        "title": "Nahajališča halogenov",
+        "url": "https://eucbeniki.sio.si/kemija8/953/index5.html"
+      },
+      {
+        "title": "Toplota se sprošča",
+        "url": "https://eucbeniki.sio.si/kemija8/945/index1.html"
+      },
+      {
+        "title": "Vir elementov je voda",
+        "url": "https://eucbeniki.sio.si/kemija8/948/index4.html"
+      },
+      {
+        "title": "Soli v našem okolju",
+        "url": "https://eucbeniki.sio.si/kemija8/1234/index2.html"
+      }
+    ]
+  },
+  "SO2": {
+    "tagline": "Plin, ki povzroča kisli dež",
+    "image": {
+      "src": "/featured/zveplov-dioksid.jpg",
+      "alt": "Dimniki termoelektrarne na premog",
+      "caption": "Velik vir onesnaženja zraka je žveplov dioksid, ki nastane pri reakciji žvepla v premogu s kisikom."
+    },
+    "intro": "Žveplov dioksid, SO₂, je plin, ki nastane pri gorenju žvepla. Je binarna spojina žvepla in kisika ter eden glavnih vzrokov za kisli dež.",
+    "sections": [
+      {
+        "title": "Kisli dež",
+        "text": "Žveplov dioksid se raztaplja v vodi v zraku in jo naredi kislo. Kisle padavine poškodujejo rastline in druga živa bitja, pa tudi stavbe in spomenike. Kisli dež reagira z apnencem, zato uničuje umetnine iz njega."
+      },
+      {
+        "title": "Onesnaženost v Sloveniji",
+        "text": "Najslabša kakovost zraka glede onesnaženosti z žveplovim dioksidom je bila na območjih Koroške, Savinjske in Zasavja."
+      }
+    ],
+    "process": {
+      "title": "Kako žveplov dioksid nastane in reagira",
+      "steps": [
+        {
+          "title": "Gorenje žvepla",
+          "text": "Žveplo v kisiku gori z modrim plamenom. Nastali plin je v vodi topen, raztopina pa je kisla.",
+          "equation": "S + O₂ → SO₂"
+        },
+        {
+          "title": "Pri zgorevanju fosilnih goriv",
+          "text": "Premog vsebuje tudi manjše količine žvepla. Pri njegovem gorenju nastaja žveplov dioksid."
+        },
+        {
+          "title": "Iz ognjenikov",
+          "text": "V plinih, ki jih izbruhajo ognjeniki, je poleg vodne pare predvsem ogljikov in žveplov dioksid."
+        },
+        {
+          "title": "Oksidacija v žveplov trioksid",
+          "text": "V ozračju žveplov dioksid reagira s kisikom v žveplov trioksid, ta pa z zračno vlago tvori žveplovo kislino.",
+          "equation": "2 SO₂ + O₂ → 2 SO₃"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Rel. molekulska masa",
+        "value": "64"
+      },
+      {
+        "label": "Agregatno stanje",
+        "value": "plin"
+      },
+      {
+        "label": "Vrsta spojine",
+        "value": "binarna, oksid"
+      },
+      {
+        "label": "Topnost v vodi",
+        "value": "topen"
+      },
+      {
+        "label": "Raztopina",
+        "value": "kisla"
+      }
+    ],
+    "didYouKnow": [
+      "Samorodno žveplo najdemo ob pobočjih ognjenikov, kjer se žveplove pare ohladijo."
+    ],
+    "sources": [
+      {
+        "title": "Gorenje snovi",
+        "url": "https://eucbeniki.sio.si/kemija8/943/index3.html"
+      },
+      {
+        "title": "Masa reaktantov in produktov",
+        "url": "https://eucbeniki.sio.si/kemija8/946/index2.html"
+      },
+      {
+        "title": "Urejanje enačbe kemijske reakcije",
+        "url": "https://eucbeniki.sio.si/kemija8/947/index3.html"
+      },
+      {
+        "title": "Nastanek kislin v ozračju",
+        "url": "https://eucbeniki.sio.si/kemija8/1227/index1.html"
+      },
+      {
+        "title": "Kisline, baze in soli – vpliv na okolje",
+        "url": "https://eucbeniki.sio.si/kemija8/1234/index.html"
+      },
+      {
+        "title": "Nastanek kislin",
+        "url": "https://eucbeniki.sio.si/kemija8/1234/index1.html"
+      },
+      {
+        "title": "Reakcija nevtralizacije",
+        "url": "https://eucbeniki.sio.si/kemija8/1230/index4.html"
+      },
+      {
+        "title": "Kamnine so vir elementov in spojin",
+        "url": "https://eucbeniki.sio.si/kemija8/948/index2.html"
+      }
+    ]
+  },
+  "SO3": {
+    "tagline": "Vmesni korak do žveplove kisline",
+    "image": {
+      "src": "/featured/zveplov-trioksid.jpg",
+      "alt": "Kip, poškodovan zaradi kislega dežja",
+      "caption": "Žveplova oksida sta pomemben razlog za nastanek kislega dežja, ki povzroča propad gozdov, stavb in spomenikov."
+    },
+    "intro": "Žveplov trioksid, SO₃, je plin, ki nastane pri oksidaciji žveplovega dioksida. V ozračju z zračno vlago tvori žveplovo kislino, zato je skupaj z žveplovim dioksidom pomemben vzrok za kisli dež.",
+    "sections": [
+      {
+        "title": "Ime in formula",
+        "text": "Ime spojine izpeljemo iz formule: spojine s kisikom so oksidi, število atomov kisika pa povemo z grškim števnikom. V molekuli so trije atomi kisika, zato je ime žveplov trioksid."
+      },
+      {
+        "title": "Kisli dež",
+        "text": "Nekateri nekovinski oksidi v zraku reagirajo z zračno vlago in nastanejo kisline. Iz žveplovega trioksida nastane žveplova kislina, padavine pa so zato kisle in poškodujejo gozdove, stavbe in spomenike."
+      }
+    ],
+    "process": {
+      "title": "Kako žveplov trioksid nastane in reagira",
+      "steps": [
+        {
+          "title": "Oksidacija žveplovega dioksida",
+          "text": "Pri zgorevanju fosilnih goriv nastaja žveplov dioksid, ki reagira z atmosferskim kisikom. Oksidacija je reakcija s kisikom.",
+          "equation": "2 SO₂ + O₂ → 2 SO₃"
+        },
+        {
+          "title": "Z zračno vlago",
+          "text": "Žveplov trioksid reagira z vodo v zraku in tvori žveplovo kislino.",
+          "equation": "SO₃ + H₂O → H₂SO₄"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Rel. molekulska masa",
+        "value": "80"
+      },
+      {
+        "label": "Agregatno stanje",
+        "value": "plin"
+      },
+      {
+        "label": "Atomi v molekuli",
+        "value": "1 S, 3 O"
+      },
+      {
+        "label": "Z vodo nastane",
+        "value": "žveplova kislina"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Urejanje enačbe kemijske reakcije",
+        "url": "https://eucbeniki.sio.si/kemija8/947/index3.html"
+      },
+      {
+        "title": "Nastanek kislin v ozračju",
+        "url": "https://eucbeniki.sio.si/kemija8/1227/index1.html"
+      },
+      {
+        "title": "Imena elementov pogosto odražajo lastnosti",
+        "url": "https://eucbeniki.sio.si/kemija8/933/index1.html"
+      },
+      {
+        "title": "Kisline in baze – naloge",
+        "url": "https://eucbeniki.sio.si/kemija8/1237/index4.html"
+      }
+    ]
+  },
+  "H2SO4": {
+    "tagline": "Kislina iz kislega dežja",
+    "image": {
+      "src": "/featured/zveplova-kislina.gif",
+      "alt": "Gozd na Češkem, ki ga je uničil kisli dež",
+      "caption": "Gozd na Češkem, ki ga je uničil kisli dež."
+    },
+    "intro": "Žveplova kislina, H₂SO₄, je ena izmed kislin, ki jih v kemijskem laboratoriju srečamo najpogosteje. V naravi nastaja v ozračju in pada na Zemljo s kislim dežjem.",
+    "sections": [
+      {
+        "title": "Kisline",
+        "text": "Vodne raztopine kislin so kisle zaradi oksonijevih ionov H₃O⁺. Kisline so snovi, ki oddajajo protone. V laboratoriju jih je treba ustrezno označiti, saj so lahko jedke."
+      },
+      {
+        "title": "Kisli dež",
+        "text": "Kisli dež povzročajo predvsem emisije žveplovega dioksida in dušikovih oksidov. Kisle padavine poškodujejo rastline, živa bitja, stavbe in spomenike – tudi umetnine iz apnenca."
+      }
+    ],
+    "process": {
+      "title": "Kako žveplova kislina nastane v ozračju",
+      "steps": [
+        {
+          "title": "Gorenje fosilnih goriv",
+          "text": "Pri zgorevanju fosilnih goriv nastaja žveplov dioksid."
+        },
+        {
+          "title": "Oksidacija",
+          "text": "Žveplov dioksid reagira s kisikom iz ozračja v žveplov trioksid.",
+          "equation": "2 SO₂ + O₂ → 2 SO₃"
+        },
+        {
+          "title": "Z zračno vlago",
+          "text": "Žveplov trioksid reagira z vodo v zraku in tvori žveplovo kislino, ki pade na tla s padavinami.",
+          "equation": "SO₃ + H₂O → H₂SO₄"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Rel. molekulska masa",
+        "value": "98"
+      },
+      {
+        "label": "Vrsta snovi",
+        "value": "kislina"
+      },
+      {
+        "label": "Ioni v raztopini",
+        "value": "H₃O⁺"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Vodne raztopine nekaterih snovi so kisle",
+        "url": "https://eucbeniki.sio.si/kemija8/1229/index1.html"
+      },
+      {
+        "title": "Nastanek kislin v ozračju",
+        "url": "https://eucbeniki.sio.si/kemija8/1227/index1.html"
+      },
+      {
+        "title": "Urejanje enačbe kemijske reakcije",
+        "url": "https://eucbeniki.sio.si/kemija8/947/index3.html"
+      },
+      {
+        "title": "Kisline in baze v okolju: povzetek",
+        "url": "https://eucbeniki.sio.si/kemija8/1227/index4.html"
+      },
+      {
+        "title": "Soli: povzetek",
+        "url": "https://eucbeniki.sio.si/kemija8/1234/index4.html"
+      },
+      {
+        "title": "Delci v kislih vodnih raztopinah",
+        "url": "https://eucbeniki.sio.si/kemija8/1229/index2.html"
+      }
+    ]
+  },
+  "NaOH": {
+    "tagline": "Močna baza v čistilih",
+    "image": {
+      "src": "/featured/natrijev-hidroksid.gif",
+      "alt": "Steklenice čistil",
+      "caption": "V močnih čistilnih sredstvih sta prisotna natrijev in kalijev hidroksid."
+    },
+    "intro": "Natrijev hidroksid, NaOH, je bazična snov, ki se v vodi dobro topi. Je med bazami, ki jih v laboratoriju srečamo najpogosteje, uporabljamo pa ga tudi v močnih čistilih.",
+    "sections": [
+      {
+        "title": "Zakaj je raztopina bazična",
+        "text": "V vodi kristali natrijevega hidroksida razpadejo na ione. V raztopini so natrijevi ioni Na⁺ in hidroksidni ioni OH⁻, zaradi katerih je raztopina bazična."
+      },
+      {
+        "title": "Varnost",
+        "text": "Pri rokovanju s čistili, ki vsebujejo natrijev hidroksid, moramo paziti na varnost in uporabljati vsaj zaščitne rokavice."
+      }
+    ],
+    "process": {
+      "title": "Kako natrijev hidroksid nastane in reagira",
+      "steps": [
+        {
+          "title": "Natrij in voda",
+          "text": "Natrij z vodo burno reagira – šviga po gladini in značilno šumi. Nastaneta raztopina natrijevega hidroksida in vodik.",
+          "equation": "2 Na + 2 H₂O → 2 NaOH + H₂"
+        },
+        {
+          "title": "Iz morske soli",
+          "text": "Približno 75 % morske soli predelajo v klor, natrijev hidroksid in klorovodikovo kislino."
+        },
+        {
+          "title": "Nevtralizacija",
+          "text": "S klorovodikovo kislino nastaneta natrijev klorid in voda; raztopina postane nevtralna (pH = 7).",
+          "equation": "HCl + NaOH → NaCl + H₂O"
+        },
+        {
+          "title": "Varikina",
+          "text": "Če klor uvajamo v natrijev hidroksid, dobimo varikino – razkužilo, čistilo in belilo."
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Rel. formulska masa",
+        "value": "40"
+      },
+      {
+        "label": "Vrsta snovi",
+        "value": "baza"
+      },
+      {
+        "label": "Ioni v raztopini",
+        "value": "Na⁺ in OH⁻"
+      },
+      {
+        "label": "Topnost v vodi",
+        "value": "dobra"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Vodne raztopine nekaterih snovi so bazične",
+        "url": "https://eucbeniki.sio.si/kemija8/1229/index3.html"
+      },
+      {
+        "title": "Reaktivnost alkalijskih kovin",
+        "url": "https://eucbeniki.sio.si/kemija8/952/index2.html"
+      },
+      {
+        "title": "Kemijska reakcija med kislino in bazo",
+        "url": "https://eucbeniki.sio.si/kemija8/1230/index3.html"
+      },
+      {
+        "title": "Vir elementov je voda",
+        "url": "https://eucbeniki.sio.si/kemija8/948/index4.html"
+      },
+      {
+        "title": "Nahajališča halogenov",
+        "url": "https://eucbeniki.sio.si/kemija8/953/index5.html"
+      },
+      {
+        "title": "Kisline, baze in soli – vpliv na okolje",
+        "url": "https://eucbeniki.sio.si/kemija8/1234/index.html"
+      }
+    ]
+  },
+  "Ca(OH)2": {
+    "tagline": "Gašeno apno",
+    "image": {
+      "src": "/featured/kalcijev-hidroksid.gif",
+      "alt": "Bel prah kalcijevega hidroksida",
+      "caption": "Ko kalcijev oksid polijemo z vodo, se drobi v bel prah – gašeno apno."
+    },
+    "intro": "Kalcijev hidroksid, Ca(OH)₂, imenujemo gašeno apno. Je bel prah, ki nastane iz žganega apna in vode. Uporabljamo ga v gradbeništvu in pleskarstvu.",
+    "sections": [
+      {
+        "title": "Uporaba",
+        "text": "Gašeno apno se uporablja za pripravo malte v gradbeništvu. V pleskarstvu ga uporabljajo kot belež za uničevanje škodljivcev in dezinfekcijo."
+      }
+    ],
+    "process": {
+      "title": "Kako kalcijev hidroksid nastane",
+      "steps": [
+        {
+          "title": "Gašenje apna",
+          "text": "Po dodatku vode kos kalcijevega oksida nabrekne, začne se kaditi in drobi se v bel prah. Pri reakciji se razvija toplota, zato lahko pride do opeklin.",
+          "equation": "CaO + H₂O → Ca(OH)₂"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "label": "Rel. formulska masa",
+        "value": "74"
+      },
+      {
+        "label": "Drugo ime",
+        "value": "gašeno apno"
+      },
+      {
+        "label": "Videz",
+        "value": "bel prah"
+      },
+      {
+        "label": "Iz 40 kg CaO",
+        "value": "58 kg Ca(OH)₂"
+      }
+    ],
+    "didYouKnow": [
+      "Iz 40 kg kalcijevega oksida in 18 kg vode nastane 58 kg kalcijevega hidroksida."
+    ],
+    "sources": [
+      {
+        "title": "Soli v našem okolju",
+        "url": "https://eucbeniki.sio.si/kemija8/1234/index3.html"
+      },
+      {
+        "title": "Masa reaktantov in produktov",
+        "url": "https://eucbeniki.sio.si/kemija8/946/index3.html"
+      },
+      {
+        "title": "Soli: povzetek",
+        "url": "https://eucbeniki.sio.si/kemija8/1234/index4.html"
+      }
+    ]
+  }
+}

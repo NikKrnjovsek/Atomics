@@ -8,7 +8,7 @@ const VARIANT_LABEL = {
   detail: 'Snov',
 }
 
-function SparkIcon() {
+export function SparkIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M12 3.5l1.7 4.8 4.8 1.7-4.8 1.7L12 16.5l-1.7-4.8L5.5 10l4.8-1.7z" />
