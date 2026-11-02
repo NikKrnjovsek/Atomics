@@ -41,7 +41,8 @@ const withCanvas = (items, discoveries = []) => ({
 
 test('začetni inventar vsebuje samo odklenjene atome', () => {
   const { state } = setup()
-  assert.deepEqual(state.inventory, ['H', 'O', 'C', 'N', 'Cl', 'Na'])
+  // Na začetku so odklenjeni samo atomi stopnje 1 (H, O, N, Cl); ostali se odklenejo po stopnjah.
+  assert.deepEqual(state.inventory, ['H', 'O', 'N', 'Cl'])
   assert.deepEqual(state.canvas, [])
   assert.deepEqual(state.discoveries, [])
 })
@@ -149,11 +150,11 @@ test('ponovno odkritje ni novo odkritje', () => {
 })
 
 test('napačna kombinacija pusti platno in vrne razlago', () => {
-  const { reducer, state: s0 } = setup()
-  let s = run(reducer, s0, [add('H'), add('Na')])
-  const before = s.canvas
-  s = reducer(s, bond('id1', 'id2'))
-  assert.equal(s.canvas, before)
+  const { reducer } = setup()
+  // Na je zdaj na začetku zaklenjen, zato elemente postavimo neposredno na platno (withCanvas).
+  const s0 = withCanvas([['id1', 'H'], ['id2', 'Na']])
+  const s = reducer(s0, bond('id1', 'id2'))
+  assert.equal(s.canvas, s0.canvas)
   assert.deepEqual(s.lastResult, {
     type: 'no-recipe',
     sourceId: 'id1',

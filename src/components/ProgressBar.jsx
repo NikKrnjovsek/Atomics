@@ -46,10 +46,14 @@ function ProgressBar() {
   const discoveredKey = discoveredIds.join(',')
   const found = new Set(discoveredIds)
 
-  const { stage, percent, stages } = getProgress(discoveredIds)
+  const { stage, percent, discoveredCount, total, stages } = getProgress(discoveredIds)
   const current = stages[stage - 1]
-  const grandTotal = stages.reduce((sum, s) => sum + s.total, 0)
-  const totalDiscovered = stages.reduce((sum, s) => sum + s.discoveredCount, 0)
+
+  // Meje med stopnjami (kumulativno v %); zadnje (100 %) ne rišemo, ker je konec vrstice.
+  const boundaries = stages.slice(0, -1).map((_, i) => {
+    const counted = stages.slice(0, i + 1).reduce((sum, s) => sum + s.total, 0)
+    return (counted / total) * 100
+  })
 
   // Namig: besedilo + ključ (sprememba ključa sproži ponoven fade ob menjavi).
   // Trenutno prikazani namig (h.text) je hkrati "prejšnji" – tako se isti ne ponovi dvakrat zapored.
@@ -86,25 +90,34 @@ function ProgressBar() {
           Stopnja {stage} · {current.name}
         </span>
         <span className="progress__count">
-          {totalDiscovered} / {grandTotal}
+          {discoveredCount} / {total}
         </span>
       </div>
 
+      {/* Enotna vrstica: zvezno polnjenje čez vse stopnje; meje stopenj so poravnane s sekcijami spodaj. */}
       <div
         className="progress__track"
         role="progressbar"
         aria-valuemin={0}
         aria-valuemax={100}
-        aria-valuenow={percent}
+        aria-valuenow={Math.round(percent)}
       >
         <div className="progress__fill" style={{ width: `${percent}%` }} />
+        {boundaries.map((pos) => (
+          <span key={pos} className="progress__tick" style={{ left: `${pos}%` }} aria-hidden="true" />
+        ))}
       </div>
 
+      {/* Sekcije so široke sorazmerno s številom snovi (4 : 6 : 4 : 5). */}
       <div className="progress__stages">
         {stages.map((s, i) => {
           const status = i < stage - 1 ? 'done' : i === stage - 1 ? 'current' : 'todo'
           return (
-            <div className={`progress__stage progress__stage--${status}`} key={s.name}>
+            <div
+              className={`progress__stage progress__stage--${status}`}
+              key={s.name}
+              style={{ flexGrow: s.total }}
+            >
               <span className="progress__stage-name">
                 {i + 1} {s.name}
               </span>

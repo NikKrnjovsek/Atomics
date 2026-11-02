@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { DndContext, DragOverlay, pointerWithin } from '@dnd-kit/core'
 import { snapCenterToCursor } from '@dnd-kit/modifiers'
 import Molecule from '../components/Molecule.jsx'
@@ -13,6 +13,8 @@ import Sandbox, { SANDBOX_ID } from '../components/Sandbox.jsx'
 import { useGame } from '../context/useGame.js'
 import { dropPosition } from '../logic/dropPosition.js'
 import { atoms } from '../logic/gameData.js'
+import { getProgress } from '../logic/progress.js'
+import { STAGES } from '../data/stages.js'
 import './SandboxPage.css'
 
 const metalSymbols = new Set(atoms.filter((atom) => atom.group === 'kovina').map((atom) => atom.symbol))
@@ -52,7 +54,20 @@ function SandboxPage() {
         isFragment,
         dismissResult,
         setUnlockAll,
+        unlockAtom,
     } = useGame()
+
+    // Odklepanje atomov po stopnjah: iz odkritij izračunamo trenutno stopnjo in odklenemo atome
+    // vseh stopenj do vključno te. Deluje tudi ob zagonu (npr. po osvežitvi iz shranjenih odkritij).
+    // UNLOCK_ATOM je idempotenten, zato je večkratni klic varen; reducerja ne spreminjamo.
+    const stage = getProgress(discoveries.map((d) => d.id)).stage
+    useEffect(() => {
+        for (const s of STAGES.slice(0, stage)) {
+            for (const symbol of s.unlocks ?? []) unlockAtom(symbol)
+        }
+        // Namerno samo [stage]: unlockAtom je idempotenten, teči mora le ob prehodu stopnje.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [stage])
 
     // INFOBOX MAIN
     const discovery =
