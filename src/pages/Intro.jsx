@@ -68,7 +68,7 @@ function Intro() {
           className="intro-button"
           onClick={() => navigate('/sandbox')}
         >
-          Sandbox <span aria-hidden="true">→</span>
+          Začetek <span aria-hidden="true">→</span>
         </button>
       </main>
     </div>
